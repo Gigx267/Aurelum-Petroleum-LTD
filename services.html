@@ -1,0 +1,982 @@
+
+
+<!-- Background Music Player -->
+<audio id="bgMusic" loop>
+    <source src="mm.mp3" type="audio/mpeg">
+    <source src="mm.mp3" type="audio/ogg">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    // Wait for the page to fully load
+    window.addEventListener('load', function() {
+        const bgMusic = document.getElementById('bgMusic');
+        
+        // Try to play the music automatically
+        const playPromise = bgMusic.play();
+        
+        // Handle autoplay restrictions
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                console.log("Autoplay prevented:", error);
+                // Create a fallback play button
+                createMusicControls();
+            });
+        }
+    });
+    
+    // Create visible controls if autoplay is blocked
+    function createMusicControls() {
+        const musicControls = document.createElement('div');
+        musicControls.id = 'music-controls';
+        musicControls.innerHTML = `
+            <button id="playMusicBtn">▶ Play Background Music</button>
+            <button id="muteMusicBtn">🔇 Mute</button>
+        `;
+        musicControls.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10000;
+            background: rgba(10, 20, 22, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid var(--teal-primary);
+        `;
+        
+        document.body.appendChild(musicControls);
+        
+        document.getElementById('playMusicBtn').addEventListener('click', function() {
+            document.getElementById('bgMusic').play();
+            musicControls.style.display = 'none';
+        });
+        
+        document.getElementById('muteMusicBtn').addEventListener('click', function() {
+            musicControls.style.display = 'none';
+        });
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - AURELUM P LTD</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-black: #000000;
+            --secondary-black: #1a1a1a;
+            --primary-blue: #003366;
+            --secondary-blue: #004c99;
+            --accent-yellow: #ffcc00;
+            --light-text: #f5f5f5;
+            --dark-text: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--primary-black);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Enhanced Header & Navigation */
+        header {
+            background-color: rgba(0, 0, 0, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background-color: rgba(0, 0, 0, 0.98);
+            box-shadow: 0 5px 25px rgba(0, 51, 102, 0.3);
+            padding: 5px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            transition: padding 0.3s ease;
+        }
+        
+        header.scrolled .header-container {
+            padding: 8px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--accent-yellow);
+            margin-left: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .logo-icon {
+            color: var(--accent-yellow);
+            font-size: 2rem;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-yellow), var(--primary-blue));
+            transition: width 0.5s ease;
+        }
+        
+        .logo:hover::after {
+            width: 100%;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            padding: 8px 0;
+            position: relative;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+        }
+        
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-yellow), var(--primary-blue));
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        nav ul li a:hover::before {
+            width: 100%;
+        }
+        
+        nav ul li a.active {
+            color: var(--accent-yellow);
+        }
+        
+        nav ul li a.active::before {
+            width: 100%;
+        }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.4);
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 51, 102, 0.6);
+            color: white;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--light-text);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .mobile-menu:hover {
+            color: var(--accent-yellow);
+        }
+        
+        /* Page Hero Section */
+        .page-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./jp\ \(3\).jpg');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .page-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+        
+        .page-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--light-text);
+        }
+        
+        .hero-highlight {
+            color: var(--accent-yellow);
+            font-weight: bold;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--accent-yellow);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent-yellow);
+        }
+        
+        /* Services Intro Section */
+        .services-intro {
+            background-color: var(--secondary-black);
+        }
+        
+        .services-intro-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .services-intro-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+        
+        .services-intro-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-yellow);
+        }
+        
+        .services-intro-text p {
+            margin-bottom: 15px;
+        }
+        
+        .services-intro-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background: url('./gtt\ \(7\).jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Services Grid Section */
+        .services-grid {
+            background-color: var(--primary-black);
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--secondary-black);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-left: 4px solid var(--accent-yellow);
+        }
+        
+        .service-icon {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--accent-yellow);
+            background-color: rgba(0, 51, 102, 0.1);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--light-text);
+        }
+        
+        .service-content p {
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .service-features li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-features li i {
+            color: var(--accent-yellow);
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+        
+        /* Process Section */
+        .process {
+            background-color: var(--secondary-black);
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 50px;
+            position: relative;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-blue);
+            z-index: 1;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 0 15px;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            transition: all 0.3s;
+        }
+        
+        .process-step:hover .step-number {
+            background-color: var(--accent-yellow);
+            transform: scale(1.1);
+        }
+        
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--accent-yellow);
+        }
+        
+        /* Industries Section */
+        .industries {
+            background-color: var(--primary-black);
+        }
+        
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .industry-card {
+            background-color: var(--secondary-black);
+            border-radius: 8px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .industry-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .industry-icon {
+            font-size: 2.5rem;
+            color: var(--accent-yellow);
+            margin-bottom: 20px;
+        }
+        
+        .industry-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--light-text);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-yellow);
+            color: var(--primary-black);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid var(--accent-yellow);
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--light-text);
+            border: 2px solid var(--light-text);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-black);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent-yellow);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-black);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: var(--light-text);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-blue);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px;
+            }
+            
+            nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(26, 26, 26, 0.98);
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+                backdrop-filter: blur(10px);
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .services-intro-text, .services-intro-image {
+                flex: 100%;
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .process-steps::before {
+                display: none;
+            }
+            
+            .process-step {
+                flex: 100%;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i> <img style="height: 1.9cm; border-radius: 50%;" src="logo (8).jpeg" alt="AURELUM Logo"> </i>
+                <h1>AURELUM</h1>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="commit.html">Commitment</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html" class="nav-cta">Get Quote</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero Section -->
+    <BR><BR><BR> <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1><BR><BR> Our <span class="hero-highlight">Services</span></h1>
+                <p> </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Intro Section -->
+    <section class="services-intro">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Expertise</h2>
+            </div>
+            <div class="services-intro-content">
+                <div class="services-intro-text">
+                    <h3>Integrated Solutions for Global Markets</h3>
+                    <p>AURELUM P LTD delivers specialized services across petroleum, LPG & naphtha, precious minerals trading, and end‑to‑end logistics — combining local resource access with international standards.</p>
+                    <p>Our integrated approach ensures seamless operations from sourcing to delivery, providing our clients with reliable, efficient, and compliant solutions tailored to their specific needs.</p>
+                    <p>With strategic bases in Ghana and Germany, we bridge African resource potential with global market demands, creating value across the entire supply chain.</p>
+                </div>
+                <div class="services-intro-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid Section -->
+    <section class="services-grid">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-container">
+                <!-- Petroleum Trading -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-oil-well"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Petroleum Trading</h3>
+                        <p>We supply premium-grade crude, refined products, diesel, gasoline and specialty petroleum materials to strategic markets across Africa, the Middle East and Europe.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Certified quality assurance</li>
+                            <li><i class="fas fa-check"></i> Competitive pricing models</li>
+                            <li><i class="fas fa-check"></i> Secure logistics and delivery</li>
+                            <li><i class="fas fa-check"></i> Global market access</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- LPG & Naphtha Supply -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-fire-flame-curved"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>LPG & Naphtha Supply</h3>
+                        <p>AURELUM facilitates sourcing and timely delivery of LPG and Naphtha for industrial, commercial and governmental clients through strong supplier relations and stable availability.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Reliable supply chains</li>
+                            <li><i class="fas fa-check"></i> Strategic supplier partnerships</li>
+                            <li><i class="fas fa-check"></i> Timely delivery assurance</li>
+                            <li><i class="fas fa-check"></i> Competitive market pricing</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Precious Minerals Trading -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Precious Minerals Trading</h3>
+                        <p>Through vetted partnerships we trade gold, manganese and high‑value minerals originating from West Africa. All exports adhere to due‑diligence, traceability and international regulatory standards.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Vetted mining partnerships</li>
+                            <li><i class="fas fa-check"></i> Full traceability and compliance</li>
+                            <li><i class="fas fa-check"></i> International regulatory adherence</li>
+                            <li><i class="fas fa-check"></i> Quality certification</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Logistics & Export Coordination -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Logistics & Export Coordination</h3>
+                        <p>End‑to‑end logistics support including port operations, documentation, customs clearance, warehousing and secure shipment arrangements to optimize cost and shorten lead times.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Comprehensive documentation</li>
+                            <li><i class="fas fa-check"></i> Customs clearance expertise</li>
+                            <li><i class="fas fa-check"></i> Optimized shipping routes</li>
+                            <li><i class="fas fa-check"></i> Cost-efficient solutions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Process</h2>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Assessment</h3>
+                    <p>Understanding client requirements and market conditions to develop tailored solutions.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Sourcing</h3>
+                    <p>Leveraging our network to source quality materials from verified suppliers.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Coordination</h3>
+                    <p>Managing logistics, documentation, and compliance requirements.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Delivery</h3>
+                    <p>Ensuring timely and secure delivery to meet client expectations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries">
+        <div class="container">
+            <div class="section-title">
+                <h2>Industries We Serve</h2>
+            </div>
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Manufacturing</h3>
+                    <p>Raw materials and energy solutions for industrial production.</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Energy</h3>
+                    <p>Petroleum products and alternative energy sources.</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3>Mining</h3>
+                    <p>Mineral trading and export coordination services.</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Logistics</h3>
+                    <p>Supply chain optimization and transportation solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to optimize your supply chain?</h2>
+            <p>Partner with AURELUM P LTD for reliable, efficient, and sustainable energy and mineral solutions.</p>
+            <a href="contact.html" class="cta-button">Contact Us Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>AURELUM P LTD</h3>
+                    <p>Energy & Minerals for a Connected Future</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="commit.html">Our Commitment</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="services.html">Petroleum Trading</a></li>
+                        <li><a href="services.html">LPG & Naphtha Supply</a></li>
+                        <li><a href="services.html">Precious Minerals Trading</a></li>
+                        <li><a href="services.html">Logistics & Export Coordination</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 AURELUM P LTD. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav').classList.remove('active');
+                    
+                    // Update active nav link
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Set active nav link based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
