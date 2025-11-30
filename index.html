@@ -1,9 +1,67 @@
+<!-- Background Music Player -->
+<audio id="bgMusic" loop>
+    <source src="mm2.mp3" type="audio/mpeg">
+    <source src="mm2.mp3" type="audio/ogg">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    // Wait for the page to fully load
+    window.addEventListener('load', function() {
+        const bgMusic = document.getElementById('bgMusic');
+        
+        // Try to play the music automatically
+        const playPromise = bgMusic.play();
+        
+        // Handle autoplay restrictions
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                console.log("Autoplay prevented:", error);
+                // Create a fallback play button
+                createMusicControls();
+            });
+        }
+    });
+    
+    // Create visible controls if autoplay is blocked
+    function createMusicControls() {
+        const musicControls = document.createElement('div');
+        musicControls.id = 'music-controls';
+        musicControls.innerHTML = `
+            <button id="playMusicBtn">▶ Play Background Music</button>
+            <button id="muteMusicBtn">🔇 Mute</button>
+        `;
+        musicControls.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10000;
+            background: rgba(10, 20, 22, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid var(--teal-primary);
+        `;
+        
+        document.body.appendChild(musicControls);
+        
+        document.getElementById('playMusicBtn').addEventListener('click', function() {
+            document.getElementById('bgMusic').play();
+            musicControls.style.display = 'none';
+        });
+        
+        document.getElementById('muteMusicBtn').addEventListener('click', function() {
+            musicControls.style.display = 'none';
+        });
+    }
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURELUM P LTD</title>
+    
+    <title>AURELUM P LTD - Energy & Minerals for a Connected Future</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -14,9 +72,740 @@
             --accent-yellow: #ffcc00;
             --light-text: #f5f5f5;
             --dark-text: #333333;
-            --gold-primary: #ffcc00;
-            --teal-primary: #004c99;
-            --text-light: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, ;
+        }
+        
+        body {
+            background-color: var(--primary-black);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Enhanced Header & Navigation */
+        header {
+            background-color: rgba(0, 0, 0, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background-color: rgba(0, 0, 0, 0.98);
+            box-shadow: 0 5px 25px rgba(0, 51, 102, 0.3);
+            padding: 5px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            transition: padding 0.3s ease;
+        }
+        
+        header.scrolled .header-container {
+            padding: 8px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--accent-yellow);
+            margin-left: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .logo-icon {
+            color: var(--accent-yellow);
+            font-size: 2rem;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-yellow), var(--primary-blue));
+            transition: width 0.5s ease;
+        }
+        
+        .logo:hover::after {
+            width: 100%;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            padding: 8px 0;
+            position: relative;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+        }
+        
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-yellow), var(--primary-blue));
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        nav ul li a:hover::before {
+            width: 100%;
+        }
+        
+        nav ul li a.active {
+            color: var(--accent-yellow);
+        }
+        
+        nav ul li a.active::before {
+            width: 100%;
+        }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.4);
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 51, 102, 0.6);
+            color: white;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--light-text);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .mobile-menu:hover {
+            color: var(--accent-yellow);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./gtt\ \(6\).jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--light-text);
+        }
+        
+        .hero-highlight {
+            color: var(--accent-yellow);
+            font-weight: bold;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: var(--light-text);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            border: 2px solid var(--primary-blue);
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
+            border: 2px solid var(--accent-yellow);
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--accent-yellow);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent-yellow);
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--secondary-black);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-yellow);
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: var(--primary-black);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--secondary-black);
+            border-radius: 10px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-left: 4px solid var(--accent-yellow);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-yellow);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--light-text);
+        }
+        
+        .service-card p {
+            color: #cccccc;
+        }
+        
+        /* Commitment Section */
+        .commitment {
+            background-color: var(--secondary-black);
+        }
+        
+        .commitment-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .commitment-content p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .commitment-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .commitment-item {
+            background-color: var(--primary-black);
+            padding: 20px;
+            border-radius: 5px;
+            border-top: 3px solid var(--primary-blue);
+        }
+        
+        .commitment-item i {
+            color: var(--accent-yellow);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--primary-black);
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-yellow);
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item i {
+            color: var(--accent-yellow);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            width: 20px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--light-text);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--secondary-black);
+            border: 1px solid #444;
+            border-radius: 5px;
+            color: var(--light-text);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-yellow);
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-blue);
+            color: var(--light-text);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--secondary-blue);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-black);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent-yellow);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-black);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: var(--light-text);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-blue);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px;
+            }
+            
+            nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(26, 26, 26, 0.98);
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+                backdrop-filter: blur(10px);
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .about-text, .about-image {
+                flex: 100%;
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .contact-info, .contact-form {
+                flex: 100%;
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i> <img style="height: 1.9cm; border-radius: 50%;" src="logo (8).jpeg" alt="AURELUM Logo" </i>
+              
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="commit.html">Commitment</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html" class="nav-cta">Get Quote</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h2 style="font-family: 'Times New Roman',; font-weight: 800; color: #ffcc00;">Aurelum Petroleum LTD</h2>
+            <p  style="font-family: 'Times New Roman', Times,;" >International trade and logistics of petroleum products, with  <span class="hero-highlight">transparent, efficient, and sustainable</span> supply chains across Africa, Europe, and global markets.</p>
+            <a href="about.html" class="cta-button">Learn More </a>
+        </div>
+    </section>
+<!-- About Us Section -->
+
+
+
+ <!-- Page Hero Section -->
+    <BR><BR><BR> <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+             
+
+                <p>  <div class="about-text">
+                <p>AURELUM P LTD operates at the intersection of energy, logistics, and resource management, enabling efficient value chains that support national development and international industry needs.</p>
+
+             
+
+                <p></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Intro Section -->
+    <section class="services-intro">
+        <div class="container">
+            <div class="section-title">
+                <h5>Our Core Expertise</h5>
+            </div>
+            <div class="services-intro-content">
+                <div class="services-intro-text">
+                    <h4>Integrated Solutions for Global Markets</h4>
+                    <p>AURELUM P LTD delivers specialized services across petroleum, LPG & naphtha, precious minerals trading, and end‑to‑end logistics — combining local resource access with international standards.</p>
+                    <p>Our integrated approach ensures seamless operations from sourcing to delivery, providing our clients with reliable, efficient, and compliant solutions tailored to their specific needs.</p>
+                    <p>With strategic bases in Ghana and Germany, we bridge African resource potential with global market demands, creating value across the entire supply chain.</p>
+                </div>
+                <div class="services-intro-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid Section -->
+    <section class="services-grid">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-container">
+                <!-- Petroleum Trading -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-oil-well"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Petroleum Trading</h3>
+                        <p>We supply premium-grade crude, refined products, diesel, gasoline and specialty petroleum materials to strategic markets across Africa, the Middle East and Europe.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Certified quality assurance</li>
+                            <li><i class="fas fa-check"></i> Competitive pricing models</li>
+                            <li><i class="fas fa-check"></i> Secure logistics and delivery</li>
+                            <li><i class="fas fa-check"></i> Global market access</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- LPG & Naphtha Supply -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-fire-flame-curved"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>LPG & Naphtha Supply</h3>
+                        <p>AURELUM facilitates sourcing and timely delivery of LPG and Naphtha for industrial, commercial and governmental clients through strong supplier relations and stable availability.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Reliable supply chains</li>
+                            <li><i class="fas fa-check"></i> Strategic supplier partnerships</li>
+                            <li><i class="fas fa-check"></i> Timely delivery assurance</li>
+                            <li><i class="fas fa-check"></i> Competitive market pricing</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Precious Minerals Trading -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Precious Minerals Trading</h3>
+                        <p>Through vetted partnerships we trade gold, manganese and high‑value minerals originating from West Africa. All exports adhere to due‑diligence, traceability and international regulatory standards.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Vetted mining partnerships</li>
+                            <li><i class="fas fa-check"></i> Full traceability and compliance</li>
+                            <li><i class="fas fa-check"></i> International regulatory adherence</li>
+                            <li><i class="fas fa-check"></i> Quality certification</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Logistics & Export Coordination -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Logistics & Export Coordination</h3>
+                        <p>End‑to‑end logistics support including port operations, documentation, customs clearance, warehousing and secure shipment arrangements to optimize cost and shorten lead times.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Comprehensive documentation</li>
+                            <li><i class="fas fa-check"></i> Customs clearance expertise</li>
+                            <li><i class="fas fa-check"></i> Optimized shipping routes</li>
+                            <li><i class="fas fa-check"></i> Cost-efficient solutions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+
+   <style>
+        :root {
+            --primary-black: #000000;
+            --secondary-black: #1a1a1a;
+            --primary-blue: #003366;
+            --secondary-blue: #004c99;
+            --accent-yellow: #ffcc00;
+            --light-text: #f5f5f5;
+            --dark-text: #333333;
         }
         
         * {
@@ -30,7 +819,6 @@
             background-color: var(--primary-black);
             color: var(--light-text);
             line-height: 1.6;
-            overflow-x: hidden;
         }
         
         .container {
@@ -181,7 +969,7 @@
         
         /* Page Hero Section */
         .page-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./gtt\ \(6\).jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./jp\ \(3\).jpg');
             background-size: cover;
             background-position: center;
             height: 60vh;
@@ -242,387 +1030,204 @@
             background-color: var(--accent-yellow);
         }
         
-        /* About Section */
-        .about-section {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, #0a0a0a 0%, #121212 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .about-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .about-content {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .about-media {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .about-title {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--gold-primary);
-            position: relative;
-            display: inline-block;
-        }
-        
-        .about-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(to right, var(--gold-primary), transparent);
-        }
-        
-        .about-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            opacity: 0.8;
-            margin-bottom: 2rem;
-        }
-        
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-light);
-            opacity: 0.9;
-        }
-        
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-        
-        .about-features {
-            list-style: none;
-            margin: 2rem 0;
-        }
-        
-        .about-features li {
-            margin-bottom: 1rem;
-            padding-left: 2rem;
-            position: relative;
-        }
-        
-        .about-features i {
-            position: absolute;
-            left: 0;
-            top: 0.3rem;
-            color: var(--gold-primary);
-        }
-        
-        /* Bento Grid */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            gap: 10px;
-            height: 500px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .bento-main {
-            grid-column: 1 / span 3;
-            grid-row: 1 / span 3;
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        
-        .bento-cell {
-            background: rgba(255,215,0,0.1);
-            border: 1px solid rgba(255,215,0,0.2);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .bento-cell:hover {
-            background: rgba(255,215,0,0.2);
-            transform: translateY(-5px);
-        }
-        
-        .bento-cell-1 {
-            grid-column: 4;
-            grid-row: 1;
-            background: url('./pl.avif') center/cover;
-        }
-        
-        .bento-cell-2 {
-            grid-column: 4;
-            grid-row: 2;
-            background: url('./pl2.avif') center/cover;
-        }
-        
-        .bento-cell-3 {
-            grid-column: 4;
-            grid-row: 3;
-            background: url('./logo\ \(7\).jpeg') center/cover;
-        }
-        
-        .bento-cell-4 {
-            grid-column: 1 / span 4;
-            grid-row: 4;
-            height: 20px;
-            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
-            opacity: 0.3;
-        }
-        
-        /* Video Container */
-        .video-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .smart-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 15px;
-        }
-        
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, transparent 100%);
-            border-radius: 15px;
-        }
-        
-        /* Vision & Mission Section */
-        .vision-mission {
-            padding: 60px 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.06));
-        }
-
-        .vision-mission .section-title h2 {
-            color: var(--accent-yellow);
-            font-size: 2rem;
-        }
-
-        .vision-mission-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-top: 32px;
-            align-items: stretch;
-        }
-
-        .vm-card {
-            background: linear-gradient(180deg, rgba(26,26,26,0.9), rgba(26,26,26,0.85));
-            border: 1px solid rgba(255,255,255,0.03);
-            padding: 28px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.45);
-            transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
-            outline: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .vm-card:focus,
-        .vm-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 18px 40px rgba(0,0,0,0.6);
-            border-color: rgba(0,76,153,0.5);
-        }
-
-        .vm-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 10px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            color: var(--primary-blue);
-            background: linear-gradient(135deg, rgba(255,204,0,0.12), rgba(0,76,153,0.06));
-            border: 1px solid rgba(255,204,0,0.07);
-            flex-shrink: 0;
-        }
-
-        .vm-card h3 {
-            margin: 0;
-            font-size: 1.2rem;
-            color: var(--light-text);
-        }
-
-        .vm-card p {
-            margin: 0;
-            color: #cfcfcf;
-            line-height: 1.6;
-            font-size: 0.99rem;
-        }
-        
-        /* Our Identity Section */
-        .identity {
+        /* Services Intro Section */
+        .services-intro {
             background-color: var(--secondary-black);
         }
         
-        .identity-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+        .services-intro-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        .identity-content p {
-            margin-bottom: 30px;
-            font-size: 1.1rem;
+        .services-intro-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
         }
         
-        .identity-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-        
-        .identity-item {
-            background-color: var(--primary-black);
-            padding: 20px;
-            border-radius: 5px;
-            border-top: 3px solid var(--primary-blue);
-            transition: transform 0.3s;
-        }
-        
-        .identity-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .identity-item i {
+        .services-intro-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
             color: var(--accent-yellow);
-            font-size: 1.5rem;
+        }
+        
+        .services-intro-text p {
             margin-bottom: 15px;
         }
         
-        /* Our Commitment Section */
-        .commitment {
+        .services-intro-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background: url('./gtt\ \(7\).jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Services Grid Section */
+        .services-grid {
             background-color: var(--primary-black);
         }
         
-        .commitment-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .commitment-list {
-            margin-top: 30px;
-        }
-        
-        .commitment-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
-            padding: 20px;
-            background-color: var(--secondary-black);
-            border-radius: 8px;
-            transition: transform 0.3s;
-        }
-        
-        .commitment-item:hover {
-            transform: translateX(10px);
-        }
-        
-        .commitment-icon {
-            color: var(--accent-yellow);
-            font-size: 1.5rem;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-        
-        .commitment-text h4 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--accent-yellow);
-        }
-        
-        /* Our Strength Section */
-        .strength {
-            background-color: var(--secondary-black);
-        }
-        
-        .strength .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        .strength-content {
+        .services-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            align-items: center; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
         
-        .strength-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.75rem;
-            color: var(--accent-yellow);
-        }
-        
-        .strength-text p {
-            color: #cccccc;
-            margin-bottom: 0.75rem;
-            line-height: 1.7;
-        }
-        
-        .strength-features {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0 0;
-            color: #e6e6e6;
-        }
-        
-        .strength-features li {
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-        
-        .strength-features li i {
-            color: var(--accent-yellow);
-            min-width: 22px;
-            text-align: center;
-            font-size: 1rem;
-        }
-
-        .strength-image {
-            width: 100%;
-            height: 100%;
-            min-height: 280px;
-            max-height: 480px;
+        .service-card {
+            background-color: var(--secondary-black);
+            border-radius: 10px;
             overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
-            background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.15));
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-left: 4px solid var(--accent-yellow);
+        }
+        
+        .service-icon {
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 4rem;
+            color: var(--accent-yellow);
+            background-color: rgba(0, 51, 102, 0.1);
         }
         
-        .strength-image img {
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--light-text);
+        }
+        
+        .service-content p {
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .service-features li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-features li i {
+            color: var(--accent-yellow);
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+        
+        /* Process Section */
+        .process {
+            background-color: var(--secondary-black);
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 50px;
+            position: relative;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+            height: 3px;
+            background-color: var(--primary-blue);
+            z-index: 1;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 0 15px;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            transition: all 0.3s;
+        }
+        
+        .process-step:hover .step-number {
+            background-color: var(--accent-yellow);
+            transform: scale(1.1);
+        }
+        
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--accent-yellow);
+        }
+        
+        /* Industries Section */
+        .industries {
+            background-color: var(--primary-black);
+        }
+        
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .industry-card {
+            background-color: var(--secondary-black);
+            border-radius: 8px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .industry-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .industry-icon {
+            font-size: 2.5rem;
+            color: var(--accent-yellow);
+            margin-bottom: 20px;
+        }
+        
+        .industry-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--light-text);
         }
         
         /* CTA Section */
@@ -776,288 +1381,91 @@
                 font-size: 2.2rem;
             }
             
-            .about-container {
-                flex-direction: column;
+            .services-intro-text, .services-intro-image {
+                flex: 100%;
+                padding-right: 0;
+                margin-bottom: 30px;
             }
             
-            .bento-grid {
-                height: 400px;
+            .process-steps::before {
+                display: none;
             }
             
-            .bento-main {
-                grid-column: 1 / span 4;
-                grid-row: 1 / span 2;
-            }
-            
-            .bento-cell-1, .bento-cell-2, .bento-cell-3 {
-                grid-column: span 1;
-                grid-row: 3;
-            }
-            
-            .strength-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .strength-image {
-                max-height: 360px;
-            }
-            
-            .vision-mission {
-                padding: 36px 0;
-            }
-            
-            .vm-card {
-                padding: 20px;
-            }
-            
-            .vm-icon {
-                width: 48px;
-                height: 48px;
-                font-size: 1.2rem;
+            .process-step {
+                flex: 100%;
+                margin-bottom: 30px;
             }
         }
     </style>
-</head>
-<body>
-    <!-- Background Music Player -->
-    <audio id="bgMusic" loop>
-        <source src="mm.mp3" type="audio/mpeg">
-        <source src="mm.mp3" type="audio/ogg">
-        Your browser does not support the audio element.
-    </audio>
 
-    <!-- Enhanced Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <i> <img style="height: 1.9cm; border-radius: 50%;" src="logo (8).jpeg" alt="AURELUM Logo"> </i>
-                <h1>AURELUM</h1>
-            </div>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html" class="active">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="commit.html">Commitment</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="contact.html" class="nav-cta">Get Quote</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Page Hero Section -->
-    <section class="page-hero">
-        <div class="container">
-            <div class="page-hero-content">
-                <h1><span class="hero-highlight">About Us</span></h1>
-                <p>Learn more about AURELUM P LTD and our mission to bridge energy and resource markets</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section">
-        <div class="about-container">
-            <div class="about-content">
-                <h2 class="about-title">Our Story</h2>
-                <p class="about-subtitle">Integrating Energy, Logistics & Resource Management</p>
-
-                <div class="about-text">
-                    <p>AURELUM P LTD operates at the intersection of energy, logistics, and resource management, enabling efficient value chains that support national development and international industry needs.</p>
-
-                    <p>With operational bases in Accra, Tema, and Düsseldorf, we align African resource potential with global demand—delivering reliable supply, optimized logistics, and streamlined market access across continents.</p>
-
-                    <p>Our approach is built on strict adherence to compliance, transparent processes, and ESG-aligned principles, ensuring responsible sourcing, regulatory integrity, and sustainable growth.</p>
-
-                    <ul class="about-features">
-                        <li><i class="fas fa-check-circle"></i> Strategic sourcing and commodity trading across energy and minerals</li>
-                        <li><i class="fas fa-check-circle"></i> Integrated logistics and export coordination for efficient delivery</li>
-                        <li><i class="fas fa-check-circle"></i> Compliance, governance and ESG practices embedded across operations</li>
-                    </ul>
-
-                    <p>We partner with governments, producers and buyers to create resilient, compliant and commercially competitive value chains that drive long-term impact.</p>
-                </div>
-            </div>
-
-            <div class="about-media">
-                <!-- Bento-style video container -->
-                <div class="bento-grid">
-                    <div class="bento-main">
-                        <div class="video-container">
-                            <video autoplay loop muted playsinline class="smart-video">
-                                <source src="https://cdn.pixabay.com/video/2023/02/23/151817-801681453_tiny.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            <div class="video-overlay"></div>
-                        </div>
-                    </div>
-                    <div class="bento-cell bento-cell-1"></div>
-                    <div class="bento-cell bento-cell-2"></div>
-                    <div class="bento-cell bento-cell-3"></div>
-                    <div class="bento-cell bento-cell-4"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vision & Mission Section -->
-    <section id="vision-mission" class="vision-mission" aria-labelledby="vm-heading">
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
         <div class="container">
             <div class="section-title">
-                <h2 id="vm-heading">Vision &amp; Mission</h2>
+                <h2>Contact Us</h2>
             </div>
-
-            <div class="vision-mission-grid" role="list">
-                <article class="vm-card" role="listitem" tabindex="0" aria-labelledby="vision-title">
-                    <div class="vm-icon" aria-hidden="true">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3 id="vision-title">Our Vision</h3>
-                    <p>To be the trusted Africa–Europe bridge in energy and mineral markets — advancing integrity, innovation, and sustainable value chains.</p>
-                </article>
-
-                <article class="vm-card" role="listitem" tabindex="0" aria-labelledby="mission-title">
-                    <div class="vm-icon" aria-hidden="true">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3 id="mission-title">Our Mission</h3>
-                    <p>To deliver transparent, efficient and ESG-aligned supply chains that connect producers and markets across Africa, Europe and beyond.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Identity Section -->
-    <section class="identity">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Identity</h2>
-            </div>
-            <div class="identity-content">
-                <p>AURELUM P LTD operates at the intersection of energy, logistics, and resource management, enabling efficient value chains that support national development and international industry needs.</p>
-                <div class="identity-list">
-                    <div class="identity-item">
-                        <i class="fas fa-globe"></i>
-                        <h4>Global Reach</h4>
-                        <p>Operating across Africa, Europe, and global markets</p>
-                    </div>
-                    <div class="identity-item">
-                        <i class="fas fa-handshake"></i>
-                        <h4>Strategic Partnerships</h4>
-                        <p>Building long-term relationships with clients and suppliers</p>
-                    </div>
-                    <div class="identity-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <h4>Compliance & Ethics</h4>
-                        <p>Adhering to the highest standards of business conduct</p>
-                    </div>
-                    <div class="identity-item">
-                        <i class="fas fa-leaf"></i>
-                        <h4>Sustainability</h4>
-                        <p>Implementing ESG-aligned principles in all operations</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Commitment Section -->
-    <section class="commitment">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Commitment</h2>
-            </div>
-            <div class="commitment-content">
-                <p>At AURELUM P LTD, we are committed to delivering excellence in every aspect of our operations. Our dedication to our clients, partners, and stakeholders is reflected in our core commitments:</p>
-                <div class="commitment-list">
-                    <div class="commitment-item">
-                        <div class="commitment-icon">
-                            <i class="fas fa-handshake"></i>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>We welcome partnership inquiries, supply requests, and business discussions.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>GHANA Office</h4>
+                                <p>Tema–Accra Energy Corridor</p>
+                            </div>
                         </div>
-                        <div class="commitment-text">
-                            <h4>Long-term Strategic Partnerships</h4>
-                            <p>We believe in building lasting relationships that drive mutual success and growth.</p>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <p>+233 24 712 4203</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="commitment-item">
-                        <div class="commitment-icon">
-                            <i class="fas fa-balance-scale"></i>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>GERMANY Office</h4>
+                                <p>Düsseldorf, North Rhine–Westphalia</p>
+                            </div>
                         </div>
-                        <div class="commitment-text">
-                            <h4>Ethical Sourcing and Full Compliance</h4>
-                            <p>All our operations adhere to international standards and regulatory requirements.</p>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <p>+49 211 16366233</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="commitment-item">
-                        <div class="commitment-icon">
-                            <i class="fas fa-shipping-fast"></i>
-                        </div>
-                        <div class="commitment-text">
-                            <h4>High-efficiency Logistics</h4>
-                            <p>Our integrated supply chain optimizes cost efficiency and shortens lead times.</p>
-                        </div>
-                    </div>
-                    <div class="commitment-item">
-                        <div class="commitment-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="commitment-text">
-                            <h4>Competitive Pricing and Global Standards</h4>
-                            <p>We offer market-competitive pricing while maintaining the highest quality standards.</p>
-                        </div>
-                    </div>
-                    <div class="commitment-item">
-                        <div class="commitment-icon">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <div class="commitment-text">
-                            <h4>Transparent Communication</h4>
-                            <p>We maintain open and honest communication with clients and authorities.</p>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <p>contact@aurelumgroup.com</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Strength Section -->
-    <section class="strength" id="strength">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Strength</h2>
-            </div>
-
-            <div class="strength-content">
-                <div class="strength-text">
-                    <h3>Combining Global Expertise</h3>
-                    <p>We combine Ghana's resource advantages with German engineering and governance to deliver trusted, compliant, and high-quality services across markets.</p>
-                    <p>Operational bases in Accra, Tema (Ghana) and Düsseldorf (Germany) give us a strategic edge:</p>
-
-                    <ul class="strength-features">
-                        <li><i class="fas fa-check"></i> Direct access to African resource markets</li>
-                        <li><i class="fas fa-check"></i> German engineering precision and quality standards</li>
-                        <li><i class="fas fa-check"></i> International compliance and corporate governance</li>
-                        <li><i class="fas fa-check"></i> Global market access and distribution networks</li>
-                    </ul>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
                 </div>
-
-                <figure class="strength-image" aria-hidden="false">
-                    <img src="logo (6).jpeg" alt="AURELUM operations and network" />
-                </figure>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Energy that powers growth. Resources that build tomorrow.</h2>
-            <p>Partner with AURELUM P LTD for reliable, efficient, and sustainable energy and mineral solutions.</p>
-            <a href="contact.html" class="cta-button">Contact Us Today</a>
         </div>
     </section>
 
@@ -1133,6 +1541,13 @@
             });
         });
         
+        // Form Submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message. We will get back to you soon!');
+            this.reset();
+        });
+        
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
@@ -1164,54 +1579,14 @@
                 }
             });
         });
-
-        // Background Music Player
-        window.addEventListener('load', function() {
-            const bgMusic = document.getElementById('bgMusic');
-            
-            // Try to play the music automatically
-            const playPromise = bgMusic.play();
-            
-            // Handle autoplay restrictions
-            if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.log("Autoplay prevented:", error);
-                    // Create a fallback play button
-                    createMusicControls();
-                });
-            }
-        });
-        
-        // Create visible controls if autoplay is blocked
-        function createMusicControls() {
-            const musicControls = document.createElement('div');
-            musicControls.id = 'music-controls';
-            musicControls.innerHTML = `
-                <button id="playMusicBtn">▶ Play Background Music</button>
-                <button id="muteMusicBtn">🔇 Mute</button>
-            `;
-            musicControls.style.cssText = `
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                z-index: 10000;
-                background: rgba(10, 20, 22, 0.9);
-                padding: 10px;
-                border-radius: 5px;
-                border: 1px solid var(--teal-primary);
-            `;
-            
-            document.body.appendChild(musicControls);
-            
-            document.getElementById('playMusicBtn').addEventListener('click', function() {
-                document.getElementById('bgMusic').play();
-                musicControls.style.display = 'none';
-            });
-            
-            document.getElementById('muteMusicBtn').addEventListener('click', function() {
-                musicControls.style.display = 'none';
-            });
-        }
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
