@@ -2,8 +2,8 @@
 
 <!-- Background Music Player -->
 <audio id="bgMusic" loop>
-    <source src="mm.mp3" type="audio/mpeg">
-    <source src="mm.mp3" type="audio/ogg">
+    <source src="mm2.mp3" type="audio/mpeg">
+    <source src="mm2.mp3" type="audio/ogg">
     Your browser does not support the audio element.
 </audio>
 
@@ -57,2200 +57,351 @@
     }
 </script>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>AURELUM P LTD - Energy & Minerals for a Connected Future</title>
     <link rel="icon" href="logo (3).jpeg" type="image/x-icon">
-    <link rel="shortcut icon" href="logo (5).jpeg" type="image/x-icon">
-    <link rel="icon" href="logo (8).jpeg" sizes="32x32" type="image/png">
-    <link rel="icon" href="logo (1).jpeg" sizes="16x16" type="image/png">
-    <link rel="apple-touch-icon" href="logo (6).jpeg">
-    <meta name="theme-color" content="#000000">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary-black: #000000;
-            --secondary-black: #1a1a1a;
-            --primary-blue: #003366;
-            --secondary-blue: #004c99;
-            --accent-yellow: #ffcc00;
-            --light-text: #f5f5f5;
-            --dark-text: #333333;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Times New Roman', Times, ;
-        }
-        
-        body {
-            background-color: var(--primary-black);
-            color: var(--light-text);
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Enhanced Header & Navigation */
-        header {
-            background-color: rgba(0, 0, 0, 0.95);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-        
-        header.scrolled {
-            background-color: rgba(0, 0, 0, 0.98);
-            box-shadow: 0 5px 25px rgba(0, 51, 102, 0.3);
-            padding: 5px 0;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            transition: padding 0.3s ease;
-        }
-        
-        header.scrolled .header-container {
-            padding: 8px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-        
-        .logo h1 {
-            font-size: 1.8rem;
-            color: var(--accent-yellow);
-            margin-left: 10px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        
-        .logo-icon {
-            color: var(--accent-yellow);
-            font-size: 2rem;
-        }
-        
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-yellow), var(--primary-blue));
-            transition: width 0.5s ease;
-        }
-        
-        .logo:hover::after {
-            width: 100%;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 25px;
-            position: relative;
-        }
-        
-        nav ul li a {
-            color: var(--light-text);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-            padding: 8px 0;
-            position: relative;
-            font-size: 1rem;
-            letter-spacing: 0.3px;
-        }
-        
-        nav ul li a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-yellow), var(--primary-blue));
-            transition: width 0.3s ease;
-        }
-        
-        nav ul li a:hover {
-            color: var(--accent-yellow);
-        }
-        
-        nav ul li a:hover::before {
-            width: 100%;
-        }
-        
-        nav ul li a.active {
-            color: var(--accent-yellow);
-        }
-        
-        nav ul li a.active::before {
-            width: 100%;
-        }
-        
-        .nav-cta {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.4);
-        }
-        
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 51, 102, 0.6);
-            color: white;
-        }
-        
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            color: var(--light-text);
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        
-        .mobile-menu:hover {
-            color: var(--accent-yellow);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./gtt\ \(6\).jpg');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            padding-top: 80px;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--light-text);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: var(--light-text);
-        }
-        
-        .hero-highlight {
-            color: var(--accent-yellow);
-            font-weight: bold;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--primary-blue);
-            color: var(--light-text);
-            padding: 12px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            border: 2px solid var(--primary-blue);
-        }
-        
-        .cta-button:hover {
-            background-color: transparent;
-            border: 2px solid var(--accent-yellow);
-        }
-        
-        /* Section Styling */
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--accent-yellow);
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background-color: var(--accent-yellow);
-        }
-        
-        /* About Section */
-        .about {
-            background-color: var(--secondary-black);
-        }
-        
-        .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-            padding-right: 30px;
-        }
-        
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--accent-yellow);
-        }
-        
-        .about-text p {
-            margin-bottom: 15px;
-        }
-        
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            height: 400px;
-            background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-        }
-        
-        /* Services Section */
-        .services {
-            background-color: var(--primary-black);
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            background-color: var(--secondary-black);
-            border-radius: 10px;
-            padding: 30px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-left: 4px solid var(--primary-blue);
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            border-left: 4px solid var(--accent-yellow);
-        }
-        
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--accent-yellow);
-            margin-bottom: 20px;
-        }
-        
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--light-text);
-        }
-        
-        .service-card p {
-            color: #cccccc;
-        }
-        
-        /* Commitment Section */
-        .commitment {
-            background-color: var(--secondary-black);
-        }
-        
-        .commitment-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .commitment-content p {
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-        
-        .commitment-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-        
-        .commitment-item {
-            background-color: var(--primary-black);
-            padding: 20px;
-            border-radius: 5px;
-            border-top: 3px solid var(--primary-blue);
-        }
-        
-        .commitment-item i {
-            color: var(--accent-yellow);
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        
-        /* Contact Section */
-        .contact {
-            background-color: var(--primary-black);
-        }
-        
-        .contact-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        
-        .contact-info {
-            flex: 1;
-            min-width: 300px;
-            padding-right: 30px;
-        }
-        
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--accent-yellow);
-        }
-        
-        .contact-info p {
-            margin-bottom: 30px;
-        }
-        
-        .contact-details {
-            margin-bottom: 30px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .contact-item i {
-            color: var(--accent-yellow);
-            font-size: 1.2rem;
-            margin-right: 15px;
-            width: 20px;
-        }
-        
-        .contact-form {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--light-text);
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px;
-            background-color: var(--secondary-black);
-            border: 1px solid #444;
-            border-radius: 5px;
-            color: var(--light-text);
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent-yellow);
-        }
-        
-        textarea.form-control {
-            height: 150px;
-            resize: vertical;
-        }
-        
-        .submit-btn {
-            background-color: var(--primary-blue);
-            color: var(--light-text);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background-color: var(--secondary-blue);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--secondary-black);
-            padding: 50px 0 20px;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 30px;
-        }
-        
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: var(--accent-yellow);
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column ul li a {
-            color: #cccccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-column ul li a:hover {
-            color: var(--accent-yellow);
-        }
-        
-        .social-links {
-            display: flex;
-            margin-top: 15px;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary-black);
-            border-radius: 50%;
-            margin-right: 10px;
-            color: var(--light-text);
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--primary-blue);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            color: #cccccc;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-container {
-                padding: 15px;
-            }
-            
-            nav {
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background-color: rgba(26, 26, 26, 0.98);
-                padding: 20px;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-                backdrop-filter: blur(10px);
-            }
-            
-            nav.active {
-                display: block;
-            }
-            
-            nav ul {
-                flex-direction: column;
-            }
-            
-            nav ul li {
-                margin: 10px 0;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-            
-            .about-text, .about-image {
-                flex: 100%;
-                padding-right: 0;
-                margin-bottom: 30px;
-            }
-            
-            .contact-info, .contact-form {
-                flex: 100%;
-                padding-right: 0;
-                margin-bottom: 30px;
-            }
-        }
-    </style>
+        /* --- Base / Mobile-first --- */
+        :root{
+            --bg:#000;
+            --panel:#111;
+            --muted:#ccc;
+            --gold:#d4af37;
+            --accent:#ffd700;
+            --white:#fff;
+            --container-gap:16px;
+            --touch-size:48px;
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; background:var(--bg); color:var(--white); -webkit-font-smoothing:antialiased}
+        a{color:inherit;text-decoration:none}
+        .container{width:100%;max-width:1100px;margin:0 auto;padding:0 var(--container-gap)}
+
+        /* Header & Nav (mobile-first) */
+        header{position:sticky;top:0;z-index:1200;background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.85));backdrop-filter:blur(6px);padding:10px 0}
+        .header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+        .logo{display:flex;align-items:center;gap:10px}
+        .logo img{height:40px;border-radius:50%}
+        .logo h1{font-size:1.05rem;color:var(--accent);margin:0;letter-spacing:.6px}
+        .hamburger{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:transparent;border:none;color:var(--white);font-size:1.1rem}
+        .nav-links{position:fixed;inset:auto 0 0 0;background:linear-gradient(180deg,#0b0b0b,rgba(11,11,11,.98));padding:14px 18px;display:flex;flex-direction:column;gap:10px;transform:translateY(100%);transition:transform .28s ease;z-index:1199}
+        .nav-links a{display:block;padding:12px 14px;border-radius:8px;font-weight:600;text-transform:uppercase;letter-spacing:.6px}
+        .nav-links a.active, .nav-links a:hover{background:rgba(255,215,0,.08);color:var(--accent)}
+        .nav-links.open{transform:translateY(0)}
+
+/* Hero */
+.hero{padding:48px 0;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.6)) url('./gtt (6).jpg') center/cover no-repeat}
+.hero .hero-content{padding:8px 12px;max-width:920px}
+.hero h2{font-size:1.6rem;margin:.25rem 0;color:var(--accent);line-height:1.05}
+.hero p{color:var(--muted);margin:0.75rem 0;font-size:0.95rem}
+.cta-button{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;background:var(--gold);color:#000;font-weight:700}
+
+/* Sections basic */
+.section-title{margin:28px 0 18px;text-align:center}
+.section-title h2{color:var(--accent);font-size:1.4rem;margin:0}
+
+/* About / two-column -> stacked on mobile */
+.about-section{padding:28px 0;background:transparent}
+.about-container{display:flex;flex-direction:column;gap:20px;align-items:stretch}
+.about-intro-grid{display:flex;flex-direction:column;gap:18px}
+.about-intro-text{padding:0}
+.about-title{font-size:1.25rem;color:var(--gold);margin:0 0 8px}
+.about-description{color:var(--muted);font-size:0.95rem;line-height:1.6}
+.about-features-list{display:grid;gap:10px;margin-top:12px}
+.about-features-list i{color:var(--gold);min-width:20px}
+
+/* Visuals: responsive images and video */
+.about-intro-visual img, .smart-video, .showcase-video{width:100%;height:auto;display:block;border-radius:12px;object-fit:cover}
+.video-container{aspect-ratio:16/9;width:100%;overflow:hidden;border-radius:12px;background:#000}
+
+/* Bento grid: use responsive aspect-ratio instead of fixed height */
+.bento-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;align-items:stretch;width:100%;max-width:760px;margin:0 auto}
+.bento-main{grid-column:1/ span 3;grid-row:1/ span 3;min-height:220px;border-radius:12px;overflow:hidden}
+.bento-cell{border-radius:10px;min-height:80px;background:#0b0b0b;background-size:cover;background-position:center}
+.bento-cell-1{background-image:url('./pl.avif')}
+.bento-cell-2{background-image:url('./pl2.avif')}
+.bento-cell-3{background-image:url('./logo (7).jpeg')}
+
+/* Premium Benefits responsive layout */
+.premium-benefits{padding:36px 0;background:linear-gradient(180deg,#050505,#0b0b0b);color:var(--white)}
+.benefits-grid{display:grid;grid-template-columns:1fr;gap:18px}
+.benefit-card{display:flex;gap:12px;padding:14px;background:rgba(255,255,255,0.02);border-radius:12px;align-items:flex-start}
+.icon-wrapper{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,rgba(212,175,55,.08),rgba(212,175,55,.03));display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:18px}
+.cta-button.magnetic{padding:12px 18px;border-radius:999px;font-weight:700}
+
+/* Showcase grid: stacked and auto-height on small screens */
+.showcase-grid{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:minmax(120px,auto);gap:8px}
+.showcase-main{grid-column:1/ span 2;border-radius:12px;overflow:hidden;min-height:200px}
+.showcase-item{border-radius:12px;overflow:hidden;background-size:cover;background-position:center;height:120px;display:flex;align-items:flex-end}
+
+/* Footer basic */
+footer{padding:28px 0;text-align:center;color:var(--muted)}
+
+/* Custom cursor disabled for touch screens for performance */
+.custom-cursor{display:none}
+
+/* --- Larger screens adjustments --- */
+@media (min-width:720px){
+    .header-inner{padding:0}
+    .nav-links{position:static;transform:none;display:flex;flex-direction:row;background:transparent;padding:0;gap:18px}
+    .hamburger{display:none}
+    .nav-links a{padding:8px 0;text-transform:none}
+    .hero{padding:80px 0;height:60vh;background-attachment:fixed}
+    .hero h2{font-size:2.6rem}
+    .hero p{font-size:1.05rem}
+    .about-container{flex-direction:row;gap:28px}
+    .about-intro-grid{flex:1}
+    .about-intro-visual{max-width:480px}
+    .bento-grid{grid-template-columns:repeat(4,1fr);height:360px}
+    .bento-main{min-height:100%}
+    .benefits-grid{grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+    .showcase-grid{height:420px}
+}
+
+/* --- Extra small screens --- */
+@media (max-width:420px){
+    :root{--container-gap:12px}
+    .hero h2{font-size:1.2rem}
+    .hero p{font-size:0.9rem}
+    .cta-button{padding:10px 14px;font-size:0.9rem}
+    .about-features-list{gap:8px}
+    .icon-wrapper{width:44px;height:44px}
+    .benefit-card{padding:12px}
+    .showcase-item{height:110px}
+    .bento-grid{grid-template-columns:repeat(2,1fr)}
+    .bento-main{grid-column:1/ span 2;min-height:180px}
+    .nav-links a{padding:14px;border-radius:10px}
+}
+
+/* Accessibility: larger tap targets */
+button, .cta-button, .submit-btn{min-height:var(--touch-size);min-width:88px}
+</style>
 </head>
 <body>
-    
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <img src="logo (8).jpeg" alt="AURELUM Logo">
+                <h1>AURELUM</h1>
+            </div>
 
-    <!-- Hero Section -->
+            <!-- hamburger for mobile; nav-links will become a bottom sheet on mobile -->
+            <button class="hamburger" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-links" aria-label="Primary navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="services.html">Services</a>
+                <a href="commit.html">Commitment</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="nav-cta" style="background:linear-gradient(135deg,#003366,#004c99);color:#fff;padding:10px 14px;border-radius:8px;">Get Quote</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section (keeps good contrast and mobile spacing) -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <h2 style="font-family: 'Times New Roman',; font-weight: 800; color: #ffcc00;">Aurelum Petroleum LTD</h2>
-            <p  style="font-family: 'Times New Roman', Times,;" >We are a private based company specializing in the international trade and logistics of petroleum products, LPG, Naphtha, and precious minerals. <span class="hero-highlight">transparent, efficient, and sustainable</span> supply chains across Africa, Europe, and global markets.</p>
-            <a href="about.html" class="cta-button">Learn More </a>
+            <h2 style="font-weight:800;margin-bottom:6px;">Aurelum Petroleum LTD</h2>
+            <p>We are a private company specializing in international trade and logistics of petroleum, LPG, Naphtha, and minerals. <strong style="color:var(--accent)">Transparent, efficient, sustainable</strong> supply chains across Africa, Europe and global markets.</p>
+            <div style="margin-top:12px">
+                <a href="about.html" class="cta-button">Learn More</a>
+            </div>
         </div>
     </section>
-<!-- About Us Section -->
-<section id="about" class="about-section">
-    <div class="about-container">
-        <div class="about-intro-block">
-            <div class="about-intro-grid" style="display:flex;gap:2.5rem;align-items:center;flex-wrap:wrap;">
-                <!-- Left: Content -->
-                <div class="about-intro-text" style="flex:1;min-width:300px;">
-                    <h2 class="about-title" style="font-size:2rem;color:#ffd700;margin-bottom:0.75rem;">About Us</h2>
 
-                    <p class="about-description" style="color:#dcdcdc;line-height:1.7;margin-bottom:1.25rem;">
-                        AURELUM P LTD connects African resource potential with global demand. With operational bases in
-                        <strong>Accra, Tema</strong> and <strong>Düsseldorf</strong>, we specialise in the international trade and logistics of
-                        petroleum products, LPG, naphtha and precious minerals. Our operations are built around compliance,
-                        traceability and ESG-aligned practices to deliver transparent, efficient and sustainable supply chains
-                        across Africa, Europe and global markets.
-                    </p>
+    <!-- About Us Section -->
+    <section id="about" class="about-section">
+        <div class="container about-container">
+            <div class="about-intro-grid">
+                <div class="about-intro-text">
+                    <h2 class="about-title">About Us</h2>
+                    <p class="about-description">AURELUM P LTD connects African resource potential with global demand. With operational bases in Accra, Tema and Düsseldorf, we specialise in international trade and logistics of petroleum, LPG, naphtha and precious minerals. Our operations prioritise compliance, traceability and ESG-aligned practices.</p>
 
-                    <ul class="about-features-list" style="list-style:none;padding:0;margin:0 0 1.25rem 0;display:grid;gap:.6rem;">
-                        <li style="display:flex;gap:.75rem;align-items:flex-start;">
-                            <i class="fas fa-check-circle" style="color:#ffd700;font-size:1.05rem;margin-top:.15rem;"></i>
-                            <span style="color:#e6e6e6;">Certified commodity sourcing with strict due diligence and regulatory compliance.</span>
-                        </li>
-                        <li style="display:flex;gap:.75rem;align-items:flex-start;">
-                            <i class="fas fa-check-circle" style="color:#ffd700;font-size:1.05rem;margin-top:.15rem;"></i>
-                            <span style="color:#e6e6e6;">End‑to‑end logistics: port coordination, customs, warehousing and secure shipment.</span>
-                        </li>
-                        <li style="display:flex;gap:.75rem;align-items:flex-start;">
-                            <i class="fas fa-check-circle" style="color:#ffd700;font-size:1.05rem;margin-top:.15rem;"></i>
-                            <span style="color:#e6e6e6;">Long‑term partnerships focused on commercial performance and sustainable impact.</span>
-                        </li>
+                    <ul class="about-features-list">
+                        <li><i class="fas fa-check-circle"></i> Certified commodity sourcing and strict due diligence</li>
+                        <li><i class="fas fa-check-circle"></i> End‑to‑end logistics: port coordination, customs, warehousing</li>
+                        <li><i class="fas fa-check-circle"></i> Long‑term partnerships focused on sustainable impact</li>
                     </ul>
 
-                    <div class="about-stats" style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1rem;">
-                        <div style="background:rgba(255,255,255,0.03);padding:.75rem 1rem;border-radius:8px;min-width:120px;">
-                            <div style="font-size:1.15rem;font-weight:700;color:#fff;">20+</div>
-                            <div style="font-size:.85rem;color:#cfcfcf;">Years Combined Experience</div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+                        <div style="background:rgba(255,255,255,.03);padding:10px;border-radius:8px;min-width:110px;text-align:center">
+                            <div style="font-weight:700">20+</div><div style="font-size:12px;color:var(--muted)">Years Combined</div>
                         </div>
-                        <div style="background:rgba(255,255,255,0.03);padding:.75rem 1rem;border-radius:8px;min-width:120px;">
-                            <div style="font-size:1.15rem;font-weight:700;color:#fff;">3</div>
-                            <div style="font-size:.85rem;color:#cfcfcf;">Regional Bases</div>
+                        <div style="background:rgba(255,255,255,.03);padding:10px;border-radius:8px;min-width:110px;text-align:center">
+                            <div style="font-weight:700">3</div><div style="font-size:12px;color:var(--muted)">Regional Bases</div>
                         </div>
-                        <div style="background:rgba(255,255,255,0.03);padding:.75rem 1rem;border-radius:8px;min-width:120px;">
-                            <div style="font-size:1.15rem;font-weight:700;color:#fff;">Global</div>
-                            <div style="font-size:.85rem;color:#cfcfcf;">Market Access</div>
+                        <div style="background:rgba(255,255,255,.03);padding:10px;border-radius:8px;min-width:110px;text-align:center">
+                            <div style="font-weight:700">Global</div><div style="font-size:12px;color:var(--muted)">Market Access</div>
                         </div>
                     </div>
 
-                    <div class="about-cta" style="display:flex;gap:0.75rem;flex-wrap:wrap;">
-                        <a href="contact.html" class="cta-button" style="background:#ffd700;color:#000;padding:.8rem 1.25rem;border-radius:999px;text-decoration:none;font-weight:700;">Request Proposal</a>
-                        <a href="services.html" class="cta-button secondary" style="background:transparent;border:1.5px solid rgba(255,215,0,0.9);color:#ffd700;padding:.7rem 1.1rem;border-radius:999px;text-decoration:none;font-weight:600;">Our Services</a>
+                    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+                        <a href="contact.html" class="cta-button">Request Proposal</a>
+                        <a href="services.html" class="cta-button" style="background:transparent;border:1px solid rgba(255,215,0,.9);color:var(--accent)">Our Services</a>
                     </div>
                 </div>
+            </div>
 
-                <!-- Right: Visual (image / video preview) -->
-                <div class="about-intro-visual" style="flex:1;min-width:300px;max-width:520px;">
-                    <div style="position:relative;border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.6);">
-                        <img src="gtt (3).jpg" alt="Aurelum operations" style="width:100%;height:320px;object-fit:cover;display:block;">
-                       
-                            <i class="fas fa-" style="color:#ffd700;font-size:1.4rem;margin-left:3px;"></i>
-                        </button>
-                        <div style="position:absolute;left:0;bottom:0;width:100%;padding:14px;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.65));color:#fff;">
-                            <div style="font-weight:700;">Trusted energy & minerals logistics</div>
-                            <div style="font-size:.875rem;color:#d0d0d0;">Serving Africa, Europe and global markets</div>
-                        </div>
+            <div class="about-intro-visual" aria-hidden="false">
+                <div style="position:relative;border-radius:14px;overflow:hidden;box-shadow:0 10px 20px rgba(0,0,0,.5)">
+                    <img src="gtt (3).jpg" alt="Aurelum operations">
+                    <div style="position:absolute;left:0;bottom:0;width:100%;padding:10px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.7));color:#fff">
+                        <div style="font-weight:700">Trusted energy & minerals logistics</div>
+                        <div style="font-size:12px;color:var(--muted)">Serving Africa, Europe and global markets</div>
                     </div>
                 </div>
             </div>
         </div>
-         <div class="benefits-showcase">
-                <div class="showcase-grid">
-                    <div class="showcase-main hover-3d">
-                        <video autoplay loop muted playsinline class="showcase-video">
-                            <source src="https://cdn.pixabay.com/video/2019/05/01/23232-333604632_tiny.mp4" type="video/mp4">
-                        </video>
-                        <div class="video-overlay"></div>
-                        <div class="play-indicator">
-                            <div class="pulse-circle"></div>
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
 
-                    <div class="showcase-item item-1 hover-3d" style="background-image: url('./gtt\ \(7\).jpg')">
-                        <div class="item-overlay"><span>Secure Supply Chains</span></div>
-                    </div>
-
-                    <div class="showcase-item item-2 hover-3d" style="background-image: url('./gtt\ \(9\).jpg')">
-                        <div class="item-overlay"><span>Global Market Access</span></div>
-                    </div>
-
-                    <div class="showcase-item item-3 hover-3d" style="background-image: url('./gtt\ \(5\).jpg')">
-                        <div class="item-overlay"><span>Traceable Minerals</span></div>
-                    </div>
-
-                    <div class="showcase-item item-4 hover-3d">
-                        <div class="gradient-card">
-                            <i class="fas fa-handshake"></i>
-                            <span>Trusted Partnership</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <div class="about-grid">
-            <!-- For Clients -->
-            <div class="about-card">
-                <h3 class="card-title">For Clients</h3>
-                <p class="card-text">
-                    Experience a <strong>commitment to reliability and compliance</strong> as we ensure that every transaction delivers value and strengthens industry connections. Partner with us for seamless access to energy resources that power growth.
-                </p>
-            </div>
-            
-            <!-- For Partners -->
-            <div class="about-card">
-                <h3 class="card-title">For Partners</h3>
-                <p class="card-text">
-                    By collaborating with AURELUM P LTD, your business gains access to a <strong>network of sustainable practices</strong> and long-term partnerships that foster mutual growth and success in the energy and minerals sectors.
-                </p>
-            </div>
-        </div>
-        
-        <div class="about-cta">
-            <p class="cta-tagline"><strong>Energy that powers growth. Resources that build tomorrow.</strong></p>
-            <div class="cta-buttons">
-                <a href="contact.html" class="cta-button">Become a Partner</a>
-                <a href="contact.html" class="cta-button secondary">Learn More</a>
-            </div>
-        </div>
-        
-        <style> 
-            .cta-button {
-                display: inline-block; 
-                padding: 10px 20px;
-                font-size: 16px;
-                text-decoration: none; 
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-            }
-            
-            .cta-button:hover {
-                opacity: 0.8;
-            }
-            
-            .cta-button {
-                background-color: #007bff; 
-                color: white;
-            }
-            
-            .cta-button.secondary {
-                background-color: #6c757d; 
-                color: white;
-                margin-left: 10px; 
-            }
-        </style>
-        <!-- Key Features -->
-        <div class="features-section">
-            <h3 class="features-title">Key Features</h3>
-            <ul class="features-list">
-                <li><strong>Sustainable Practices:</strong> We prioritize eco-friendly methods in our operations.</li>
-                <li><strong>Global Reach:</strong> Our logistics network spans across Africa, Europe, and beyond.</li>
-                <li><strong>Long-Term Partnerships:</strong> We believe in building lasting relationships that drive success.</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<style> 
-    /* About Us Section Styling */
-.about-section {
-    padding: 5rem 2rem;
-    background-color: #000;
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.about-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.about-title {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #f5f5f5;
-}
-
-.about-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 3rem;
-    color: #ccc;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Grid Layout for Cards */
-.about-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-}
-
-.about-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: left;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.about-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.1);
-}
-
-.card-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #ffd700; /* Gold accent */
-}
-
-.card-text {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #ddd;
-}
-
-/* CTA Styling */
-.about-cta {
-    margin: 3rem 0;
-}
-
-.cta-tagline {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: #ffd700;
-}
-
-.cta-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.cta-button {
-    padding: 12px 30px;
-    background: #ffd700;
-    color: #000;
-    border: none;
-    border-radius: 50px;
-    font-weight: 600;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.cta-button.secondary {
-    background: transparent;
-    color: #ffd700;
-    border: 2px solid #ffd700;
-}
-
-.cta-button:hover {
-    background: #fff;
-    transform: scale(1.05);
-}
-
-/* Features Section */
-.features-section {
-    margin-top: 4rem;
-    text-align: left;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.features-title {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: #ffd700;
-    text-align: center;
-}
-
-.features-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.features-list li {
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
-    position: relative;
-    color: #ddd;
-    line-height: 1.6;
-}
-
-.features-list li:before {
-    content: "•";
-    color: #ffd700;
-    font-size: 1.5rem;
-    position: absolute;
-    left: 0;
-    top: -3px;
-}
-</style>
-<!-- Vision & Mission Section -->
-    <section class="vision-mission">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Vision & Mission</h2>
-            </div>
-            <div class="vision-mission-grid">
-                <div class="vision-card">
-                    <div class="vision-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>Our Vision</h3>
-                    <p>To become a leading Africa-Europe bridge in energy and mineral trading—driven by integrity, innovation, and sustainable growth.</p>
-                </div>
-                <div class="mission-card">
-                    <div class="mission-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3>Our Mission</h3>
-                    <p>To bridge energy and mining sectors through transparent, efficient, and sustainable supply chains across Africa, Europe, and global markets.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-<section class="about-section">
-    <div class="about-container">
-        <div class="about-content">
-
-            <p class="about-subtitle"> <BR><BR>Integrating Energy, Logistics & Resource Management</p>
-
-            <div class="about-text">
-                <p>AURELUM P LTD operates at the intersection of energy, logistics, and resource management, enabling efficient value chains that support national development and international industry needs.</p>
-
-                <p>With operational bases in Accra, Tema, and Düsseldorf, we align African resource potential with global demand—delivering reliable supply, optimized logistics, and streamlined market access across continents.</p>
-
-                <p>Our approach is built on strict adherence to compliance, transparent processes, and ESG-aligned principles, ensuring responsible sourcing, regulatory integrity, and sustainable growth.</p>
-
-                <ul class="about-features">
-                    <li><i class="fas fa-check-circle"></i> Strategic sourcing and commodity trading across energy and minerals</li>
-                    <li><i class="fas fa-check-circle"></i> Integrated logistics and export coordination for efficient delivery</li>
-                    <li><i class="fas fa-check-circle"></i> Compliance, governance and ESG practices embedded across operations</li>
-                </ul>
-
-                <p>We partner with governments, producers and buyers to create resilient, compliant and commercially competitive value chains that drive long-term impact.</p>
-            </div>
-        </div>
-
-        <div class="about-media">
-            <!-- Bento-style video container -->
-            <div class="bento-grid">
-                <div class="bento-main">
+        <!-- Showcase (compact and responsive) -->
+        <div class="container" style="margin-top:18px;">
+            <div class="showcase-grid">
+                <div class="showcase-main">
                     <div class="video-container">
-                        <video autoplay loop muted playsinline class="smart-video">
-                            <source src="https://cdn.pixabay.com/video/2023/02/23/151817-801681453_tiny.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div class="video-overlay"></div>
-                    </div>
-                </div>
-                <div class="bento-cell bento-cell-1"></div>
-                <div class="bento-cell bento-cell-2"></div>
-                <div class="bento-cell bento-cell-3"></div>
-                <div class="bento-cell bento-cell-4"></div>
-            </div>
-        </div>
-    </div>
-</section>
-    <!-- Our Identity Section -->
-    <section class="identity">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Identity</h2>
-            </div>
-            <div class="identity-content">
-                <p>AURELUM P LTD operates at the intersection of energy, logistics, and resource management, enabling efficient value chains that support national development and international industry needs.</p>
-                <div class="identity-list">
-                    <div class="identity-item">
-                        <i class="fas fa-globe"></i>
-                        <h4>Global Reach</h4>
-                        <p>Operating across Africa, Europe, and global markets</p>
-                    </div>
-                    <div class="identity-item">
-                        <i class="fas fa-handshake"></i>
-                        <h4>Strategic Partnerships</h4>
-                        <p>Building long-term relationships with clients and suppliers</p>
-                    </div>
-                    <div class="identity-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <h4>Compliance & Ethics</h4>
-                        <p>Adhering to the highest standards of business conduct</p>
-                    </div>
-                    <div class="identity-item">
-                        <i class="fas fa-leaf"></i>
-                        <h4>Sustainability</h4>
-                        <p>Implementing ESG-aligned principles in all operations</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-<section class="premium-benefits" id="services">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">
-                <span class="text-gradient">Our Core Expertise</span>
-            </h2>
-            <p class="section-subtitle">Operational excellence across energy, minerals and logistics — trusted, compliant, and efficient.</p>
-        </div>
-
-        <div class="benefits-grid">
-            <!-- Left Column - Expertise & Commitment -->
-            <div class="benefits-content">
-                <div class="intro-text">
-                    <p>AURELUM P LTD delivers specialized services across petroleum, LPG & naphtha, precious minerals trading, and end‑to‑end logistics — combining local resource access with international standards.</p>
-                </div>
-
-                <div class="benefits-list">
-                    <!-- Petroleum Trading -->
-                    <div class="benefit-card" data-aos="fade-up">
-                        <div class="card-icon">
-                            <div class="icon-wrapper pulse">
-                                <i class="fas fa-oil-can"></i>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3>Petroleum Trading</h3>
-                            <p>We supply premium-grade crude, refined products, diesel, gasoline and specialty petroleum materials to strategic markets across Africa, the Middle East and Europe. Certified quality, competitive pricing and secure logistics.</p>
-                        </div>
-                    </div>
-
-                    <!-- LPG & Naphtha Supply -->
-                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card-icon">
-                            <div class="icon-wrapper pulse">
-                                <i class="fas fa-fire"></i>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3>LPG & Naphtha Supply</h3>
-                            <p>AURELUM facilitates sourcing and timely delivery of LPG and Naphtha for industrial, commercial and governmental clients through strong supplier relations and stable availability.</p>
-                        </div>
-                    </div>
-
-                    <!-- Precious Minerals Trading -->
-                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card-icon">
-                            <div class="icon-wrapper pulse">
-                                <i class="fas fa-gem"></i>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3>Precious Minerals Trading</h3>
-                            <p>Through vetted partnerships we trade gold, manganese and high‑value minerals originating from West Africa. All exports adhere to due‑diligence, traceability and international regulatory standards.</p>
-                        </div>
-                    </div>
-
-                    <!-- Logistics & Export Coordination -->
-                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="card-icon">
-                            <div class="icon-wrapper pulse">
-                                <i class="fas fa-shipping-fast"></i>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3>Logistics & Export Coordination</h3>
-                            <p>End‑to‑end logistics support including port operations, documentation, customs clearance, warehousing and secure shipment arrangements to optimize cost and shorten lead times.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="margin:20px 0;">
-                    <h4 style="color:#fff; margin-bottom:10px;">Our Commitment</h4>
-                    <ul style="list-style:none; padding-left:0; color:rgba(255,255,255,0.8);">
-                        <li>• Long‑term strategic partnerships</li>
-                        <li>• Ethical sourcing and full compliance</li>
-                        <li>• High‑efficiency logistics</li>
-                        <li>• Competitive pricing and global standards</li>
-                        <li>• Transparent communication with clients and authorities</li>
-                    </ul>
-                </div>
-
-                <div style="margin-top:10px;">
-                    <h4 style="color:#fff; margin-bottom:8px;">Our Strength</h4>
-                    <p style="color:rgba(255,255,255,0.85);">Combining Ghana’s natural resource hub with Germany’s engineering standards and corporate governance — delivering trust and measurable performance at every step.</p>
-                </div>
-
-                <div class="cta-wrapper" data-aos="fade-up" data-aos-delay="400">
-                    <a href="contact.html" class="cta-button magnetic">
-                        <span>Request a Proposal</span>
-                        <div class="arrow-wrapper">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Right Column - Visual Showcase -->
-            <div class="benefits-showcase">
-                <div class="showcase-grid">
-                    <div class="showcase-main hover-3d">
                         <video autoplay loop muted playsinline class="showcase-video">
                             <source src="https://cdn.pixabay.com/video/2024/07/08/220153_tiny.mp4" type="video/mp4">
+                            <!-- fallback -->
                         </video>
-                        <div class="video-overlay"></div>
-                        <div class="play-indicator">
-                            <div class="pulse-circle"></div>
-                            <i class="fas fa-play"></i>
+                    </div>
+                </div>
+
+                <div class="showcase-item" style="background-image:url('./gtt (7).jpg')">
+                    <div class="item-overlay" style="padding:10px">Secure Supply Chains</div>
+                </div>
+
+                <div class="showcase-item" style="background-image:url('./gtt (9).jpg')">
+                    <div class="item-overlay" style="padding:10px">Global Market Access</div>
+                </div>
+
+                <div class="showcase-item" style="background-image:url('./gtt (5).jpg')">
+                    <div class="item-overlay" style="padding:10px">Traceable Minerals</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section class="vision-mission" style="padding:24px 0">
+        <div class="container">
+            <div class="section-title"><h2>Our Vision & Mission</h2></div>
+            <div style="display:grid;gap:12px">
+                <div style="background:rgba(255,255,255,.02);padding:12px;border-radius:10px"><strong>Vision:</strong> To be the Africa-Europe bridge in energy and mineral trading—integrity, innovation, sustainable growth.</div>
+                <div style="background:rgba(255,255,255,.02);padding:12px;border-radius:10px"><strong>Mission:</strong> Bridge sectors with transparent, efficient, sustainable supply chains.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Benefits (condensed) -->
+    <section class="premium-benefits" id="services">
+        <div class="container">
+            <div style="text-align:center;margin-bottom:18px">
+                <h2 style="margin:0;color:var(--gold)">Our Core Expertise</h2>
+                <p style="color:var(--muted);margin-top:6px;font-size:0.95rem">Operational excellence across energy, minerals and logistics.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div>
+                    <div class="benefit-card"><div class="icon-wrapper"><i class="fas fa-oil-can"></i></div><div><h4 style="margin:0 0 6px">Petroleum Trading</h4><p style="margin:0;color:var(--muted)">Supply of crude, diesel, gasoline with certified quality and secure logistics.</p></div></div>
+                    <div style="height:12px"></div>
+                    <div class="benefit-card"><div class="icon-wrapper"><i class="fas fa-fire"></i></div><div><h4 style="margin:0 0 6px">LPG & Naphtha</h4><p style="margin:0;color:var(--muted)">Sourcing and delivery for industrial and government clients.</p></div></div>
+                    <div style="height:12px"></div>
+                    <div class="benefit-card"><div class="icon-wrapper"><i class="fas fa-gem"></i></div><div><h4 style="margin:0 0 6px">Precious Minerals</h4><p style="margin:0;color:var(--muted)">Vetted trading with due-diligence and traceability.</p></div></div>
+
+                    <div style="margin-top:14px">
+                        <a href="contact.html" class="cta-button magnetic">Request a Proposal</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div style="border-radius:12px;overflow:hidden">
+                        <div class="video-container">
+                            <video autoplay loop muted playsinline class="showcase-video">
+                                <source src="https://cdn.pixabay.com/video/2024/07/08/220153_tiny.mp4" type="video/mp4">
+                            </video>
                         </div>
                     </div>
 
-                    <div class="showcase-item item-1 hover-3d" style="background-image: url('./gtt\ \(1\).jpg')">
-                        <div class="item-overlay"><span>Secure Supply Chains</span></div>
-                    </div>
-
-                    <div class="showcase-item item-2 hover-3d" style="background-image: url('./gtt\ \(4\).jpg')">
-                        <div class="item-overlay"><span>Global Market Access</span></div>
-                    </div>
-
-                    
-                        </div>
+                    <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+                        <div style="flex:1;min-width:120px;background:rgba(255,255,255,.02);padding:12px;border-radius:10px"><strong>Secure</strong><div style="color:var(--muted)">Traceable supply chains</div></div>
+                        <div style="flex:1;min-width:120px;background:rgba(255,255,255,.02);padding:12px;border-radius:10px"><strong>Global</strong><div style="color:var(--muted)">Market access</div></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Interactive Elements -->
-    <div class="particles-js" id="benefits-particles"></div>
-    <div class="custom-cursor">
-        <div class="cursor-inner"></div>
-        <div class="cursor-outer"></div>
-    </div>
-</section>
-
-
-<style>/* Premium Benefits Section Styles */
-.premium-benefits {
-  position: relative;
-  padding: 100px 0;
-  background: #0a0a0a;
-  color: #fff;
-  overflow: hidden;
-}
-
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.section-title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  line-height: 1.2;
-}
-
-.text-gradient {
-  background: linear-gradient(90deg, #d4af37, #f4e6c8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.section-subtitle {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.benefits-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  align-items: center;
-}
-
-.benefits-content {
-  position: relative;
-  z-index: 2;
-}
-
-.intro-text {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 40px;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.benefits-list {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  margin-bottom: 50px;
-}
-
-.benefit-card {
-  display: flex;
-  gap: 20px;
-  padding: 25px;
-  background: rgba(20, 20, 20, 0.6);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  transition: all 0.4s ease;
-}
-
-.benefit-card:hover {
-  background: rgba(30, 30, 30, 0.8);
-  transform: translateY(-5px);
-  border-color: rgba(212, 175, 55, 0.3);
-}
-
-.card-icon {
-  flex-shrink: 0;
-}
-
-.icon-wrapper {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
-  border-radius: 12px;
-  font-size: 24px;
-  color: #d4af37;
-}
-
-.pulse {
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-.card-content h3 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-.card-content p {
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
-}
-
-.cta-wrapper {
-  position: relative;
-}
-
-.cta-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 15px;
-  padding: 18px 35px;
-  background: linear-gradient(90deg, #d4af37, #f4e6c8);
-  color: #0a0a0a;
-  font-weight: 600;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  border: none;
-  cursor: pointer;
-}
-
-.cta-button span {
-  position: relative;
-  z-index: 2;
-}
-
-.cta-button .arrow-wrapper {
-  width: 24px;
-  height: 24px;
-  background: #0a0a0a;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-
-.cta-button i {
-  color: #d4af37;
-  font-size: 14px;
-  transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
-}
-
-.cta-button:hover .arrow-wrapper {
-  transform: translateX(5px);
-}
-
-/* Showcase Grid Styles */
-.benefits-showcase {
-  position: relative;
-}
-
-.showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 20px;
-  height: 600px;
-}
-
-.showcase-main {
-  grid-column: 1 / span 2;
-  grid-row: 1 / span 2;
-  border-radius: 16px;
-  overflow: hidden;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.5s ease;
-}
-
-.showcase-item {
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  transform-style: preserve-3d;
-  transition: transform 0.5s ease;
-}
-
-.item-1 { grid-column: 1; grid-row: 3; }
-.item-2 { grid-column: 2; grid-row: 3; }
-.item-3 { grid-column: 1; grid-row: 4; }
-.item-4 { grid-column: 2; grid-row: 4; }
-
-.hover-3d:hover {
-  transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.03);
-}
-
-.showcase-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, rgba(10, 10, 10, 0.8), transparent 50%);
-}
-
-.play-indicator {
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  z-index: 2;
-}
-
-.pulse-circle {
-  width: 40px;
-  height: 40px;
-  background: rgba(212, 175, 55, 0.2);
-  border-radius: 50%;
-  position: absolute;
-  animation: pulse 2s infinite;
-}
-
-.play-indicator i {
-  font-size: 20px;
-  color: #d4af37;
-  margin-left: 10px;
-}
-
-.item-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px;
-  background: linear-gradient(to top, rgba(10, 10, 10, 0.9), transparent);
-  color: #fff;
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-
-.gradient-card {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #d4af37, #f4e6c8);
-  border-radius: 12px;
-  color: #0a0a0a;
-}
-
-.gradient-card i {
-  font-size: 40px;
-  margin-bottom: 15px;
-}
-
-.gradient-card span {
-  font-weight: 600;
-  font-size: 1.2rem;
-}
-
-/* Custom Cursor */
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-}
-
-.cursor-inner {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: #fff;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  transition: width 0.3s, height 0.3s;
-}
-
-.cursor-outer {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  transition: all 0.15s;
-}
-
-/* Magnetic Button Effect */
-.magnetic {
-  position: relative;
-}
-
-/* Responsive Styles */
-@media (max-width: 1200px) {
-  .benefits-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .benefits-showcase {
-    margin-top: 50px;
-    height: 500px;
-  }
-}
-
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 2.5rem;
-  }
-  
-  .benefit-card {
-    flex-direction: column;
-  }
-  
-  .showcase-grid {
-    height: 400px;
-  }
-} </style> 
-<script>/* Premium Benefits Section Styles */
-.premium-benefits {
-  position: relative;
-  padding: 100px 0;
-  background: #0a0a0a;
-  color: #fff;
-  overflow: hidden;
-}
-
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.section-title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  line-height: 1.2;
-}
-
-.text-gradient {
-  background: linear-gradient(90deg, #d4af37, #f4e6c8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.section-subtitle {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.benefits-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  align-items: center;
-}
-
-.benefits-content {
-  position: relative;
-  z-index: 2;
-}
-
-.intro-text {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 40px;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.benefits-list {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  margin-bottom: 50px;
-}
-
-.benefit-card {
-  display: flex;
-  gap: 20px;
-  padding: 25px;
-  background: rgba(20, 20, 20, 0.6);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  transition: all 0.4s ease;
-}
-
-.benefit-card:hover {
-  background: rgba(30, 30, 30, 0.8);
-  transform: translateY(-5px);
-  border-color: rgba(212, 175, 55, 0.3);
-}
-
-.card-icon {
-  flex-shrink: 0;
-}
-
-.icon-wrapper {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
-  border-radius: 12px;
-  font-size: 24px;
-  color: #d4af37;
-}
-
-.pulse {
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-.card-content h3 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-.card-content p {
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
-}
-
-.cta-wrapper {
-  position: relative;
-}
-
-.cta-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 15px;
-  padding: 18px 35px;
-  background: linear-gradient(90deg, #d4af37, #f4e6c8);
-  color: #0a0a0a;
-  font-weight: 600;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  border: none;
-  cursor: pointer;
-}
-
-.cta-button span {
-  position: relative;
-  z-index: 2;
-}
-
-.cta-button .arrow-wrapper {
-  width: 24px;
-  height: 24px;
-  background: #0a0a0a;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-
-.cta-button i {
-  color: #d4af37;
-  font-size: 14px;
-  transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
-}
-
-.cta-button:hover .arrow-wrapper {
-  transform: translateX(5px);
-}
-
-/* Showcase Grid Styles */
-.benefits-showcase {
-  position: relative;
-}
-
-.showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 20px;
-  height: 600px;
-}
-
-.showcase-main {
-  grid-column: 1 / span 2;
-  grid-row: 1 / span 2;
-  border-radius: 16px;
-  overflow: hidden;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.5s ease;
-}
-
-.showcase-item {
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  transform-style: preserve-3d;
-  transition: transform 0.5s ease;
-}
-
-.item-1 { grid-column: 1; grid-row: 3; }
-.item-2 { grid-column: 2; grid-row: 3; }
-.item-3 { grid-column: 1; grid-row: 4; }
-.item-4 { grid-column: 2; grid-row: 4; }
-
-.hover-3d:hover {
-  transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.03);
-}
-
-.showcase-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, rgba(10, 10, 10, 0.8), transparent 50%);
-}
-
-.play-indicator {
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  z-index: 2;
-}
-
-.pulse-circle {
-  width: 40px;
-  height: 40px;
-  background: rgba(212, 175, 55, 0.2);
-  border-radius: 50%;
-  position: absolute;
-  animation: pulse 2s infinite;
-}
-
-.play-indicator i {
-  font-size: 20px;
-  color: #d4af37;
-  margin-left: 10px;
-}
-
-.item-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px;
-  background: linear-gradient(to top, rgba(10, 10, 10, 0.9), transparent);
-  color: #fff;
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-
-.gradient-card {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #d4af37, #f4e6c8);
-  border-radius: 12px;
-  color: #0a0a0a;
-}
-
-.gradient-card i {
-  font-size: 40px;
-  margin-bottom: 15px;
-}
-
-.gradient-card span {
-  font-weight: 600;
-  font-size: 1.2rem;
-}
-
-/* Custom Cursor */
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-}
-
-.cursor-inner {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: #fff;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  transition: width 0.3s, height 0.3s;
-}
-
-.cursor-outer {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  transition: all 0.15s;
-}
-
-/* Magnetic Button Effect */
-.magnetic {
-  position: relative;
-}
-
-/* Responsive Styles */
-@media (max-width: 1200px) {
-  .benefits-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .benefits-showcase {
-    margin-top: 50px;
-    height: 500px;
-  }
-}
-
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 2.5rem;
-  }
-  
-  .benefit-card {
-    flex-direction: column;
-  }
-  
-  .showcase-grid {
-    height: 400px;
-  }
-} </script> 
-   
+    </section>
 
     <!-- Footer -->
-   
+    <footer>
+        <div class="container">
+            <div style="display:flex;flex-direction:column;gap:8px;align-items:center">
+                <div style="font-weight:700">AURELUM P LTD</div>
+                <div style="color:var(--muted);font-size:0.9rem">Energy & Minerals for a Connected Future</div>
+                <div style="margin-top:8px;color:var(--muted);font-size:0.85rem">&copy; 2026 AURELUM P LTD. All Rights Reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Minimal JS: defensive & mobile friendly behavior -->
+    <script>
+        (function(){
+            // Hamburger toggle (defensive)
+            const hh = document.querySelector('.hamburger');
+            const nav = document.querySelector('.nav-links');
+            if(hh && nav){
+                hh.addEventListener('click', function(){
+                    const open = nav.classList.toggle('open');
+                    hh.setAttribute('aria-expanded', open ? 'true' : 'false');
+                    // lock body scroll when nav open (touch friendly)
+                    document.body.style.overflow = open ? 'hidden' : '';
+                });
+                // close when a nav link is clicked (mobile)
+                nav.querySelectorAll('a').forEach(a => {
+                    a.addEventListener('click', () => {
+                        nav.classList.remove('open');
+                        hh.setAttribute('aria-expanded','false');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+
+            // Prevent attaching heavy hover/cursor effects on touch devices
+            if(('ontouchstart' in window) || navigator.maxTouchPoints){
+                const style = document.createElement('style');
+                style.innerHTML = '.hover-3d{transform:none!important;transition:none!important}.custom-cursor{display:none!important}';
+                document.head.appendChild(style);
+            }
+
+            // Make videos responsive & use playsinline already set in markup.
+            // Ensure video playback won't force large data on slow mobile: pause autoplay on mobile to save bandwidth
+            const isMobile = window.matchMedia && window.matchMedia('(pointer:coarse)').matches;
+            if(isMobile){
+                document.querySelectorAll('video[autoplay]').forEach(v => { v.pause(); v.removeAttribute('autoplay'); });
+            }
+
+            // Improve scroll-to-anchor behavior (smooth but avoids large jumps on mobile)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e){
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if(target){
+                        e.preventDefault();
+                        const top = target.getBoundingClientRect().top + window.scrollY - 70;
+                        window.scrollTo({top,behavior:'smooth'});
+                    }
+                });
+            });
+        })();
+    </script>
 </body>
-</html>  
-<style> 
-    :root {
-        --black: #000;
-        --white: #fff;
-        --gray: #333;
-        --gold: #d4af37;
-        --dark-gray: #1a1a1a;
-    }
-
-    * {
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: 'Montserrat', sans-serif;
-        background: var(--black);
-        color: var(--white);
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-    }
-
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 5%;
-        background: var(--dark-gray);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-    }
-
-    .navbar .logo {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.5rem;
-        color: var(--gold);
-        letter-spacing: 1px;
-    }
-
-    .hamburger {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-    }
-
-    .hamburger span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background: var(--white);
-        margin: 3px 0;
-        transition: all 0.3s ease;
-    }
-
-    .navbar .nav-links {
-        list-style: none;
-        display: flex;
-        gap: 30px;
-    }
-
-    .navbar .nav-links a {
-        text-decoration: none;
-        color: var(--white);
-        font-weight: 600;
-        transition: color 0.3s;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-    }
-
-    .navbar .nav-links a:hover {
-        color: var(--gold);
-    }
-
-    .hero {
-        height: 100vh;
-        position: relative;
-        overflow: hidden;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .background-video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.9;
-        z-index: -1;
-    }
-
-    .hero-content {
-        position: relative;
-        z-index: 1;
-        color: var(--white);
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        animation: fadeIn 2s ease-in-out;
-        padding: 0 5%;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .hero-title {
-        font-family: 'Playfair Display', serif;
-        font-size: clamp(2rem, 5vw, 4rem);
-        margin-bottom: 20px;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        line-height: 1.2;
-    }
-
-    .hero-subtitle {
-        font-size: clamp(1rem, 2vw, 1.5rem);
-        letter-spacing: 1px;
-        margin-bottom: 40px;
-    }
-
-    .cta-button {
-        background: var(--gold);
-        color: var(--black);
-        border: none;
-        padding: 15px 50px;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        cursor: pointer;
-        transition: background 0.3s, transform 0.3s;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-    }
-
-    .cta-button:hover {
-        background: var(--white);
-        transform: translateY(-5px);
-    }
-
-    .value-props {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 30px;
-        padding: 80px 5%;
-        background: var(--dark-gray);
-        animation: slideIn 1.5s ease-in-out;
-    }
-
-    .value-card {
-        text-align: center;
-        max-width: 300px;
-        transition: transform 0.3s;
-        flex: 1 1 300px;
-    }
-
-    .value-card:hover {
-        transform: scale(1.05);
-    }
-
-    .value-card .icon {
-        margin-bottom: 20px;
-    }
-
-    .value-card img {
-        width: 70px;
-        height: 70px;
-        object-fit: contain;
-    }
-
-    .value-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-        color: var(--gold);
-    }
-
-    .value-card p {
-        font-size: 1rem;
-        color: var(--white);
-    }
-
-    .footer {
-        text-align: center;
-        padding: 30px;
-        background: var(--black);
-        font-size: 0.9rem;
-        border-top: 1px solid var(--gray);
-    }
-
-    .footer a {
-        color: var(--gold);
-        text-decoration: none;
-        transition: color 0.3s;
-        margin: 0 10px;
-    }
-
-    .footer a:hover {
-        color: var(--white);
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-
-    @keyframes slideIn {
-        from {
-            transform: translateY(50px);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-
-    /* Mobile Responsive Styles */
-    @media (max-width: 768px) {
-        .hamburger {
-            display: flex;
-        }
-
-        .navbar .nav-links {
-            position: fixed;
-            top: 80px;
-            left: -100%;
-            width: 100%;
-            height: calc(100vh - 80px);
-            background: var(--dark-gray);
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding-top: 50px;
-            gap: 30px;
-            transition: left 0.3s ease;
-        }
-
-        .navbar .nav-links.active {
-            left: 0;
-        }
-
-        .hero-title {
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-        }
-
-        .cta-button {
-            padding: 12px 40px;
-            font-size: 0.9rem;
-        }
-
-        .value-props {
-            padding: 60px 5%;
-        }
-
-        .value-card {
-            flex: 1 1 100%;
-            margin-bottom: 30px;
-        }
-
-        .value-card:last-child {
-            margin-bottom: 0;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .navbar {
-            padding: 15px 5%;
-        }
-
-        .navbar .logo {
-            font-size: 1.3rem;
-        }
-
-        .hero-title {
-            font-size: 2rem;
-        }
-
-        .hero-subtitle {
-            font-size: 1rem;
-            margin-bottom: 30px;
-        }
-
-        .footer {
-            padding: 20px;
-        }
-
-        .footer p {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .footer a {
-            margin: 5px 0;
-        }
-    }
-</style>
-<script>
-    // Mobile menu toggle
-    document.querySelector('.hamburger').addEventListener('click', function() {
-        this.classList.toggle('active');
-        document.querySelector('.nav-links').classList.toggle('active');
-    });
-
-    // Close menu when clicking on a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', function() {
-            document.querySelector('.hamburger').classList.remove('active');
-            document.querySelector('.nav-links').classList.remove('active');
-        });
-    });
-</script>
-
+</html>
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
