@@ -1,535 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURELUM P LTD - Energy & Minerals for a Connected Future</title>
-    <meta name="description" content="AURELUM P LTD specializes in international trade and logistics of petroleum, LPG, Naphtha, and minerals with transparent, efficient supply chains across Africa, Europe and global markets.">
-    <link rel="icon" href="logo (3).jpeg" type="image/x-icon">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <style>
-        /* --- CSS Variables --- */
-        :root {
-            --bg: #000;
-            --panel: #111;
-            --muted: #ccc;
-            --gold: #d4af37;
-            --accent: #ffd700;
-            --white: #fff;
-            --container-gap: 16px;
-            --touch-size: 48px;
-            --transition: all 0.3s ease;
-        }
-
-        /* --- Reset & Base Styles --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: var(--bg);
-            color: var(--white);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 var(--container-gap);
-        }
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* --- Header & Navigation --- */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1200;
-            background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.85));
-            backdrop-filter: blur(6px);
-            padding: 10px 0;
-            transition: var(--transition);
-        }
-
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo img {
-            height: 40px;
-            border-radius: 50%;
-        }
-
-        .logo h1 {
-            font-size: 1.05rem;
-            color: var(--accent);
-            margin: 0;
-            letter-spacing: 0.6px;
-        }
-
-        .hamburger {
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            background: transparent;
-            border: none;
-            color: var(--white);
-            font-size: 1.1rem;
-            cursor: pointer;
-        }
-
-        .nav-links {
-            position: fixed;
-            inset: auto 0 0 0;
-            background: linear-gradient(180deg, #0b0b0b, rgba(11,11,11,0.98));
-            padding: 14px 18px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            transform: translateY(100%);
-            transition: transform 0.28s ease;
-            z-index: 1199;
-        }
-
-        .nav-links a {
-            display: block;
-            padding: 12px 14px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            transition: var(--transition);
-        }
-
-        .nav-links a.active, 
-        .nav-links a:hover {
-            background: rgba(255,215,0,0.08);
-            color: var(--accent);
-        }
-
-        .nav-links.open {
-            transform: translateY(0);
-        }
-
-        .nav-cta {
-            background: linear-gradient(135deg, #003366, #004c99);
-            color: #fff;
-            padding: 10px 14px;
-            border-radius: 8px;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            padding: 48px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('./gtt (6).jpg') center/cover no-repeat;
-            min-height: 60vh;
-        }
-
-        .hero-content {
-            padding: 8px 12px;
-            max-width: 920px;
-        }
-
-        .hero h2 {
-            font-size: 1.6rem;
-            margin: 0.25rem 0;
-            color: var(--accent);
-            line-height: 1.05;
-        }
-
-        .hero p {
-            color: var(--muted);
-            margin: 0.75rem 0;
-            font-size: 0.95rem;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 18px;
-            border-radius: 999px;
-            background: var(--gold);
-            color: #000;
-            font-weight: 700;
-            transition: var(--transition);
-            cursor: pointer;
-            border: none;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
-        }
-
-        /* --- Sections --- */
-        .section-title {
-            margin: 28px 0 18px;
-            text-align: center;
-        }
-
-        .section-title h2 {
-            color: var(--accent);
-            font-size: 1.4rem;
-            margin: 0;
-        }
-
-        /* --- About Section --- */
-        .about-section {
-            padding: 28px 0;
-            background: transparent;
-        }
-
-        .about-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: stretch;
-        }
-
-        .about-intro-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        .about-intro-text {
-            padding: 0;
-        }
-
-        .about-title {
-            font-size: 1.25rem;
-            color: var(--gold);
-            margin: 0 0 8px;
-        }
-
-        .about-description {
-            color: var(--muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .about-features-list {
-            display: grid;
-            gap: 10px;
-            margin-top: 12px;
-            list-style: none;
-        }
-
-        .about-features-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-
-        .about-features-list i {
-            color: var(--gold);
-            min-width: 20px;
-        }
-
-        .stats-container {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 12px;
-        }
-
-        .stat-box {
-            background: rgba(255,255,255,0.03);
-            padding: 10px;
-            border-radius: 8px;
-            min-width: 110px;
-            text-align: center;
-            flex: 1;
-        }
-
-        .stat-number {
-            font-weight: 700;
-        }
-
-        .stat-label {
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-        .button-group {
-            margin-top: 12px;
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .button-outline {
-            background: transparent;
-            border: 1px solid rgba(255,215,0,0.9);
-            color: var(--accent);
-        }
-
-        /* --- Visual Elements --- */
-        .about-intro-visual {
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            position: relative;
-        }
-
-        .about-intro-visual img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .image-caption {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            padding: 10px;
-            background: linear-gradient(180deg, transparent, rgba(0,0,0,0.7));
-            color: #fff;
-        }
-
-        .video-container {
-            aspect-ratio: 16/9;
-            width: 100%;
-            overflow: hidden;
-            border-radius: 12px;
-            background: #000;
-        }
-
-        .smart-video, .showcase-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 12px;
-        }
-
-        /* --- Bento Grid --- */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            align-items: stretch;
-            width: 100%;
-            max-width: 760px;
-            margin: 0 auto;
-        }
-
-        .bento-main {
-            grid-column: 1 / span 3;
-            grid-row: 1 / span 3;
-            min-height: 220px;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .bento-cell {
-            border-radius: 10px;
-            min-height: 80px;
-            background: #0b0b0b;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .bento-cell-1 {
-            background-image: url('./pl.avif');
-        }
-
-        .bento-cell-2 {
-            background-image: url('./pl2.avif');
-        }
-
-        .bento-cell-3 {
-            background-image: url('./logo (7).jpeg');
-        }
-
-        /* --- Showcase Grid --- */
-        .showcase-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-auto-rows: minmax(120px, auto);
-            gap: 8px;
-            margin-top: 18px;
-        }
-
-        .showcase-main {
-            grid-column: 1 / span 2;
-            border-radius: 12px;
-            overflow: hidden;
-            min-height: 200px;
-        }
-
-        .showcase-item {
-            border-radius: 12px;
-            overflow: hidden;
-            background-size: cover;
-            background-position: center;
-            height: 120px;
-            display: flex;
-            align-items: flex-end;
-            position: relative;
-        }
-
-        .item-overlay {
-            padding: 10px;
-            width: 100%;
-            background: linear-gradient(180deg, transparent, rgba(0,0,0,0.7));
-            color: #fff;
-        }
-
-        /* --- Vision & Mission --- */
-        .vision-mission {
-            padding: 24px 0;
-        }
-
-        .vision-mission-grid {
-            display: grid;
-            gap: 12px;
-        }
-
-        .vision-mission-item {
-            background: rgba(255,255,255,0.02);
-            padding: 12px;
-            border-radius: 10px;
-        }
-
-        /* --- Premium Benefits --- */
-        .premium-benefits {
-            padding: 36px 0;
-            background: linear-gradient(180deg, #050505, #0b0b0b);
-            color: var(--white);
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 18px;
-        }
-
-        .benefit-card {
-            display: flex;
-            gap: 12px;
-            padding: 14px;
-            background: rgba(255,255,255,0.02);
-            border-radius: 12px;
-            align-items: flex-start;
-        }
-
-        .icon-wrapper {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(212,175,55,0.03));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold);
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .benefit-content h4 {
-            margin: 0 0 6px;
-        }
-
-        .benefit-content p {
-            margin: 0;
-            color: var(--muted);
-        }
-
-        .benefit-stats {
-            display: flex;
-            gap: 8px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
-
-        .benefit-stat {
-            flex: 1;
-            min-width: 120px;
-            background: rgba(255,255,255,0.02);
-            padding: 12px;
-            border-radius: 10px;
-        }
-
-        /* --- Footer --- */
-        footer {
-            padding: 28px 0;
-            text-align: center;
-            color: var(--muted);
-        }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .footer-logo {
-            font-weight: 700;
-        }
-
-        .footer-tagline {
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        .copyright {
-            margin-top: 8px;
-            color: var(--muted);
-            font-size: 0.85rem;
-        }
-
-        /* --- Music Controls --- */
-        #music-controls {
+<!-- Background Music Player -->
+<audio id="bgMusic" loop>
+    <source src="mm2.mp3" type="audio/mpeg">
+    <source src="mm2.mp3" type="audio/ogg">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    // Wait for the page to fully load
+    window.addEventListener('load', function() {
+        const bgMusic = document.getElementById('bgMusic');
+        
+        // Try to play the music automatically
+        const playPromise = bgMusic.play();
+        
+        // Handle autoplay restrictions
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                console.log("Autoplay prevented:", error);
+                // Create a fallback play button
+                createMusicControls();
+            });
+        }
+    });
+    
+    // Create visible controls if autoplay is blocked
+    function createMusicControls() {
+        const musicControls = document.createElement('div');
+        musicControls.id = 'music-controls';
+        musicControls.innerHTML = `
+            <button id="playMusicBtn">▶ Play Background Music</button>
+            <button id="muteMusicBtn">🔇 Mute</button>
+        `;
+        musicControls.style.cssText = `
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -538,474 +40,391 @@
             padding: 10px;
             border-radius: 5px;
             border: 1px solid var(--teal-primary);
+        `;
+        
+        document.body.appendChild(musicControls);
+        
+        document.getElementById('playMusicBtn').addEventListener('click', function() {
+            document.getElementById('bgMusic').play();
+            musicControls.style.display = 'none';
+        });
+        
+        document.getElementById('muteMusicBtn').addEventListener('click', function() {
+            musicControls.style.display = 'none';
+        });
+    }
+</script>
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AURELUM P LTD — Energy & Minerals</title>
+    <meta name="description" content="AURELUM P LTD — international trade and logistics of petroleum products, LPG, naphtha and precious minerals." />
+    <link rel="icon" href="logo (8).jpeg" />
+
+    <!-- Performance: preconnect / preload critical assets -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preload" href="./gtt-6.jpg" as="image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+
+    <style>
+        /* Consolidated, mobile-first CSS with variables */
+        :root{
+            --bg:#000; --panel:#0b0b0b; --muted:#cfcfcf; --gold:#d4af37; --accent:#ffd700; --white:#fff;
+            --container-gap:16px; --max-width:1200px;
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%;margin:0;background:var(--bg);color:var(--white);font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
+        a{color:inherit;text-decoration:none}
+        .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 var(--container-gap)}
+
+        header{position:sticky;top:0;z-index:1000;background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.85));backdrop-filter:blur(6px);padding:10px 0}
+        .header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+        .logo{display:flex;align-items:center;gap:10px}
+        .logo img{height:44px;border-radius:8px}
+        nav{display:flex;gap:18px;align-items:center}
+        nav a{font-weight:600;letter-spacing:.6px;padding:8px;border-radius:6px}
+        nav a.active{color:var(--accent)}
+        .mobile-toggle{display:none;border:0;background:transparent;color:var(--white);font-size:1.25rem}
+
+        /* Hero */
+        .hero{min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:48px 0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.65)) url('./gtt-6.jpg') center/cover no-repeat}
+        .hero .content{padding:8px 12px;max-width:920px}
+        .hero h1{font-size:clamp(1.6rem,4vw,2.8rem);color:var(--gold);margin:.25rem 0}
+        .hero p{color:var(--muted);margin:.75rem 0;font-size:1rem;line-height:1.6}
+        .btn{display:inline-flex;gap:10px;padding:10px 18px;border-radius:999px;background:var(--gold);color:#000;font-weight:700}
+
+        /* Sections */
+        section{padding:48px 0}
+        .section-title{margin:12px 0 24px;text-align:center}
+        .grid{display:grid;gap:18px}
+        .two-col{grid-template-columns:repeat(2,1fr)}
+        .card{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px}
+
+        /* Bento/video */
+        .bento{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;align-items:stretch}
+        .bento-main{grid-column:1/span3;border-radius:12px;overflow:hidden;min-height:220px}
+        .bento-cell{border-radius:10px;min-height:80px;background-size:cover;background-position:center}
+
+        /* Footer */
+        footer{background:var(--panel);padding:32px 0;color:var(--muted);font-size:.95rem}
+
+        /* Responsive */
+        @media (max-width:900px){
+            .two-col{grid-template-columns:1fr}
+            nav{display:none}
+            .mobile-toggle{display:block}
+            .bento{grid-template-columns:repeat(2,1fr)}
+            .bento-main{grid-column:1/span2}
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <div class="logo" aria-label="AURELUM Logo">
+                <img src="logo (8).jpeg" alt="AURELUM">
+                <div>
+                    <div style="font-weight:700;color:var(--gold)">AURELUM P LTD</div>
+                    <small style="color:var(--muted);font-size:.8rem">Energy & Minerals for a Connected Future</small>
+                </div>
+            </div>
+
+            <nav aria-label="Main navigation">
+                     
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="commit.html">Commitment</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                
+            </nav>
+
+            <button class="mobile-toggle" aria-expanded="false" aria-controls="nav">☰</button>
+        </div>
+    </header>
+
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Hero Section with Background Image */
+        .hero {
+            position: relative;
+            height: 100vh;
             display: flex;
-            gap: 8px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
         }
-
-        #music-controls button {
-            background: var(--gold);
+        
+        /* Background Image with Overlay */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('./gtt\ \(6\).jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -2;
+        }
+        
+        /* Dark Overlay for Better Text Readability */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+        
+        /* Container for Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero .content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #e6b400;
             color: #000;
-            border: none;
-            padding: 8px 12px;
+            padding: 12px 30px;
+            text-decoration: none;
             border-radius: 4px;
-            cursor: pointer;
             font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
-        /* --- Accessibility & Touch Targets --- */
-        button, .cta-button, .submit-btn {
-            min-height: var(--touch-size);
-            min-width: 88px;
+        
+        .btn:hover {
+            background-color: #ffcc00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
-
-        /* --- Responsive Design --- */
-        @media (min-width: 720px) {
-            .header-inner {
-                padding: 0;
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
             }
-
-            .nav-links {
-                position: static;
-                transform: none;
-                display: flex;
-                flex-direction: row;
-                background: transparent;
-                padding: 0;
-                gap: 18px;
-            }
-
-            .hamburger {
-                display: none;
-            }
-
-            .nav-links a {
-                padding: 8px 0;
-                text-transform: none;
-            }
-
-            .hero {
-                padding: 80px 0;
-                height: 60vh;
-                background-attachment: fixed;
-            }
-
-            .hero h2 {
-                font-size: 2.6rem;
-            }
-
+            
             .hero p {
-                font-size: 1.05rem;
-            }
-
-            .about-container {
-                flex-direction: row;
-                gap: 28px;
-            }
-
-            .about-intro-grid {
-                flex: 1;
-            }
-
-            .about-intro-visual {
-                max-width: 480px;
-            }
-
-            .bento-grid {
-                grid-template-columns: repeat(4, 1fr);
-                height: 360px;
-            }
-
-            .bento-main {
-                min-height: 100%;
-            }
-
-            .benefits-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 28px;
-                align-items: start;
-            }
-
-            .showcase-grid {
-                height: 420px;
-            }
-
-            .vision-mission-grid {
-                grid-template-columns: 1fr 1fr;
+                font-size: 1.1rem;
             }
         }
-
-        @media (max-width: 420px) {
-            :root {
-                --container-gap: 12px;
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
             }
-
-            .hero h2 {
-                font-size: 1.2rem;
-            }
-
+            
             .hero p {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
-
-            .cta-button {
-                padding: 10px 14px;
-                font-size: 0.9rem;
-            }
-
-            .about-features-list {
-                gap: 8px;
-            }
-
-            .icon-wrapper {
-                width: 44px;
-                height: 44px;
-            }
-
-            .benefit-card {
-                padding: 12px;
-            }
-
-            .showcase-item {
-                height: 110px;
-            }
-
-            .bento-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .bento-main {
-                grid-column: 1 / span 2;
-                min-height: 180px;
-            }
-
-            .nav-links a {
-                padding: 14px;
-                border-radius: 10px;
-            }
-
-            .button-group {
-                flex-direction: column;
-            }
-        }
-
-        /* --- Performance Optimizations --- */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
-        /* --- Print Styles --- */
-        @media print {
-            .nav-links, .hamburger, #music-controls {
-                display: none !important;
+            
+            .btn {
+                padding: 10px 25px;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Background Music Player -->
-    <audio id="bgMusic" loop preload="none">
-        <source src="mm2.mp3" type="audio/mpeg">
-        <source src="mm2.ogg" type="audio/ogg">
-        Your browser does not support the audio element.
-    </audio>
-
-    <!-- Header -->
-    <header>
-        <div class="container header-inner">
-            <div class="logo">
-                <img src="logo (8).jpeg" alt="AURELUM Logo" width="40" height="40">
-                <h1>AURELUM</h1>
-            </div>
-
-            <button class="hamburger" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
-
-            <nav class="nav-links" aria-label="Primary navigation">
-                <a href="index.html">Home</a>
-                <a href="about.html" class="active">About</a>
-                <a href="services.html">Services</a>
-                <a href="commit.html">Commitment</a>
-                <a href="contact.html">Contact</a>
-                <a href="contact.html" class="nav-cta">Get Quote</a>
-            </nav>
-        </div>
-    </header>
-
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1 style="font-weight:800;margin-bottom:6px;">Aurelum Petroleum LTD</h1>
-            <p>We are a private company specializing in international trade and logistics of petroleum, LPG, Naphtha, and minerals. <strong style="color:var(--accent)">Transparent, efficient, sustainable</strong> supply chains across Africa, Europe and global markets.</p>
-            <div style="margin-top:12px">
-                <a href="about.html" class="cta-button">Learn More</a>
+    <main>
+        <section id="home" class="hero">
+            <div class="container content">
+                <h1>AURELUM Petroleum LTD</h1>
+                <p>We specialise in international trade and logistics of petroleum products, LPG, naphtha and precious minerals — transparent, efficient and sustainable supply chains across Africa, Europe and global markets.</p>
+                <a class="btn" href="#about">Learn More</a>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
+</body>
+</html>
 
-    <!-- About Us Section -->
-    <section id="about" class="about-section">
-        <div class="container about-container">
-            <div class="about-intro-grid">
-                <div class="about-intro-text">
-                    <h2 class="about-title">About Us</h2>
-                    <p class="about-description">AURELUM P LTD connects African resource potential with global demand. With operational bases in Accra, Tema and Düsseldorf, we specialise in international trade and logistics of petroleum, LPG, naphtha and precious minerals. Our operations prioritise compliance, traceability and ESG-aligned practices.</p>
+        <!-- About -->
+        <section id="about" class="container">
+            <div class="section-title"><h2>About Us</h2></div>
 
-                    <ul class="about-features-list">
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Certified commodity sourcing and strict due diligence</li>
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> End‑to‑end logistics: port coordination, customs, warehousing</li>
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Long‑term partnerships focused on sustainable impact</li>
+            <div class="grid two-col" style="align-items:start">
+                <div>
+                    <h3 style="color:var(--gold)">Who we are</h3>
+                    <p style="color:var(--muted)">AURELUM P LTD connects African resource potential with global demand. With bases in Accra, Tema and Düsseldorf we provide certified commodity sourcing, logistics and traceable ESG-aligned operations.</p>
+
+                    <ul style="color:var(--muted);list-style:none;padding:0;margin:1rem 0;display:grid;gap:.5rem">
+                        <li>• Certified commodity sourcing & due diligence</li>
+                        <li>• End-to-end logistics & customs coordination</li>
+                        <li>• Long-term partnerships & regulatory compliance</li>
                     </ul>
 
-                    <div class="stats-container">
-                        <div class="stat-box">
-                            <div class="stat-number">20+</div>
-                            <div class="stat-label">Years Combined</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-number">3</div>
-                            <div class="stat-label">Regional Bases</div>
-                        </div>
-                        <div class="stat-box">
-                            <div class="stat-number">Global</div>
-                            <div class="stat-label">Market Access</div>
-                        </div>
-                    </div>
-
-                    <div class="button-group">
-                        <a href="contact.html" class="cta-button">Request Proposal</a>
-                        <a href="services.html" class="cta-button button-outline">Our Services</a>
+                    <div style="display:flex;gap:10px;flex-wrap:wrap">
+                        <a class="btn" href="#contact">Request Proposal</a>
+                        <a class="btn" href="services.html" style="background:transparent;border:1px solid rgba(255,215,0,.8);color:var(--gold)">Our Services</a>
                     </div>
                 </div>
-            </div>
 
-            <div class="about-intro-visual">
-                <img src="gtt (3).jpg" alt="Aurelum operations" width="600" height="400">
-                <div class="image-caption">
-                    <div style="font-weight:700">Trusted energy & minerals logistics</div>
-                    <div style="font-size:12px;color:var(--muted)">Serving Africa, Europe and global markets</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Showcase -->
-        <div class="container">
-            <div class="showcase-grid">
-                <div class="showcase-main">
-                    <div class="video-container">
-                        <video autoplay loop muted playsinline class="showcase-video" aria-label="Company operations video">
-                            <source src="https://cdn.pixabay.com/video/2024/07/08/220153_tiny.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
+                <div>
+                    <div class="card" style="padding:0;overflow:hidden;border-radius:12px">
+                        <video class="smart-video" autoplay loop muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block">
+                            <source src="https://cdn.pixabay.com/video/2023/02/23/151817-801681453_tiny.mp4" type="video/mp4">
                         </video>
                     </div>
                 </div>
-
-                <div class="showcase-item" style="background-image:url('./gtt (7).jpg')">
-                    <div class="item-overlay">Secure Supply Chains</div>
-                </div>
-
-                <div class="showcase-item" style="background-image:url('./gtt (9).jpg')">
-                    <div class="item-overlay">Global Market Access</div>
-                </div>
-
-                <div class="showcase-item" style="background-image:url('./gtt (5).jpg')">
-                    <div class="item-overlay">Traceable Minerals</div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Vision & Mission -->
-    <section class="vision-mission">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Vision & Mission</h2>
-            </div>
-            <div class="vision-mission-grid">
-                <div class="vision-mission-item">
-                    <strong>Vision:</strong> To be the Africa-Europe bridge in energy and mineral trading—integrity, innovation, sustainable growth.
-                </div>
-                <div class="vision-mission-item">
-                    <strong>Mission:</strong> Bridge sectors with transparent, efficient, sustainable supply chains.
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Core expertise (Premium Benefits simplified) -->
+        <section id="services" style="background:linear-gradient(180deg,#050505,#0b0b0b);">
+            <div class="container">
+                <div class="section-title"><h2 style="color:var(--gold)">Our Core Expertise</h2></div>
 
-    <!-- Premium Benefits -->
-    <section class="premium-benefits" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Core Expertise</h2>
-                <p style="color:var(--muted);margin-top:6px;font-size:0.95rem">Operational excellence across energy, minerals and logistics.</p>
-            </div>
-
-            <div class="benefits-grid">
-                <div>
-                    <div class="benefit-card">
-                        <div class="icon-wrapper">
-                            <i class="fas fa-oil-can" aria-hidden="true"></i>
-                        </div>
-                        <div class="benefit-content">
+                <div class="grid two-col">
+                    <div>
+                        <div class="card">
                             <h4>Petroleum Trading</h4>
-                            <p>Supply of crude, diesel, gasoline with certified quality and secure logistics.</p>
+                            <p style="color:var(--muted)">Supply of refined and specialty petroleum products with certified quality and secure logistics.</p>
                         </div>
-                    </div>
-                    
-                    <div class="benefit-card">
-                        <div class="icon-wrapper">
-                            <i class="fas fa-fire" aria-hidden="true"></i>
-                        </div>
-                        <div class="benefit-content">
+                        <div class="card" style="margin-top:12px">
                             <h4>LPG & Naphtha</h4>
-                            <p>Sourcing and delivery for industrial and government clients.</p>
+                            <p style="color:var(--muted)">Reliable sourcing and delivery for industrial clients and governments.</p>
                         </div>
-                    </div>
-                    
-                    <div class="benefit-card">
-                        <div class="icon-wrapper">
-                            <i class="fas fa-gem" aria-hidden="true"></i>
-                        </div>
-                        <div class="benefit-content">
+                        <div class="card" style="margin-top:12px">
                             <h4>Precious Minerals</h4>
-                            <p>Vetted trading with due-diligence and traceability.</p>
+                            <p style="color:var(--muted)">Vetted mineral trading with compliance and traceability embedded.</p>
                         </div>
                     </div>
 
-                    <div style="margin-top:14px">
-                        <a href="contact.html" class="cta-button">Request a Proposal</a>
-                    </div>
-                </div>
-
-                <div>
-                    <div style="border-radius:12px;overflow:hidden">
-                        <div class="video-container">
-                            <video autoplay loop muted playsinline class="smart-video" aria-label="Energy operations video">
+                    <div>
+                        <div class="card bento-main" style="min-height:300px">
+                            <video autoplay muted loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover">
                                 <source src="https://cdn.pixabay.com/video/2024/07/08/220153_tiny.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
                             </video>
                         </div>
                     </div>
-
-                    <div class="benefit-stats">
-                        <div class="benefit-stat">
-                            <strong>Secure</strong>
-                            <div style="color:var(--muted)">Traceable supply chains</div>
-                        </div>
-                        <div class="benefit-stat">
-                            <strong>Global</strong>
-                            <div style="color:var(--muted)">Market access</div>
-                        </div>
-                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="container">
+            <div class="section-title"><h2>Contact Us</h2></div>
+            <div class="grid two-col">
+                <div>
+                    <div class="card">
+                        <h4>Offices</h4>
+                        <p style="color:var(--muted)">Ghana: Tema–Accra Energy Corridor — Germany: Düsseldorf</p>
+                        <p style="color:var(--muted)">Email: <a href="mailto:contact@aurelumgroup.com">contact@aurelumgroup.com</a></p>
+                        <p style="color:var(--muted)">Phone: +233 24 712 4203 • +49 211 16366233</p>
+                    </div>
+                </div>
+
+                <div>
+                    <form class="card" id="contactForm" aria-label="Contact form">
+                        <label for="name">Name</label>
+                        <input id="name" name="name" required style="width:100%;padding:10px;margin:.5rem 0;border-radius:6px;border:1px solid #333;background:#0b0b0b;color:var(--white)">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" required style="width:100%;padding:10px;margin:.5rem 0;border-radius:6px;border:1px solid #333;background:#0b0b0b;color:var(--white)">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required style="width:100%;padding:10px;margin:.5rem 0;border-radius:6px;border:1px solid #333;background:#0b0b0b;color:var(--white)"></textarea>
+                        <button type="submit" class="btn" style="display:inline-block">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">AURELUM P LTD</div>
-                <div class="footer-tagline">Energy & Minerals for a Connected Future</div>
-                <div class="copyright">&copy; 2026 AURELUM P LTD. All Rights Reserved.</div>
+        <div class="container" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between">
+            <div>
+                <strong>AURELUM P LTD</strong>
+                <div style="color:var(--muted);font-size:.9rem">© <span id="year"></span> All rights reserved</div>
+            </div>
+            <div style="display:flex;gap:10px">
+                <a href="#" aria-label="LinkedIn" style="color:var(--muted)"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="Twitter" style="color:var(--muted)"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Facebook" style="color:var(--muted)"><i class="fab fa-facebook-f"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- Non-blocking scripts: minimal JS for interactions -->
     <script>
-        // Wait for the page to fully load
-        window.addEventListener('load', function() {
-            const bgMusic = document.getElementById('bgMusic');
-            
-            // Try to play the music automatically
-            const playPromise = bgMusic.play();
-            
-            // Handle autoplay restrictions
-            if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.log("Autoplay prevented:", error);
-                    // Create a fallback play button
-                    createMusicControls();
-                });
-            }
-            
-            // Initialize other functionality
-            initNavigation();
-            initVideoOptimizations();
+        // Footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile nav toggle (progressive enhancement)
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        mobileToggle && mobileToggle.addEventListener('click', () => {
+            const nav = document.querySelector('nav');
+            const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+            mobileToggle.setAttribute('aria-expanded', !expanded);
+            nav.style.display = expanded ? '' : 'flex';
         });
-        
-        // Create visible controls if autoplay is blocked
-        function createMusicControls() {
-            const musicControls = document.createElement('div');
-            musicControls.id = 'music-controls';
-            musicControls.innerHTML = `
-                <button id="playMusicBtn">▶ Play Background Music</button>
-                <button id="muteMusicBtn">🔇 Mute</button>
-            `;
-            
-            document.body.appendChild(musicControls);
-            
-            document.getElementById('playMusicBtn').addEventListener('click', function() {
-                document.getElementById('bgMusic').play();
-                musicControls.style.display = 'none';
-            });
-            
-            document.getElementById('muteMusicBtn').addEventListener('click', function() {
-                musicControls.style.display = 'none';
-            });
-        }
-        
-        // Initialize navigation functionality
-        function initNavigation() {
-            const hamburger = document.querySelector('.hamburger');
-            const nav = document.querySelector('.nav-links');
-            
-            if (hamburger && nav) {
-                hamburger.addEventListener('click', function() {
-                    const isOpen = nav.classList.toggle('open');
-                    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                    document.body.style.overflow = isOpen ? 'hidden' : '';
-                });
-                
-                // Close when a nav link is clicked (mobile)
-                nav.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        nav.classList.remove('open');
-                        hamburger.setAttribute('aria-expanded', 'false');
-                        document.body.style.overflow = '';
-                    });
-                });
-            }
-            
-            // Improve scroll-to-anchor behavior
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        e.preventDefault();
-                        const top = target.getBoundingClientRect().top + window.scrollY - 70;
-                        window.scrollTo({top, behavior: 'smooth'});
-                    }
-                });
-            });
-        }
-        
-        // Optimize video playback for mobile
-        function initVideoOptimizations() {
-            const isMobile = window.matchMedia && window.matchMedia('(pointer:coarse)').matches;
-            if (isMobile) {
-                document.querySelectorAll('video[autoplay]').forEach(v => { 
-                    v.setAttribute('muted', '');
-                    v.setAttribute('playsinline', '');
-                });
-            }
-        }
+
+        // Simple form submit (placeholder)
+        document.getElementById('contactForm').addEventListener('submit', function(e){
+            e.preventDefault();
+            alert('Thanks — your message was sent.');
+            this.reset();
+        });
+
+        // Debounced header scroll class (lightweight)
+        (function(){
+            const header = document.querySelector('header');
+            let t;
+            window.addEventListener('scroll', () => {
+                clearTimeout(t);
+                t = setTimeout(() => {
+                    header.classList.toggle('scrolled', window.scrollY > 40);
+                }, 50);
+            }, {passive:true});
+        })();
     </script>
 </body>
 </html>
