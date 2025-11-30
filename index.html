@@ -1,66 +1,8 @@
-<!-- Background Music Player -->
-<audio id="bgMusic" loop>
-    <source src="mm2.mp3" type="audio/mpeg">
-    <source src="mm2.mp3" type="audio/ogg">
-    Your browser does not support the audio element.
-</audio>
-
-<script>
-    // Wait for the page to fully load
-    window.addEventListener('load', function() {
-        const bgMusic = document.getElementById('bgMusic');
-        
-        // Try to play the music automatically
-        const playPromise = bgMusic.play();
-        
-        // Handle autoplay restrictions
-        if (playPromise !== undefined) {
-            playPromise.catch(error => {
-                console.log("Autoplay prevented:", error);
-                // Create a fallback play button
-                createMusicControls();
-            });
-        }
-    });
-    
-    // Create visible controls if autoplay is blocked
-    function createMusicControls() {
-        const musicControls = document.createElement('div');
-        musicControls.id = 'music-controls';
-        musicControls.innerHTML = `
-            <button id="playMusicBtn">▶ Play Background Music</button>
-            <button id="muteMusicBtn">🔇 Mute</button>
-        `;
-        musicControls.style.cssText = `
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 10000;
-            background: rgba(10, 20, 22, 0.9);
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid var(--teal-primary);
-        `;
-        
-        document.body.appendChild(musicControls);
-        
-        document.getElementById('playMusicBtn').addEventListener('click', function() {
-            document.getElementById('bgMusic').play();
-            musicControls.style.display = 'none';
-        });
-        
-        document.getElementById('muteMusicBtn').addEventListener('click', function() {
-            musicControls.style.display = 'none';
-        });
-    }
-</script>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>AURELUM P LTD - Energy & Minerals for a Connected Future</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -78,13 +20,14 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Times New Roman', Times, ;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
             background-color: var(--primary-black);
             color: var(--light-text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         .container {
@@ -129,17 +72,19 @@
             position: relative;
         }
         
+        .logo img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
         .logo h1 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--accent-yellow);
             margin-left: 10px;
             font-weight: 700;
             letter-spacing: 0.5px;
-        }
-        
-        .logo-icon {
-            color: var(--accent-yellow);
-            font-size: 2rem;
         }
         
         .logo::after {
@@ -235,7 +180,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./gtt\ \(6\).jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./gtt (6).jpg');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -251,9 +196,10 @@
         }
         
         .hero h2 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
             color: var(--light-text);
+            font-weight: 700;
         }
         
         .hero p {
@@ -596,6 +542,217 @@
             font-size: 0.9rem;
         }
         
+        /* About Us Section Styling */
+        .about-section {
+            padding: 5rem 2rem;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #f5f5f5;
+        }
+
+        .about-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            color: #ccc;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Grid Layout for Cards */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffd700; /* Gold accent */
+        }
+
+        .card-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        /* CTA Styling */
+        .about-cta {
+            margin: 3rem 0;
+        }
+
+        .cta-tagline {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #ffd700;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            padding: 12px 30px;
+            background: #ffd700;
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: #ffd700;
+            border: 2px solid #ffd700;
+        }
+
+        .cta-button:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        /* Features Section */
+        .features-section {
+            margin-top: 4rem;
+            text-align: left;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #ffd700;
+            text-align: center;
+        }
+
+        .features-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        .features-list li:before {
+            content: "•";
+            color: #ffd700;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -3px;
+        }
+        
+        /* Services Intro Section */
+        .services-intro {
+            background-color: var(--secondary-black);
+        }
+        
+        .services-intro-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .services-intro-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+        
+        .services-intro-text h4 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-yellow);
+        }
+        
+        .services-intro-text p {
+            margin-bottom: 15px;
+        }
+        
+        .services-intro-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background: url('./gtt (7).jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Services Grid Section */
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .service-features li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-features li i {
+            color: var(--accent-yellow);
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-container {
@@ -631,7 +788,7 @@
             }
             
             .hero h2 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .about-text, .about-image {
@@ -645,16 +802,78 @@
                 padding-right: 0;
                 margin-bottom: 30px;
             }
+            
+            .services-intro-text, .services-intro-image {
+                flex: 100%;
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .about-title {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                height: 70vh;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .about-title {
+                font-size: 1.8rem;
+            }
+            
+            .logo h1 {
+                font-size: 1.2rem;
+            }
+            
+            .logo img {
+                height: 40px;
+                width: 40px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button.secondary {
+                margin-left: 0;
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Background Music Player -->
+    <audio id="bgMusic" loop>
+        <source src="mm2.mp3" type="audio/mpeg">
+        <source src="mm2.mp3" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+
     <!-- Enhanced Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
-                <i> <img style="height: 1.9cm; border-radius: 50%;" src="logo (8).jpeg" alt="AURELUM Logo" </i>
-              
+                <img src="logo (8).jpeg" alt="AURELUM Logo">
+                <h1>AURELUM P LTD</h1>
             </div>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
@@ -675,27 +894,55 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <h2 style="font-family: 'Times New Roman',; font-weight: 800; color: #ffcc00;">Aurelum Petroleum LTD</h2>
-            <p  style="font-family: 'Times New Roman', Times,;" >International trade and logistics of petroleum products, with  <span class="hero-highlight">transparent, efficient, and sustainable</span> supply chains across Africa, Europe, and global markets.</p>
-            <a href="about.html" class="cta-button">Learn More </a>
+            <h2>Aurelum Petroleum LTD</h2>
+            <p>International trade and logistics of petroleum products, with <span class="hero-highlight">transparent, efficient, and sustainable</span> supply chains across Africa, Europe, and global markets.</p>
+            <a href="about.html" class="cta-button">Learn More</a>
         </div>
     </section>
-<!-- About Us Section -->
 
-
-
- <!-- Page Hero Section -->
-    <BR><BR><BR> <section class="page-hero">
-        <div class="container">
-            <div class="page-hero-content">
-             
-
-                <p>  <div class="about-text">
-                <p>AURELUM P LTD operates at the intersection of energy, logistics, and resource management, enabling efficient value chains that support national development and international industry needs.</p>
-
-             
-
-                <p></p>
+    <!-- About Us Section -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <h2 class="about-title">About Us</h2>
+            <p class="about-description">
+                At <strong>AURELUM P LTD</strong> with bases in Accra, Tema, and Düsseldorf, our company aligns African resource potential with global demand. We operate with strict adherence to 
+                compliance, transparency, and ESG-aligned principles. We specialize in the international trade and logistics of petroleum products, LPG, Naphtha, and precious minerals. Our mission is to bridge the energy and mining sectors through transparent, efficient, and sustainable supply chains across Africa, Europe, and global markets.
+            </p>
+            
+            <div class="about-grid">
+                <!-- For Clients -->
+                <div class="about-card">
+                    <h3 class="card-title">For Clients</h3>
+                    <p class="card-text">
+                        Experience a <strong>commitment to reliability and compliance</strong> as we ensure that every transaction delivers value and strengthens industry connections. Partner with us for seamless access to energy resources that power growth.
+                    </p>
+                </div>
+                
+                <!-- For Partners -->
+                <div class="about-card">
+                    <h3 class="card-title">For Partners</h3>
+                    <p class="card-text">
+                        By collaborating with AURELUM P LTD, your business gains access to a <strong>network of sustainable practices</strong> and long-term partnerships that foster mutual growth and success in the energy and minerals sectors.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="about-cta">
+                <p class="cta-tagline"><strong>Energy that powers growth. Resources that build tomorrow.</strong></p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="cta-button">Become a Partner</a>
+                    <a href="contact.html" class="cta-button secondary">Learn More</a>
+                </div>
+            </div>
+            
+            <!-- Key Features -->
+            <div class="features-section">
+                <h3 class="features-title">Key Features</h3>
+                <ul class="features-list">
+                    <li><strong>Sustainable Practices:</strong> We prioritize eco-friendly methods in our operations.</li>
+                    <li><strong>Global Reach:</strong> Our logistics network spans across Africa, Europe, and beyond.</li>
+                    <li><strong>Long-Term Partnerships:</strong> We believe in building lasting relationships that drive success.</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -704,7 +951,7 @@
     <section class="services-intro">
         <div class="container">
             <div class="section-title">
-                <h5>Our Core Expertise</h5>
+                <h2>Our Core Expertise</h2>
             </div>
             <div class="services-intro-content">
                 <div class="services-intro-text">
@@ -719,7 +966,7 @@
     </section>
 
     <!-- Services Grid Section -->
-    <section class="services-grid">
+    <section class="services">
         <div class="container">
             <div class="section-title">
                 <h2>Our Services</h2>
@@ -795,608 +1042,6 @@
             </div>
         </div>
     </section>
-   
-
-   <style>
-        :root {
-            --primary-black: #000000;
-            --secondary-black: #1a1a1a;
-            --primary-blue: #003366;
-            --secondary-blue: #004c99;
-            --accent-yellow: #ffcc00;
-            --light-text: #f5f5f5;
-            --dark-text: #333333;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--primary-black);
-            color: var(--light-text);
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Enhanced Header & Navigation */
-        header {
-            background-color: rgba(0, 0, 0, 0.95);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-        
-        header.scrolled {
-            background-color: rgba(0, 0, 0, 0.98);
-            box-shadow: 0 5px 25px rgba(0, 51, 102, 0.3);
-            padding: 5px 0;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            transition: padding 0.3s ease;
-        }
-        
-        header.scrolled .header-container {
-            padding: 8px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-        
-        .logo h1 {
-            font-size: 1.8rem;
-            color: var(--accent-yellow);
-            margin-left: 10px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        
-        .logo-icon {
-            color: var(--accent-yellow);
-            font-size: 2rem;
-        }
-        
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-yellow), var(--primary-blue));
-            transition: width 0.5s ease;
-        }
-        
-        .logo:hover::after {
-            width: 100%;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 25px;
-            position: relative;
-        }
-        
-        nav ul li a {
-            color: var(--light-text);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-            padding: 8px 0;
-            position: relative;
-            font-size: 1rem;
-            letter-spacing: 0.3px;
-        }
-        
-        nav ul li a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-yellow), var(--primary-blue));
-            transition: width 0.3s ease;
-        }
-        
-        nav ul li a:hover {
-            color: var(--accent-yellow);
-        }
-        
-        nav ul li a:hover::before {
-            width: 100%;
-        }
-        
-        nav ul li a.active {
-            color: var(--accent-yellow);
-        }
-        
-        nav ul li a.active::before {
-            width: 100%;
-        }
-        
-        .nav-cta {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.4);
-        }
-        
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 51, 102, 0.6);
-            color: white;
-        }
-        
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            color: var(--light-text);
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        
-        .mobile-menu:hover {
-            color: var(--accent-yellow);
-        }
-        
-        /* Page Hero Section */
-        .page-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./jp\ \(3\).jpg');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            padding-top: 80px;
-        }
-        
-        .page-hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .page-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--light-text);
-        }
-        
-        .page-hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: var(--light-text);
-        }
-        
-        .hero-highlight {
-            color: var(--accent-yellow);
-            font-weight: bold;
-        }
-        
-        /* Section Styling */
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--accent-yellow);
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background-color: var(--accent-yellow);
-        }
-        
-        /* Services Intro Section */
-        .services-intro {
-            background-color: var(--secondary-black);
-        }
-        
-        .services-intro-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .services-intro-text {
-            flex: 1;
-            min-width: 300px;
-            padding-right: 30px;
-        }
-        
-        .services-intro-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--accent-yellow);
-        }
-        
-        .services-intro-text p {
-            margin-bottom: 15px;
-        }
-        
-        .services-intro-image {
-            flex: 1;
-            min-width: 300px;
-            height: 400px;
-            background: url('./gtt\ \(7\).jpg');
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-        }
-        
-        /* Services Grid Section */
-        .services-grid {
-            background-color: var(--primary-black);
-        }
-        
-        .services-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
-            background-color: var(--secondary-black);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-left: 4px solid var(--primary-blue);
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            border-left: 4px solid var(--accent-yellow);
-        }
-        
-        .service-icon {
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: var(--accent-yellow);
-            background-color: rgba(0, 51, 102, 0.1);
-        }
-        
-        .service-content {
-            padding: 25px;
-        }
-        
-        .service-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--light-text);
-        }
-        
-        .service-content p {
-            color: #cccccc;
-            margin-bottom: 20px;
-        }
-        
-        .service-features {
-            list-style: none;
-            margin-top: 20px;
-        }
-        
-        .service-features li {
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .service-features li i {
-            color: var(--accent-yellow);
-            margin-right: 10px;
-            font-size: 0.9rem;
-        }
-        
-        /* Process Section */
-        .process {
-            background-color: var(--secondary-black);
-        }
-        
-        .process-steps {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-top: 50px;
-            position: relative;
-        }
-        
-        .process-steps::before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--primary-blue);
-            z-index: 1;
-        }
-        
-        .process-step {
-            flex: 1;
-            min-width: 200px;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            padding: 0 15px;
-        }
-        
-        .step-number {
-            width: 80px;
-            height: 80px;
-            background-color: var(--primary-blue);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin: 0 auto 20px;
-            transition: all 0.3s;
-        }
-        
-        .process-step:hover .step-number {
-            background-color: var(--accent-yellow);
-            transform: scale(1.1);
-        }
-        
-        .step-title {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--accent-yellow);
-        }
-        
-        /* Industries Section */
-        .industries {
-            background-color: var(--primary-black);
-        }
-        
-        .industries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        
-        .industry-card {
-            background-color: var(--secondary-black);
-            border-radius: 8px;
-            padding: 30px 20px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .industry-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .industry-icon {
-            font-size: 2.5rem;
-            color: var(--accent-yellow);
-            margin-bottom: 20px;
-        }
-        
-        .industry-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--light-text);
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            text-align: center;
-            padding: 60px 0;
-        }
-        
-        .cta-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--light-text);
-        }
-        
-        .cta-section p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent-yellow);
-            color: var(--primary-black);
-            padding: 12px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-            border: 2px solid var(--accent-yellow);
-        }
-        
-        .cta-button:hover {
-            background-color: transparent;
-            color: var(--light-text);
-            border: 2px solid var(--light-text);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--secondary-black);
-            padding: 50px 0 20px;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 30px;
-        }
-        
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: var(--accent-yellow);
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column ul li a {
-            color: #cccccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-column ul li a:hover {
-            color: var(--accent-yellow);
-        }
-        
-        .social-links {
-            display: flex;
-            margin-top: 15px;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary-black);
-            border-radius: 50%;
-            margin-right: 10px;
-            color: var(--light-text);
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--primary-blue);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            color: #cccccc;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-container {
-                padding: 15px;
-            }
-            
-            nav {
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background-color: rgba(26, 26, 26, 0.98);
-                padding: 20px;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-                backdrop-filter: blur(10px);
-            }
-            
-            nav.active {
-                display: block;
-            }
-            
-            nav ul {
-                flex-direction: column;
-            }
-            
-            nav ul li {
-                margin: 10px 0;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .page-hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .services-intro-text, .services-intro-image {
-                flex: 100%;
-                padding-right: 0;
-                margin-bottom: 30px;
-            }
-            
-            .process-steps::before {
-                display: none;
-            }
-            
-            .process-step {
-                flex: 100%;
-                margin-bottom: 30px;
-            }
-        }
-    </style>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -1509,6 +1154,54 @@
     </footer>
 
     <script>
+        // Wait for the page to fully load
+        window.addEventListener('load', function() {
+            const bgMusic = document.getElementById('bgMusic');
+            
+            // Try to play the music automatically
+            const playPromise = bgMusic.play();
+            
+            // Handle autoplay restrictions
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log("Autoplay prevented:", error);
+                    // Create a fallback play button
+                    createMusicControls();
+                });
+            }
+        });
+        
+        // Create visible controls if autoplay is blocked
+        function createMusicControls() {
+            const musicControls = document.createElement('div');
+            musicControls.id = 'music-controls';
+            musicControls.innerHTML = `
+                <button id="playMusicBtn">▶ Play Background Music</button>
+                <button id="muteMusicBtn">🔇 Mute</button>
+            `;
+            musicControls.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 10000;
+                background: rgba(10, 20, 22, 0.9);
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid var(--teal-primary);
+            `;
+            
+            document.body.appendChild(musicControls);
+            
+            document.getElementById('playMusicBtn').addEventListener('click', function() {
+                document.getElementById('bgMusic').play();
+                musicControls.style.display = 'none';
+            });
+            
+            document.getElementById('muteMusicBtn').addEventListener('click', function() {
+                musicControls.style.display = 'none';
+            });
+        }
+
         // Mobile Menu Toggle
         document.querySelector('.mobile-menu').addEventListener('click', function() {
             document.querySelector('nav').classList.toggle('active');
@@ -1582,11 +1275,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
