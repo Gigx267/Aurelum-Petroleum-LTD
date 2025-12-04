@@ -1,80 +1,20 @@
-
-
-
-<!-- Background Music Player -->
-<audio id="bgMusic" loop>
-    <source src="mm.mp3" type="audio/mpeg">
-    <source src="mm.mp3" type="audio/ogg">
-    Your browser does not support the audio element.
-</audio>
-
-<script>
-    // Wait for the page to fully load
-    window.addEventListener('load', function() {
-        const bgMusic = document.getElementById('bgMusic');
-        
-        // Try to play the music automatically
-        const playPromise = bgMusic.play();
-        
-        // Handle autoplay restrictions
-        if (playPromise !== undefined) {
-            playPromise.catch(error => {
-                console.log("Autoplay prevented:", error);
-                // Create a fallback play button
-                createMusicControls();
-            });
-        }
-    });
-    
-    // Create visible controls if autoplay is blocked
-    function createMusicControls() {
-        const musicControls = document.createElement('div');
-        musicControls.id = 'music-controls';
-        musicControls.innerHTML = `
-            <button id="playMusicBtn">▶ Play Background Music</button>
-            <button id="muteMusicBtn">🔇 Mute</button>
-        `;
-        musicControls.style.cssText = `
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 10000;
-            background: rgba(10, 20, 22, 0.9);
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid var(--teal-primary);
-        `;
-        
-        document.body.appendChild(musicControls);
-        
-        document.getElementById('playMusicBtn').addEventListener('click', function() {
-            document.getElementById('bgMusic').play();
-            musicControls.style.display = 'none';
-        });
-        
-        document.getElementById('muteMusicBtn').addEventListener('click', function() {
-            musicControls.style.display = 'none';
-        });
-    }
-</script>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - AURELUM P LTD</title>
+    <title>About Us - AURELUM GROUP | Energy • Resources • Sustainability</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-black: #000000;
-            --secondary-black: #1a1a1a;
+            --primary-white: #ffffff;
+            --secondary-white: #f5f5f5;
+            --light-text: #333333;
+            --dark-text: #000000;
             --primary-blue: #003366;
             --secondary-blue: #004c99;
-            --accent-yellow: #ffcc00;
-            --light-text: #f5f5f5;
-            --dark-text: #333333;
+            --accent-gold: #cc9900;
+            --accent-green: #2e7d32;
         }
         
         * {
@@ -85,7 +25,7 @@
         }
         
         body {
-            background-color: var(--primary-black);
+            background-color: var(--primary-white);
             color: var(--light-text);
             line-height: 1.6;
         }
@@ -99,18 +39,18 @@
         
         /* Enhanced Header & Navigation */
         header {
-            background-color: rgba(0, 0, 0, 0.95);
+            background-color: rgba(255, 255, 255, 0.95);
             position: fixed;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
         
         header.scrolled {
-            background-color: rgba(0, 0, 0, 0.98);
-            box-shadow: 0 5px 25px rgba(0, 51, 102, 0.3);
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 25px rgba(0, 51, 102, 0.1);
             padding: 5px 0;
         }
         
@@ -134,14 +74,14 @@
         
         .logo h1 {
             font-size: 1.8rem;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
             margin-left: 10px;
             font-weight: 700;
             letter-spacing: 0.5px;
         }
         
         .logo-icon {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
             font-size: 2rem;
         }
         
@@ -152,7 +92,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--accent-yellow), var(--primary-blue));
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
             transition: width 0.5s ease;
         }
         
@@ -188,12 +128,12 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--accent-yellow), var(--primary-blue));
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
             transition: width 0.3s ease;
         }
         
         nav ul li a:hover {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         nav ul li a:hover::before {
@@ -201,7 +141,7 @@
         }
         
         nav ul li a.active {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         nav ul li a.active::before {
@@ -209,18 +149,18 @@
         }
         
         .nav-cta {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
             color: white;
             padding: 10px 20px;
             border-radius: 5px;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.2);
         }
         
         .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 51, 102, 0.6);
+            box-shadow: 0 6px 20px rgba(0, 51, 102, 0.3);
             color: white;
         }
         
@@ -233,15 +173,15 @@
         }
         
         .mobile-menu:hover {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         /* Page Hero Section */
         .page-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./gtt\ \(6\).jpg');
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('./gtt\ \(6\).jpg');
             background-size: cover;
             background-position: center;
-            height: 60vh;
+            height: 50vh;
             display: flex;
             align-items: center;
             text-align: center;
@@ -256,7 +196,14 @@
         .page-hero h1 {
             font-size: 3rem;
             margin-bottom: 20px;
-            color: var(--light-text);
+            color: var(--dark-text);
+        }
+        
+        .page-hero .tagline {
+            font-size: 1.4rem;
+            color: var(--accent-green);
+            font-weight: 600;
+            margin-bottom: 15px;
         }
         
         .page-hero p {
@@ -266,7 +213,7 @@
         }
         
         .hero-highlight {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
             font-weight: bold;
         }
         
@@ -283,7 +230,7 @@
         
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
             display: inline-block;
             padding-bottom: 10px;
         }
@@ -296,12 +243,12 @@
             transform: translateX(-50%);
             width: 100px;
             height: 3px;
-            background-color: var(--accent-yellow);
+            background-color: var(--accent-green);
         }
         
         /* About Intro Section */
         .about-intro {
-            background-color: var(--secondary-black);
+            background-color: var(--secondary-white);
         }
         
         .about-intro-content {
@@ -320,11 +267,12 @@
         .about-intro-text h3 {
             font-size: 1.8rem;
             margin-bottom: 20px;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         .about-intro-text p {
             margin-bottom: 15px;
+            color: #555555;
         }
         
         .about-intro-image {
@@ -335,12 +283,12 @@
             background-size: cover;
             background-position: center;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         /* Vision & Mission Section */
         .vision-mission {
-            background-color: var(--primary-black);
+            background-color: var(--primary-white);
         }
         
         .vision-mission-grid {
@@ -350,7 +298,7 @@
         }
         
         .vision-card, .mission-card {
-            background-color: var(--secondary-black);
+            background-color: var(--secondary-white);
             border-radius: 10px;
             padding: 30px;
             transition: transform 0.3s, box-shadow 0.3s;
@@ -359,29 +307,29 @@
         
         .vision-card:hover, .mission-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            border-left: 4px solid var(--accent-yellow);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--accent-green);
         }
         
         .vision-icon, .mission-icon {
             font-size: 2.5rem;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
             margin-bottom: 20px;
         }
         
         .vision-card h3, .mission-card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
-            color: var(--light-text);
+            color: var(--dark-text);
         }
         
         .vision-card p, .mission-card p {
-            color: #cccccc;
+            color: #555555;
         }
         
         /* Our Identity Section */
         .identity {
-            background-color: var(--secondary-black);
+            background-color: var(--secondary-white);
         }
         
         .identity-content {
@@ -393,6 +341,7 @@
         .identity-content p {
             margin-bottom: 30px;
             font-size: 1.1rem;
+            color: #555555;
         }
         
         .identity-list {
@@ -403,21 +352,32 @@
         }
         
         .identity-item {
-            background-color: var(--primary-black);
+            background-color: var(--primary-white);
             padding: 20px;
             border-radius: 5px;
-            border-top: 3px solid var(--primary-blue);
+            border-top: 3px solid var(--accent-green);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
         }
         
         .identity-item i {
-            color: var(--accent-yellow);
+            color: var(--accent-green);
             font-size: 1.5rem;
             margin-bottom: 15px;
         }
         
+        .identity-item h4 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+        
+        .identity-item p {
+            color: #666666;
+            font-size: 0.95rem;
+        }
+        
         /* Our Commitment Section */
         .commitment {
-            background-color: var(--primary-black);
+            background-color: var(--primary-white);
         }
         
         .commitment-content {
@@ -434,17 +394,19 @@
             align-items: flex-start;
             margin-bottom: 25px;
             padding: 20px;
-            background-color: var(--secondary-black);
+            background-color: var(--secondary-white);
             border-radius: 8px;
             transition: transform 0.3s;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
         }
         
         .commitment-item:hover {
             transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         .commitment-icon {
-            color: var(--accent-yellow);
+            color: var(--accent-green);
             font-size: 1.5rem;
             margin-right: 20px;
             flex-shrink: 0;
@@ -453,12 +415,16 @@
         .commitment-text h4 {
             font-size: 1.3rem;
             margin-bottom: 10px;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
+        }
+        
+        .commitment-text p {
+            color: #666666;
         }
         
         /* Our Strength Section */
         .strength {
-            background-color: var(--secondary-black);
+            background-color: var(--secondary-white);
         }
         
         .strength-content {
@@ -477,11 +443,12 @@
         .strength-text h3 {
             font-size: 1.8rem;
             margin-bottom: 20px;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         .strength-text p {
             margin-bottom: 15px;
+            color: #555555;
         }
         
         .strength-image {
@@ -492,7 +459,56 @@
             background-size: cover;
             background-position: center;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Leadership Section */
+        .leadership {
+            background-color: var(--primary-white);
+        }
+        
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .leader-card {
+            background-color: var(--secondary-white);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .leader-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+        
+        .leader-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+        }
+        
+        .leader-card .position {
+            color: var(--accent-green);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .leader-card p {
+            color: #666666;
+            font-size: 0.95rem;
         }
         
         /* CTA Section */
@@ -505,7 +521,7 @@
         .cta-section h2 {
             font-size: 2.2rem;
             margin-bottom: 20px;
-            color: var(--light-text);
+            color: white;
         }
         
         .cta-section p {
@@ -514,29 +530,30 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            color: rgba(255, 255, 255, 0.9);
         }
         
         .cta-button {
             display: inline-block;
-            background-color: var(--accent-yellow);
-            color: var(--primary-black);
+            background-color: white;
+            color: var(--primary-blue);
             padding: 12px 30px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s;
-            border: 2px solid var(--accent-yellow);
+            border: 2px solid white;
         }
         
         .cta-button:hover {
             background-color: transparent;
-            color: var(--light-text);
-            border: 2px solid var(--light-text);
+            color: white;
+            border: 2px solid white;
         }
         
         /* Footer */
         footer {
-            background-color: var(--secondary-black);
+            background-color: var(--secondary-white);
             padding: 50px 0 20px;
         }
         
@@ -556,7 +573,7 @@
         .footer-column h3 {
             font-size: 1.3rem;
             margin-bottom: 20px;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         .footer-column ul {
@@ -568,13 +585,13 @@
         }
         
         .footer-column ul li a {
-            color: #cccccc;
+            color: #555555;
             text-decoration: none;
             transition: color 0.3s;
         }
         
         .footer-column ul li a:hover {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         .social-links {
@@ -588,24 +605,190 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background-color: var(--primary-black);
+            background-color: var(--primary-white);
             border-radius: 50%;
             margin-right: 10px;
-            color: var(--light-text);
+            color: var(--primary-blue);
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         
         .social-links a:hover {
             background-color: var(--primary-blue);
+            color: white;
         }
         
         .copyright {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid #444;
-            color: #cccccc;
+            border-top: 1px solid #ddd;
+            color: #666666;
             font-size: 0.9rem;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-media {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .about-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-blue), transparent);
+        }
+        
+        .about-subtitle {
+            font-size: 1.2rem;
+            color: var(--accent-green);
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444444;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .about-features li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            color: #555555;
+        }
+        
+        .about-features i {
+            position: absolute;
+            left: 0;
+            top: 0.3rem;
+            color: var(--accent-green);
+        }
+        
+        /* Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 10px;
+            height: 500px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .bento-main {
+            grid-column: 1 / span 3;
+            grid-row: 1 / span 3;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .bento-cell {
+            background: rgba(0, 51, 102, 0.05);
+            border: 1px solid rgba(0, 51, 102, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .bento-cell:hover {
+            background: rgba(0, 51, 102, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .bento-cell-1 {
+            grid-column: 4;
+            grid-row: 1;
+            background: url('./pl.avif') center/cover;
+        }
+        
+        .bento-cell-2 {
+            grid-column: 4;
+            grid-row: 2;
+            background: url('./pl2.avif') center/cover;
+        }
+        
+        .bento-cell-3 {
+            grid-column: 4;
+            grid-row: 3;
+            background: url('./logo\ \(7\).jpeg') center/cover;
+        }
+        
+        .bento-cell-4 {
+            grid-column: 1 / span 4;
+            grid-row: 4;
+            height: 20px;
+            background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+            opacity: 0.3;
+        }
+        
+        /* Video Container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .smart-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, transparent 100%);
+            border-radius: 15px;
         }
         
         /* Responsive Design */
@@ -620,9 +803,9 @@
                 top: 70px;
                 left: 0;
                 width: 100%;
-                background-color: rgba(26, 26, 26, 0.98);
+                background-color: rgba(255, 255, 255, 0.98);
                 padding: 20px;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
                 backdrop-filter: blur(10px);
             }
             
@@ -657,16 +840,55 @@
                 padding-right: 0;
                 margin-bottom: 30px;
             }
+            
+            .about-container {
+                flex-direction: column;
+            }
+            
+            .bento-grid {
+                height: 400px;
+            }
+            
+            .bento-main {
+                grid-column: 1 / span 4;
+                grid-row: 1 / span 2;
+            }
+            
+            .bento-cell-1, .bento-cell-2, .bento-cell-3 {
+                grid-column: span 1;
+                grid-row: 3;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .logo h1 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Background Music Player -->
+    <audio id="bgMusic" loop>
+        <source src="mm.mp3" type="audio/mpeg">
+        <source src="mm.mp3" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+
     <!-- Enhanced Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
-                <i> <img style="height: 1.9cm; border-radius: 50%;" src="logo (8).jpeg" alt="AURELUM Logo"> </i>
-                <h1>AURELUM</h1>
+                <i><img style="height: 1.3cm; border-radius: 50%;" src="logo (1).jpeg" alt="AURELUM GROUP Logo"></i>
+                <h1>AURELUM GROUP</h1>
             </div>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
@@ -675,366 +897,104 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html" class="active">About</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li><a href="services.html">Services </a></li>
                     <li><a href="commit.html">Commitment</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="contact.html" class="nav-cta">Get Quote</a></li>
+                    <li><a href="contact.html" class="nav-cta">Partner With Us</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-   <!-- Page Hero Section -->
-    <BR><BR><BR> <section class="page-hero">
+
+    <!-- Page Hero Section -->
+    <section class="page-hero">
         <div class="container">
             <div class="page-hero-content">
-                <h1><BR><BR>   <span class="hero-highlight"> About Us </span></h1>
-                <p> </p>
+              
+                <div class="tagline"> <BR><BR><BR>Innovation in Energy, Integrity in Trade, Impact in Africa</div>
+                <p>Discover how we're bridging Africa's strategic resource potential with global energy and industrial demand through transparent, efficient, and sustainable supply chains.</p>
             </div>
         </div>
     </section>
-    <!-- Page Hero Section -->
-<section class="about-section">
-    <div class="about-container">
-        <div class="about-content">
 
-            <p class="about-subtitle"> <BR><BR>Integrating Energy, Logistics & Resource Management</p>
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-content">
+                <p class="about-subtitle">Energy • Resources • Sustainability</p>
 
-            <div class="about-text">
-                <p>AURELUM P LTD operates at the intersection of energy, logistics, and resource management, enabling efficient value chains that support national development and international industry needs.</p>
+                <div class="about-text">
+                    <p>AURELUM GROUP operates at the intersection of energy, logistics, and resource management, enabling efficient value chains that support sustainable development and international industry needs.</p>
 
-                <p>With operational bases in Accra, Tema, and Düsseldorf, we align African resource potential with global demand—delivering reliable supply, optimized logistics, and streamlined market access across continents.</p>
+                    <p>With headquarters in Accra and operational hubs in Tema and Düsseldorf, we align Africa's strategic resource potential with global demand—delivering reliable supply, optimized logistics, and ESG-aligned solutions across continents.</p>
 
-                <p>Our approach is built on strict adherence to compliance, transparent processes, and ESG-aligned principles, ensuring responsible sourcing, regulatory integrity, and sustainable growth.</p>
+                    <p>Our diversified approach spans petroleum products, solar energy, precious minerals, and integrated supply chain management, all built on strict compliance, transparent processes, and sustainable growth principles.</p>
 
-                <ul class="about-features">
-                    <li><i class="fas fa-check-circle"></i> Strategic sourcing and commodity trading across energy and minerals</li>
-                    <li><i class="fas fa-check-circle"></i> Integrated logistics and export coordination for efficient delivery</li>
-                    <li><i class="fas fa-check-circle"></i> Compliance, governance and ESG practices embedded across operations</li>
-                </ul>
+                    <ul class="about-features">
+                        <li><i class="fas fa-check-circle"></i> Strategic sourcing and commodity trading across energy and mineral sectors</li>
+                        <li><i class="fas fa-check-circle"></i> Integrated logistics and export coordination for efficient global delivery</li>
+                        <li><i class="fas fa-check-circle"></i> ESG-aligned governance embedded across all operations</li>
+                        <li><i class="fas fa-check-circle"></i> Renewable energy solutions accelerating Africa's green transition</li>
+                    </ul>
 
-                <p>We partner with governments, producers and buyers to create resilient, compliant and commercially competitive value chains that drive long-term impact.</p>
-            </div>
-        </div>
-
-        <div class="about-media">
-            <!-- Bento-style video container -->
-            <div class="bento-grid">
-                <div class="bento-main">
-                    <div class="video-container">
-                        <video autoplay loop muted playsinline class="smart-video">
-                            <source src="https://cdn.pixabay.com/video/2023/02/23/151817-801681453_tiny.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div class="video-overlay"></div>
-                    </div>
+                    <p>We partner with governments, producers, and industrial buyers to create resilient, compliant, and commercially competitive value chains that drive long-term impact across Africa and beyond.</p>
                 </div>
-                <div class="bento-cell bento-cell-1"></div>
-                <div class="bento-cell bento-cell-2"></div>
-                <div class="bento-cell bento-cell-3"></div>
-                <div class="bento-cell bento-cell-4"></div>
+            </div>
+
+            <div class="about-media">
+                <!-- Bento-style video container -->
+                <div class="bento-grid">
+                    <div class="bento-main">
+                        <div class="video-container">
+                            <video autoplay loop muted playsinline class="smart-video">
+                                <source src="https://cdn.pixabay.com/video/2023/02/23/151817-801681453_tiny.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="bento-cell bento-cell-1"></div>
+                    <div class="bento-cell bento-cell-2"></div>
+                    <div class="bento-cell bento-cell-3"></div>
+                    <div class="bento-cell bento-cell-4"></div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Add this CSS to your style section -->
-<style>
-    /* About Section */
-    .about-section {
-        padding: 6rem 2rem;
-        background: linear-gradient(135deg, #0a0a0a 0%, #121212 100%);
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .about-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 4rem;
-        align-items: center;
-    }
-    
-    .about-content {
-        flex: 1;
-        min-width: 300px;
-    }
-    
-    .about-media {
-        flex: 1;
-        min-width: 300px;
-    }
-    
-    .about-title {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        color: var(--gold-primary);
-        position: relative;
-        display: inline-block;
-    }
-    
-    .about-title::after {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        left: 0;
-        width: 80px;
-        height: 3px;
-        background: linear-gradient(to right, var(--gold-primary), transparent);
-    }
-    
-    .about-subtitle {
-        font-size: 1.2rem;
-        color: var(--text-light);
-        opacity: 0.8;
-        margin-bottom: 2rem;
-    }
-    
-    .about-text {
-        font-size: 1.1rem;
-        line-height: 1.8;
-        color: var(--text-light);
-        opacity: 0.9;
-    }
-    
-    .about-text p {
-        margin-bottom: 1.5rem;
-    }
-    
-    .about-features {
-        list-style: none;
-        margin: 2rem 0;
-    }
-    
-    .about-features li {
-        margin-bottom: 1rem;
-        padding-left: 2rem;
-        position: relative;
-    }
-    
-    .about-features i {
-        position: absolute;
-        left: 0;
-        top: 0.3rem;
-        color: var(--gold-primary);
-    }
-    
-    /* Bento Grid */
-    .bento-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        gap: 10px;
-        height: 500px;
-        max-width: 600px;
-        margin: 0 auto;
-    }
-    
-    .bento-main {
-        grid-column: 1 / span 3;
-        grid-row: 1 / span 3;
-        position: relative;
-        overflow: hidden;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
-    
-    .bento-cell {
-        background: rgba(255,215,0,0.1);
-        border: 1px solid rgba(255,215,0,0.2);
-        border-radius: 10px;
-        transition: all 0.3s ease;
-    }
-    
-    .bento-cell:hover {
-        background: rgba(255,215,0,0.2);
-        transform: translateY(-5px);
-    }
-    
-    .bento-cell-1 {
-        grid-column: 4;
-        grid-row: 1;
-        background: url('./pl.avif') center/cover;
-    }
-    
-    .bento-cell-2 {
-        grid-column: 4;
-        grid-row: 2;
-        background: url('./pl2.avif') center/cover;
-    }
-    
-    .bento-cell-3 {
-        grid-column: 4;
-        grid-row: 3;
-        background: url('./logo\ \(7\).jpeg') center/cover;
-    }
-    
-    .bento-cell-4 {
-        grid-column: 1 / span 4;
-        grid-row: 4;
-        height: 20px;
-        background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
-        opacity: 0.3;
-    }
-    
-    /* Video Container */
-    .video-container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .smart-video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 15px;
-    }
-    
-    .video-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, transparent 100%);
-        border-radius: 15px;
-    }
-    
-    @media (max-width: 768px) {
-        .about-container {
-            flex-direction: column;
-        }
-        
-        .bento-grid {
-            height: 400px;
-        }
-        
-        .bento-main {
-            grid-column: 1 / span 4;
-            grid-row: 1 / span 2;
-        }
-        
-        .bento-cell-1, .bento-cell-2, .bento-cell-3 {
-            grid-column: span 1;
-            grid-row: 3;
-        }
-    }
-</style>
-    <!-- Core Values Section -->
-    
-    
-   
-
-    <!-- Vision & Mission Section (Optimized) -->
-    <section id="vision-mission" class="vision-mission" aria-labelledby="vm-heading">
+    <!-- Vision & Mission Section -->
+    <section id="vision-mission" class="vision-mission">
         <div class="container">
             <div class="section-title">
-                <h2 id="vm-heading">Vision &amp; Mission</h2>
+                <h2>Our Purpose & Mission</h2>
             </div>
 
-            <div class="vision-mission-grid" role="list">
-                <article class="vm-card" role="listitem" tabindex="0" aria-labelledby="vision-title">
-                    <div class="vm-icon" aria-hidden="true">
+            <div class="vision-mission-grid">
+                <div class="vision-card">
+                    <div class="vision-icon">
                         <i class="fas fa-eye"></i>
                     </div>
-                    <h3 id="vision-title">Our Vision</h3>
-                    <p>To be the trusted Africa–Europe bridge in energy and mineral markets — advancing integrity, innovation, and sustainable value chains.</p>
-                </article>
+                    <h3>Our Vision</h3>
+                    <p>To be Africa's leading integrated energy and resources group, driving sustainable development through innovation, integrity, and impact.</p>
+                </div>
 
-                <article class="vm-card" role="listitem" tabindex="0" aria-labelledby="mission-title">
-                    <div class="vm-icon" aria-hidden="true">
+                <div class="mission-card">
+                    <div class="mission-icon">
                         <i class="fas fa-bullseye"></i>
                     </div>
-                    <h3 id="mission-title">Our Mission</h3>
-                    <p>To deliver transparent, efficient and ESG-aligned supply chains that connect producers and markets across Africa, Europe and beyond.</p>
-                </article>
+                    <h3>Our Mission</h3>
+                    <p>To connect Africa's strategic resource potential with global demand through transparent, efficient, and ESG-aligned supply chains.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <div class="vision-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Our Purpose</h3>
+                    <p>Bridging Africa's energy and resource sectors with international markets to create sustainable value and accelerate development.</p>
+                </div>
             </div>
         </div>
-
-        <style>
-            /* Scoped styles for Vision & Mission (compact & responsive) */
-            .vision-mission {
-                padding: 60px 0;
-                background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.06));
-            }
-
-            .vision-mission .section-title h2 {
-                color: var(--accent-yellow);
-                font-size: 2rem;
-            }
-
-            .vision-mission-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 24px;
-                margin-top: 32px;
-                align-items: stretch;
-            }
-
-            .vm-card {
-                background: linear-gradient(180deg, rgba(26,26,26,0.9), rgba(26,26,26,0.85));
-                border: 1px solid rgba(255,255,255,0.03);
-                padding: 28px;
-                border-radius: 12px;
-                box-shadow: 0 8px 24px rgba(0,0,0,0.45);
-                transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
-                outline: none;
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .vm-card:focus,
-            .vm-card:hover {
-                transform: translateY(-6px);
-                box-shadow: 0 18px 40px rgba(0,0,0,0.6);
-                border-color: rgba(0,76,153,0.5);
-            }
-
-            .vm-icon {
-                width: 56px;
-                height: 56px;
-                border-radius: 10px;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.4rem;
-                color: var(--primary-blue);
-                background: linear-gradient(135deg, rgba(255,204,0,0.12), rgba(0,76,153,0.06));
-                border: 1px solid rgba(255,204,0,0.07);
-                flex-shrink: 0;
-            }
-
-            .vm-card h3 {
-                margin: 0;
-                font-size: 1.2rem;
-                color: var(--light-text);
-            }
-
-            .vm-card p {
-                margin: 0;
-                color: #cfcfcf;
-                line-height: 1.6;
-                font-size: 0.99rem;
-            }
-
-            /* Small screens: tighten spacing */
-            @media (max-width: 520px) {
-                .vision-mission {
-                    padding: 36px 0;
-                }
-                .vm-card {
-                    padding: 20px;
-                }
-                .vm-icon {
-                    width: 48px;
-                    height: 48px;
-                    font-size: 1.2rem;
-                }
-            }
-        </style>
     </section>
 
     <!-- Our Identity Section -->
@@ -1044,27 +1004,27 @@
                 <h2>Our Identity</h2>
             </div>
             <div class="identity-content">
-                <p>AURELUM P LTD operates at the intersection of energy, logistics, and resource management, enabling efficient value chains that support national development and international industry needs.</p>
+                <p>AURELUM GROUP represents a new generation of African enterprises—globally connected, locally rooted, and sustainability-driven.</p>
                 <div class="identity-list">
                     <div class="identity-item">
                         <i class="fas fa-globe"></i>
                         <h4>Global Reach</h4>
-                        <p>Operating across Africa, Europe, and global markets</p>
+                        <p>Operating across Africa, Europe, and international markets with strategic hubs</p>
                     </div>
                     <div class="identity-item">
-                        <i class="fas fa-handshake"></i>
-                        <h4>Strategic Partnerships</h4>
-                        <p>Building long-term relationships with clients and suppliers</p>
+                        <i class="fas fa-sun"></i>
+                        <h4>Green Transition</h4>
+                        <p>Leading Africa's shift to renewable energy and sustainable practices</p>
                     </div>
                     <div class="identity-item">
                         <i class="fas fa-shield-alt"></i>
-                        <h4>Compliance & Ethics</h4>
-                        <p>Adhering to the highest standards of business conduct</p>
+                        <h4>Integrity & Compliance</h4>
+                        <p>Adhering to the highest standards of business conduct and governance</p>
                     </div>
                     <div class="identity-item">
                         <i class="fas fa-leaf"></i>
-                        <h4>Sustainability</h4>
-                        <p>Implementing ESG-aligned principles in all operations</p>
+                        <h4>Sustainability First</h4>
+                        <p>Implementing ESG principles across all operations and partnerships</p>
                     </div>
                 </div>
             </div>
@@ -1075,166 +1035,200 @@
     <section class="commitment">
         <div class="container">
             <div class="section-title">
-                <h2>Our Commitment</h2>
+                <h2>Our Core Commitments</h2>
             </div>
             <div class="commitment-content">
-                <p>At AURELUM P LTD, we are committed to delivering excellence in every aspect of our operations. Our dedication to our clients, partners, and stakeholders is reflected in our core commitments:</p>
+                <p>At AURELUM GROUP, we operate with unwavering commitment to ethical practices, environmental responsibility, and sustainable development across all our operations and partnerships.</p>
                 <div class="commitment-list">
+                    <div class="commitment-item">
+                        <div class="commitment-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="commitment-text">
+                            <h4>ESG & Sustainability</h4>
+                            <p>Environmental, Social, and Governance principles integrated into all operations and decision-making processes.</p>
+                        </div>
+                    </div>
+                    <div class="commitment-item">
+                        <div class="commitment-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="commitment-text">
+                            <h4>Anti-Corruption & AML Compliance</h4>
+                            <p>Strict adherence to anti-money laundering regulations and zero-tolerance for corruption.</p>
+                        </div>
+                    </div>
+                    <div class="commitment-item">
+                        <div class="commitment-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="commitment-text">
+                            <h4>Traceable Sourcing</h4>
+                            <p>Full transparency and chain-of-custody documentation from source to market.</p>
+                        </div>
+                    </div>
                     <div class="commitment-item">
                         <div class="commitment-icon">
                             <i class="fas fa-handshake"></i>
                         </div>
                         <div class="commitment-text">
-                            <h4>Long-term Strategic Partnerships</h4>
-                            <p>We believe in building lasting relationships that drive mutual success and growth.</p>
+                            <h4>Long-Term Partnerships</h4>
+                            <p>Building lasting relationships that drive mutual success and sustainable growth.</p>
                         </div>
                     </div>
                     <div class="commitment-item">
                         <div class="commitment-icon">
-                            <i class="fas fa-balance-scale"></i>
+                            <i class="fas fa-bolt"></i>
                         </div>
                         <div class="commitment-text">
-                            <h4>Ethical Sourcing and Full Compliance</h4>
-                            <p>All our operations adhere to international standards and regulatory requirements.</p>
+                            <h4>Energy Transition Leadership</h4>
+                            <p>Accelerating Africa's shift to renewable energy through innovative solar solutions.</p>
                         </div>
                     </div>
-                    <div class="commitment-item">
-                        <div class="commitment-icon">
-                            <i class="fas fa-shipping-fast"></i>
-                        </div>
-                        <div class="commitment-text">
-                            <h4>High-efficiency Logistics</h4>
-                            <p>Our integrated supply chain optimizes cost efficiency and shortens lead times.</p>
-                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="leadership">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Leadership Approach</h2>
+            </div>
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <div class="leader-icon">
+                        <i class="fas fa-brain"></i>
                     </div>
-                    <div class="commitment-item">
-                        <div class="commitment-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="commitment-text">
-                            <h4>Competitive Pricing and Global Standards</h4>
-                            <p>We offer market-competitive pricing while maintaining the highest quality standards.</p>
-                        </div>
+                    <h3>Strategic Vision</h3>
+                    <div class="position">Forward-Thinking Leadership</div>
+                    <p>Combining deep industry expertise with innovative approaches to energy and resource management.</p>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-icon">
+                        <i class="fas fa-users"></i>
                     </div>
-                    <div class="commitment-item">
-                        <div class="commitment-icon">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <div class="commitment-text">
-                            <h4>Transparent Communication</h4>
-                            <p>We maintain open and honest communication with clients and authorities.</p>
-                        </div>
+                    <h3>Team Excellence</h3>
+                    <div class="position">Expert & Diverse Team</div>
+                    <p>Our team brings together African market knowledge with international business expertise.</p>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
+                    <h3>Growth Mindset</h3>
+                    <div class="position">Sustainable Expansion</div>
+                    <p>Focused on scalable, responsible growth that creates value for all stakeholders.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Our Strength Section -->
-    <section class="strength" id="strength">
-        <style>
-            /* Strength section specific styles (scoped here for easy insertion) */
-            .strength .container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 15px;
-            }
-            .strength-content {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 2.5rem;
-                align-items: center; 
-            }
-            .strength-text h3 {
-                font-size: 1.8rem;
-                margin-bottom: 0.75rem;
-                color: var(--accent-yellow);
-            }
-            .strength-text p {
-                color: #cccccc;
-                margin-bottom: 0.75rem;
-                line-height: 1.7;
-            }
-            .strength-features {
-                list-style: none;
-                padding: 0;
-                margin: 1rem 0 0;
-                color: #e6e6e6;
-            }
-            .strength-features li {
-                margin-bottom: 0.8rem;
-                display: flex;
-                align-items: center;
-                gap: 0.6rem;
-            }
-            .strength-features li i {
-                color: var(--accent-yellow);
-                min-width: 22px;
-                text-align: center;
-                font-size: 1rem;
-            }
-
-            .strength-image {
-                width: 100%;
-                height: 100%;
-                min-height: 280px;
-                max-height: 480px;
-                overflow: hidden;
-                border-radius: 12px;
-                box-shadow: 0 12px 30px rgba(0,0,0,0.5);
-                background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.15));
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .strength-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: block;
-            }
-
-            @media (max-width: 900px) {
-                .strength-content {
-                    grid-template-columns: 1fr;
-                }
-                .strength-image {
-                    max-height: 360px;
-                }
-            }
-        </style>
-
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Strength</h2>
+    <section class="strength" id="strength" style="background: linear-gradient(180deg, rgba(2,41,80,0.03) 0%, rgba(255,255,255,1) 40%); padding: 6rem 0; position: relative; overflow: visible;">
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="section-title" style="margin-bottom: 2rem; text-align: left;">
+                <h2 style="font-size: 2.25rem; color: var(--primary-blue); display: inline-block; margin-bottom: .25rem;">Our Strategic Advantage</h2>
+                <div style="display:inline-block; width:60px; height:6px; margin-left:12px; vertical-align:middle; border-radius:4px; background: linear-gradient(90deg, var(--primary-blue), var(--accent-green)); opacity:.95;"></div>
+                <p style="margin-top:.75rem; color:#666; max-width:760px;">We combine local market access with international engineering and governance to deliver robust, compliant, and high‑quality energy & resources solutions.</p>
             </div>
 
-            <div class="strength-content">
-                <div class="strength-text">
-                    <h3>Combining Global Expertise</h3>
-                    <p>We combine Ghana's resource advantages with German engineering and governance to deliver trusted, compliant, and high-quality services across markets.</p>
-                    <p>Operational bases in Accra, Tema (Ghana) and Düsseldorf (Germany) give us a strategic edge:</p>
+            <div class="strength-content" style="display:flex; gap:2.5rem; align-items:center; flex-wrap:wrap;">
+                <!-- Left: Features & Stats -->
+                <div class="strength-text" style="flex:1 1 420px; min-width:300px;">
+                    <h3 style="font-size:1.6rem; color:var(--primary-blue); margin-bottom:.5rem;">Combining Global Expertise with Local Insight</h3>
+                    <p style="color:#555; margin-bottom:1rem;">Operating from Accra/Tema and Düsseldorf, we marry African resource strengths with European quality assurance to give buyers, producers, and partners confidence across the entire value chain.</p>
 
-                    <ul class="strength-features">
-                        <li><i class="fas fa-check"></i> Direct access to African resource markets</li>
-                        <li><i class="fas fa-check"></i> German engineering precision and quality standards</li>
-                        <li><i class="fas fa-check"></i> International compliance and corporate governance</li>
-                        <li><i class="fas fa-check"></i> Global market access and distribution networks</li>
-                    </ul>
+                    <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:12px; margin-top:18px;">
+                        <!-- feature card -->
+                        <div style="display:flex; gap:12px; background:var(--secondary-white); border-radius:10px; padding:12px; align-items:flex-start; box-shadow:0 6px 18px rgba(2,41,80,0.04); border-left:4px solid var(--accent-green);">
+                            <div style="width:44px; height:44px; border-radius:10px; background: linear-gradient(135deg, rgba(46,125,50,0.12), rgba(0,76,153,0.06)); display:flex; align-items:center; justify-content:center; color:var(--accent-green); font-size:18px;">
+                                <i class="fas fa-map-marked-alt" aria-hidden="true"></i>
+                            </div>
+                            <div style="font-size:.95rem; color:#444;"><strong style="color:var(--primary-blue); display:block; margin-bottom:4px;">Direct Market Access</strong>Fast, traceable sourcing across African supply chains.</div>
+                        </div>
+
+                        <div style="display:flex; gap:12px; background:var(--secondary-white); border-radius:10px; padding:12px; align-items:flex-start; box-shadow:0 6px 18px rgba(2,41,80,0.04); border-left:4px solid var(--primary-blue);">
+                            <div style="width:44px; height:44px; border-radius:10px; background: linear-gradient(135deg, rgba(0,76,153,0.08), rgba(204,153,0,0.06)); display:flex; align-items:center; justify-content:center; color:var(--primary-blue); font-size:18px;">
+                                <i class="fas fa-cogs" aria-hidden="true"></i>
+                            </div>
+                            <div style="font-size:.95rem; color:#444;"><strong style="color:var(--primary-blue); display:block; margin-bottom:4px;">Engineering & QA</strong>German standards in quality control and operations.</div>
+                        </div>
+
+                        <div style="display:flex; gap:12px; background:var(--secondary-white); border-radius:10px; padding:12px; align-items:flex-start; box-shadow:0 6px 18px rgba(2,41,80,0.04); border-left:4px solid var(--accent-green);">
+                            <div style="width:44px; height:44px; border-radius:10px; background: linear-gradient(135deg, rgba(46,125,50,0.12), rgba(0,76,153,0.06)); display:flex; align-items:center; justify-content:center; color:var(--accent-green); font-size:18px;">
+                                <i class="fas fa-balance-scale" aria-hidden="true"></i>
+                            </div>
+                            <div style="font-size:.95rem; color:#444;"><strong style="color:var(--primary-blue); display:block; margin-bottom:4px;">Compliance</strong>Robust governance and AML controls across operations.</div>
+                        </div>
+
+                        <div style="display:flex; gap:12px; background:var(--secondary-white); border-radius:10px; padding:12px; align-items:flex-start; box-shadow:0 6px 18px rgba(2,41,80,0.04); border-left:4px solid var(--primary-blue);">
+                            <div style="width:44px; height:44px; border-radius:10px; background: linear-gradient(135deg, rgba(0,76,153,0.08), rgba(204,153,0,0.06)); display:flex; align-items:center; justify-content:center; color:var(--primary-blue); font-size:18px;">
+                                <i class="fas fa-globe" aria-hidden="true"></i>
+                            </div>
+                            <div style="font-size:.95rem; color:#444;"><strong style="color:var(--primary-blue); display:block; margin-bottom:4px;">Global Distribution</strong>Access to established international buyer networks.</div>
+                        </div>
+                    </div>
+
+                    <!-- stats row -->
+                    <div style="display:flex; gap:12px; margin-top:20px; flex-wrap:wrap;">
+                        <div style="flex:1 1 140px; background:linear-gradient(180deg, #fff, #fbfbfb); padding:14px; border-radius:10px; box-shadow:0 8px 22px rgba(2,41,80,0.04); text-align:center; border:1px solid rgba(0,0,0,0.03);">
+                            <div style="font-size:1.45rem; color:var(--primary-blue); font-weight:700;">+150</div>
+                            <div style="font-size:.85rem; color:#666;">Successful Transactions</div>
+                        </div>
+                        <div style="flex:1 1 140px; background:linear-gradient(180deg, #fff, #fbfbfb); padding:14px; border-radius:10px; box-shadow:0 8px 22px rgba(2,41,80,0.04); text-align:center; border:1px solid rgba(0,0,0,0.03);">
+                            <div style="font-size:1.45rem; color:var(--accent-green); font-weight:700;">2</div>
+                            <div style="font-size:.85rem; color:#666;">Operational Hubs</div>
+                        </div>
+                        <div style="flex:1 1 140px; background:linear-gradient(180deg, #fff, #fbfbfb); padding:14px; border-radius:10px; box-shadow:0 8px 22px rgba(2,41,80,0.04); text-align:center; border:1px solid rgba(0,0,0,0.03);">
+                            <div style="font-size:1.45rem; color:var(--primary-blue); font-weight:700;">20+</div>
+                            <div style="font-size:.85rem; color:#666;">Years Combined Experience</div>
+                        </div>
+                    </div>
+
+                    <a href="divisions.html" style="display:inline-block; margin-top:18px; padding:10px 18px; border-radius:8px; background:linear-gradient(90deg, var(--primary-blue), var(--accent-green)); color:white; text-decoration:none; font-weight:700; box-shadow:0 8px 20px rgba(0,76,153,0.12);">Explore Our Capabilities</a>
                 </div>
 
-                <figure class="strength-image" aria-hidden="false">
-                    <img src="logo (6).jpeg" alt="AURELUM operations and network" />
-                </figure>
+                <!-- Right: Visual card -->
+                <div class="strength-image" style="flex:0 0 440px; min-width:260px; position:relative; display:flex; justify-content:center; align-items:center;">
+                    <div style="width:100%; border-radius:16px; overflow:hidden; box-shadow: 0 18px 40px rgba(2,41,80,0.12); transform:translateY(-6px); background:linear-gradient(135deg, rgba(255,255,255,0.6), rgba(250,250,250,0.9)); border:1px solid rgba(0,0,0,0.04);">
+                        <img src="jp (3).jpg" alt="AURELUM operations" style="display:block; width:100%; height:320px; object-fit:cover;">
+                        <div style="padding:16px; display:flex; align-items:center; justify-content:space-between; background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95));">
+                            <div>
+                                <div style="font-weight:700; color:var(--primary-blue); font-size:1rem;">Dual-Base Operations</div>
+                                <div style="font-size:.9rem; color:#666;">Accra • Tema • Düsseldorf</div>
+                            </div>
+                            <div style="display:flex; gap:8px; align-items:center;">
+                                <div style="width:44px; height:44px; border-radius:10px; background:rgba(46,125,50,0.08); display:flex; align-items:center; justify-content:center; color:var(--accent-green);">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <div style="width:44px; height:44px; border-radius:10px; background:rgba(0,76,153,0.06); display:flex; align-items:center; justify-content:center; color:var(--primary-blue);">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- decorative floating badge -->
+                    <div aria-hidden="true" style="position:absolute; top:-18px; right:-14px; background:linear-gradient(90deg,var(--accent-green),var(--primary-blue)); color:white; padding:8px 12px; border-radius:12px; font-weight:700; box-shadow:0 8px 20px rgba(0,0,0,0.12); transform:rotate(6deg);">
+                        Trusted & ESG‑Aligned
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- subtle decorative SVG wave -->
+        <svg aria-hidden="true" viewBox="0 0 1200 60" preserveAspectRatio="none" style="position:absolute; left:0; right:0; bottom:-1px; width:100%; height:60px; display:block;">
+            <path d="M0,20 C300,80 900,0 1200,40 L1200,60 L0,60 Z" fill="rgba(0,76,153,0.03)"></path>
+        </svg>
     </section>
 
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Energy that powers growth. Resources that build tomorrow.</h2>
-            <p>Partner with AURELUM P LTD for reliable, efficient, and sustainable energy and mineral solutions.</p>
+            <h2>Innovation in Energy, Integrity in Trade, Impact in Africa</h2>
+            <p>Partner with AURELUM GROUP for reliable, efficient, and sustainable energy and resource solutions that power growth and build tomorrow.</p>
             <a href="contact.html" class="cta-button">Contact Us Today</a>
         </div>
     </section>
@@ -1244,12 +1238,14 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>AURELUM P LTD</h3>
-                    <p>Energy & Minerals for a Connected Future</p>
+                    <h3>AURELUM GROUP</h3>
+                    <p>Energy • Resources • Sustainability</p>
+                    <p>Innovation in Energy, Integrity in Trade, Impact in Africa</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -1257,28 +1253,77 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
+                        <li><a href="divisions.html">Our Divisions</a></li>
                         <li><a href="commit.html">Our Commitment</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Our Services</h3>
+                    <h3>Our Divisions</h3>
                     <ul>
-                        <li><a href="services.html">Petroleum Trading</a></li>
-                        <li><a href="services.html">LPG & Naphtha Supply</a></li>
-                        <li><a href="services.html">Precious Minerals Trading</a></li>
-                        <li><a href="services.html">Logistics & Export Coordination</a></li>
+                        <li><a href="divisions.html">Petroleum Products</a></li>
+                        <li><a href="divisions.html">Solar Energy</a></li>
+                        <li><a href="divisions.html">Precious Minerals</a></li>
+                        <li><a href="divisions.html">Supply Chain Solutions</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2026 AURELUM P LTD. All Rights Reserved.</p>
+                <p>&copy; 2026 AURELUM GROUP. All Rights Reserved. | ESG-Compliant • Sustainable • Transparent</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Wait for the page to fully load
+        window.addEventListener('load', function() {
+            const bgMusic = document.getElementById('bgMusic');
+            
+            // Try to play the music automatically
+            const playPromise = bgMusic.play();
+            
+            // Handle autoplay restrictions
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log("Autoplay prevented:", error);
+                    // Create a fallback play button
+                    createMusicControls();
+                });
+            }
+        });
+        
+        // Create visible controls if autoplay is blocked
+        function createMusicControls() {
+            const musicControls = document.createElement('div');
+            musicControls.id = 'music-controls';
+            musicControls.innerHTML = `
+                <button id="playMusicBtn">▶ Play Background Music</button>
+                <button id="muteMusicBtn">🔇 Mute</button>
+            `;
+            musicControls.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 10000;
+                background: rgba(255, 255, 255, 0.95);
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid var(--primary-blue);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            `;
+            
+            document.body.appendChild(musicControls);
+            
+            document.getElementById('playMusicBtn').addEventListener('click', function() {
+                document.getElementById('bgMusic').play();
+                musicControls.style.display = 'none';
+            });
+            
+            document.getElementById('muteMusicBtn').addEventListener('click', function() {
+                musicControls.style.display = 'none';
+            });
+        }
+
         // Mobile Menu Toggle
         document.querySelector('.mobile-menu').addEventListener('click', function() {
             document.querySelector('nav').classList.toggle('active');
