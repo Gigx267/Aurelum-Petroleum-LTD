@@ -1,24 +1,20 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURELUM P LTD - Energy & Minerals for a Connected Future</title>
+    <title>AURELUM GROUP - Energy • Resources • Sustainability</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-black: #000000;
-            --secondary-black: #1a1a1a;
+            --primary-white: #ffffff;
+            --secondary-white: #f5f5f5;
+            --light-text: #333333;
+            --dark-text: #000000;
             --primary-blue: #003366;
             --secondary-blue: #004c99;
-            --accent-yellow: #ffcc00;
-            --light-text: #f5f5f5;
-            --dark-text: #333333;
+            --accent-gold: #cc9900;
+            --accent-green: #2e7d32;
         }
         
         * {
@@ -29,7 +25,7 @@
         }
         
         body {
-            background-color: var(--primary-black);
+            background-color: var(--primary-white);
             color: var(--light-text);
             line-height: 1.6;
             overflow-x: hidden;
@@ -44,18 +40,18 @@
         
         /* Enhanced Header & Navigation */
         header {
-            background-color: rgba(0, 0, 0, 0.95);
+            background-color: rgba(255, 255, 255, 0.95);
             position: fixed;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
         
         header.scrolled {
-            background-color: rgba(0, 0, 0, 0.98);
-            box-shadow: 0 5px 25px rgba(0, 51, 102, 0.3);
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 25px rgba(0, 51, 102, 0.1);
             padding: 5px 0;
         }
         
@@ -86,7 +82,7 @@
         
         .logo h1 {
             font-size: 1.5rem;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
             margin-left: 10px;
             font-weight: 700;
             letter-spacing: 0.5px;
@@ -99,7 +95,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--accent-yellow), var(--primary-blue));
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
             transition: width 0.5s ease;
         }
         
@@ -135,12 +131,12 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--accent-yellow), var(--primary-blue));
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
             transition: width 0.3s ease;
         }
         
         nav ul li a:hover {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         nav ul li a:hover::before {
@@ -148,7 +144,7 @@
         }
         
         nav ul li a.active {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         nav ul li a.active::before {
@@ -156,18 +152,18 @@
         }
         
         .nav-cta {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
             color: white;
             padding: 10px 20px;
             border-radius: 5px;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.2);
         }
         
         .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 51, 102, 0.6);
+            box-shadow: 0 6px 20px rgba(0, 51, 102, 0.3);
             color: white;
         }
         
@@ -180,12 +176,12 @@
         }
         
         .mobile-menu:hover {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./gtt (6).jpg');
+            background:  url('./gtt (6).jpg');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -203,7 +199,7 @@
         .hero h2 {
             font-size: 2.5rem;
             margin-bottom: 20px;
-            color: var(--light-text);
+            color: var(--dark-text);
             font-weight: 700;
         }
         
@@ -214,25 +210,34 @@
         }
         
         .hero-highlight {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
             font-weight: bold;
+        }
+        
+        .hero-tagline {
+            display: block;
+            font-size: 1.4rem;
+            color: var(--accent-green);
+            margin-bottom: 15px;
+            font-weight: 600;
         }
         
         .cta-button {
             display: inline-block;
             background-color: var(--primary-blue);
-            color: var(--light-text);
+            color: white;
             padding: 12px 30px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
             border: 2px solid var(--primary-blue);
         }
         
         .cta-button:hover {
             background-color: transparent;
-            border: 2px solid var(--accent-yellow);
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
         }
         
         /* Section Styling */
@@ -248,7 +253,7 @@
         
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
             display: inline-block;
             padding-bottom: 10px;
         }
@@ -261,51 +266,51 @@
             transform: translateX(-50%);
             width: 100px;
             height: 3px;
-            background-color: var(--accent-yellow);
+            background-color: var(--accent-green);
         }
         
-        /* About Section */
-        .about {
-            background-color: var(--secondary-black);
+        /* Mission Section */
+        .mission {
+            background-color: var(--secondary-white);
         }
         
-        .about-content {
+        .mission-content {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
         }
         
-        .about-text {
+        .mission-text {
             flex: 1;
             min-width: 300px;
             padding-right: 30px;
         }
         
-        .about-text h3 {
+        .mission-text h3 {
             font-size: 1.8rem;
             margin-bottom: 20px;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
-        .about-text p {
+        .mission-text p {
             margin-bottom: 15px;
         }
         
-        .about-image {
+        .mission-image {
             flex: 1;
             min-width: 300px;
             height: 400px;
-            background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background: url('./gtt\ \(1\).jpg');
             background-size: cover;
             background-position: center;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         /* Services Section */
         .services {
-            background-color: var(--primary-black);
+            background-color: var(--primary-white);
         }
         
         .services-grid {
@@ -315,7 +320,7 @@
         }
         
         .service-card {
-            background-color: var(--secondary-black);
+            background-color: var(--secondary-white);
             border-radius: 10px;
             padding: 30px;
             transition: transform 0.3s, box-shadow 0.3s;
@@ -324,29 +329,29 @@
         
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            border-left: 4px solid var(--accent-yellow);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--accent-green);
         }
         
         .service-icon {
             font-size: 2.5rem;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
             margin-bottom: 20px;
         }
         
         .service-card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
-            color: var(--light-text);
+            color: var(--dark-text);
         }
         
         .service-card p {
-            color: #cccccc;
+            color: #555555;
         }
         
         /* Commitment Section */
         .commitment {
-            background-color: var(--secondary-black);
+            background-color: var(--secondary-white);
         }
         
         .commitment-content {
@@ -368,21 +373,22 @@
         }
         
         .commitment-item {
-            background-color: var(--primary-black);
+            background-color: var(--primary-white);
             padding: 20px;
             border-radius: 5px;
-            border-top: 3px solid var(--primary-blue);
+            border-top: 3px solid var(--accent-green);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
         }
         
         .commitment-item i {
-            color: var(--accent-yellow);
+            color: var(--accent-green);
             font-size: 1.5rem;
             margin-bottom: 15px;
         }
         
         /* Contact Section */
         .contact {
-            background-color: var(--primary-black);
+            background-color: var(--primary-white);
         }
         
         .contact-container {
@@ -400,7 +406,7 @@
         .contact-info h3 {
             font-size: 1.8rem;
             margin-bottom: 20px;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         .contact-info p {
@@ -418,7 +424,7 @@
         }
         
         .contact-item i {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
             font-size: 1.2rem;
             margin-right: 15px;
             width: 20px;
@@ -442,15 +448,15 @@
         .form-control {
             width: 100%;
             padding: 12px;
-            background-color: var(--secondary-black);
-            border: 1px solid #444;
+            background-color: var(--secondary-white);
+            border: 1px solid #ddd;
             border-radius: 5px;
             color: var(--light-text);
         }
         
         .form-control:focus {
             outline: none;
-            border-color: var(--accent-yellow);
+            border-color: var(--primary-blue);
         }
         
         textarea.form-control {
@@ -460,7 +466,7 @@
         
         .submit-btn {
             background-color: var(--primary-blue);
-            color: var(--light-text);
+            color: white;
             border: none;
             padding: 12px 30px;
             border-radius: 5px;
@@ -475,7 +481,7 @@
         
         /* Footer */
         footer {
-            background-color: var(--secondary-black);
+            background-color: var(--secondary-white);
             padding: 50px 0 20px;
         }
         
@@ -495,7 +501,7 @@
         .footer-column h3 {
             font-size: 1.3rem;
             margin-bottom: 20px;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         .footer-column ul {
@@ -507,13 +513,13 @@
         }
         
         .footer-column ul li a {
-            color: #cccccc;
+            color: #555555;
             text-decoration: none;
             transition: color 0.3s;
         }
         
         .footer-column ul li a:hover {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         .social-links {
@@ -527,91 +533,335 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background-color: var(--primary-black);
+            background-color: var(--primary-white);
             border-radius: 50%;
             margin-right: 10px;
-            color: var(--light-text);
+            color: var(--primary-blue);
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
         }
         
         .social-links a:hover {
             background-color: var(--primary-blue);
+            color: white;
         }
         
         .copyright {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid #444;
-            color: #cccccc;
+            border-top: 1px solid #ddd;
+            color: #666666;
             font-size: 0.9rem;
         }
         
-        /* About Us Section Styling */
-        .about-section {
+        /* Divisions Section Styling */
+        .divisions-section {
             padding: 5rem 2rem;
-            background-color: #000;
-            color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-white);
+            color: var(--light-text);
         }
 
-        .about-container {
+        .divisions-container {
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .about-title {
+        .divisions-title {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #f5f5f5;
+            color: var(--dark-text);
+            position: relative;
         }
 
-        .about-description {
+        .divisions-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent-green);
+        }
+
+        .divisions-description {
             font-size: 1.1rem;
             line-height: 1.6;
             margin-bottom: 3rem;
-            color: #ccc;
+            color: #555555;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* Grid Layout for Cards */
-        .about-grid {
+        /* Grid Layout for Division Cards */
+        .divisions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin: 3rem 0;
         }
 
-        .about-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .division-card {
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             padding: 2rem;
             border-radius: 10px;
             text-align: left;
             transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--primary-blue);
         }
 
-        .about-card:hover {
+        .division-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .card-title {
+        .division-card.solar {
+            border-top-color: var(--accent-green);
+        }
+
+        .division-card.minerals {
+            border-top-color: var(--accent-gold);
+        }
+
+        .division-title {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #ffd700; /* Gold accent */
+            color: var(--primary-blue);
         }
 
-        .card-text {
+        .division-title.solar {
+            color: var(--accent-green);
+        }
+
+        .division-title.minerals {
+            color: var(--accent-gold);
+        }
+
+        .division-text {
             font-size: 1rem;
             line-height: 1.6;
-            color: #ddd;
+            color: #444444;
+            margin-bottom: 1.5rem;
+        }
+
+        .division-features {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+
+        .division-features li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #555555;
+            line-height: 1.5;
+        }
+
+        .division-features li:before {
+            content: "✓";
+            color: var(--accent-green);
+            font-size: 1rem;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Purpose Section */
+        .purpose-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .purpose-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .purpose-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .purpose-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .purpose-highlight {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #ffcc00;
+            margin: 2rem 0;
+            font-style: italic;
+        }
+
+        /* Benefits Showcase */
+        .benefits-showcase {
+            margin: 4rem 0;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 200px);
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .showcase-main {
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .showcase-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(0, 51, 102, 0.3));
+        }
+
+        .play-indicator {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .play-indicator i {
+            font-size: 2rem;
+            color: white;
+            position: relative;
+            z-index: 3;
+        }
+
+        .pulse-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            animation: pulse 2s infinite;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.3;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0.7;
+            }
+        }
+
+        .showcase-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .item-1 {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+            background-image: url('./gtt (7).jpg');
+        }
+
+        .item-2 {
+            grid-column: 4 / 5;
+            grid-row: 1 / 2;
+            background-image: url('./gtt (9).jpg');
+        }
+
+        .item-3 {
+            grid-column: 3 / 4;
+            grid-row: 2 / 3;
+            background-image: url('./gtt (5).jpg');
+        }
+
+        .item-4 {
+            grid-column: 4 / 5;
+            grid-row: 2 / 3;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .gradient-card {
+            text-align: center;
+            color: white;
+        }
+
+        .gradient-card i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .gradient-card span {
+            font-weight: 600;
+        }
+
+        /* 3D Hover Effects */
+        .hover-3d {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .hover-3d:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         /* CTA Styling */
@@ -622,7 +872,7 @@
         .cta-tagline {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
-            color: #ffd700;
+            color: var(--primary-blue);
         }
 
         .cta-buttons {
@@ -634,8 +884,8 @@
 
         .cta-button {
             padding: 12px 30px;
-            background: #ffd700;
-            color: #000;
+            background: var(--primary-blue);
+            color: white;
             border: none;
             border-radius: 50px;
             font-weight: 600;
@@ -648,13 +898,19 @@
 
         .cta-button.secondary {
             background: transparent;
-            color: #ffd700;
-            border: 2px solid #ffd700;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
         }
 
         .cta-button:hover {
-            background: #fff;
+            background: var(--secondary-blue);
             transform: scale(1.05);
+            color: white;
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--primary-blue);
+            color: white;
         }
 
         /* Features Section */
@@ -669,7 +925,7 @@
         .features-title {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
-            color: #ffd700;
+            color: var(--primary-blue);
             text-align: center;
         }
 
@@ -682,13 +938,13 @@
             margin-bottom: 1rem;
             padding-left: 1.5rem;
             position: relative;
-            color: #ddd;
+            color: #444444;
             line-height: 1.6;
         }
 
         .features-list li:before {
             content: "•";
-            color: #ffd700;
+            color: var(--accent-green);
             font-size: 1.5rem;
             position: absolute;
             left: 0;
@@ -697,7 +953,7 @@
         
         /* Services Intro Section */
         .services-intro {
-            background-color: var(--secondary-black);
+            background-color: var(--secondary-white);
         }
         
         .services-intro-content {
@@ -716,7 +972,7 @@
         .services-intro-text h4 {
             font-size: 1.8rem;
             margin-bottom: 20px;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         .services-intro-text p {
@@ -731,7 +987,7 @@
             background-size: cover;
             background-position: center;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         /* Services Grid Section */
@@ -753,7 +1009,7 @@
         }
         
         .service-features li i {
-            color: var(--accent-yellow);
+            color: var(--accent-green);
             margin-right: 10px;
             font-size: 0.9rem;
         }
@@ -770,9 +1026,9 @@
                 top: 70px;
                 left: 0;
                 width: 100%;
-                background-color: rgba(26, 26, 26, 0.98);
+                background-color: rgba(255, 255, 255, 0.98);
                 padding: 20px;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
                 backdrop-filter: blur(10px);
             }
             
@@ -796,7 +1052,7 @@
                 font-size: 2rem;
             }
             
-            .about-text, .about-image {
+            .mission-text, .mission-image {
                 flex: 100%;
                 padding-right: 0;
                 margin-bottom: 30px;
@@ -814,7 +1070,7 @@
                 margin-bottom: 30px;
             }
             
-            .about-title {
+            .divisions-title {
                 font-size: 2rem;
             }
             
@@ -827,7 +1083,69 @@
             }
         }
         
-        @media (max-width: 480px) {
+        @media (max-width: 992px) {
+            .showcase-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 200px);
+            }
+            
+            .showcase-main {
+                grid-column: 1 / 3;
+                grid-row: 1 / 2;
+            }
+            
+            .item-1 {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+            }
+            
+            .item-2 {
+                grid-column: 2 / 3;
+                grid-row: 2 / 3;
+            }
+            
+            .item-3 {
+                grid-column: 1 / 2;
+                grid-row: 3 / 4;
+            }
+            
+            .item-4 {
+                grid-column: 2 / 3;
+                grid-row: 3 / 4;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .showcase-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(5, 200px);
+            }
+            
+            .showcase-main {
+                grid-column: 1 / 2;
+                grid-row: 1 / 2;
+            }
+            
+            .item-1 {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+            }
+            
+            .item-2 {
+                grid-column: 1 / 2;
+                grid-row: 3 / 4;
+            }
+            
+            .item-3 {
+                grid-column: 1 / 2;
+                grid-row: 4 / 5;
+            }
+            
+            .item-4 {
+                grid-column: 1 / 2;
+                grid-row: 5 / 6;
+            }
+            
             .hero h2 {
                 font-size: 1.8rem;
             }
@@ -840,7 +1158,7 @@
                 font-size: 1.8rem;
             }
             
-            .about-title {
+            .divisions-title {
                 font-size: 1.8rem;
             }
             
@@ -877,8 +1195,8 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="logo (8).jpeg" alt="AURELUM Logo">
-                <h1>AURELUM P LTD</h1>
+                <img src="logo (1).jpeg" alt="AURELUM Logo">
+                <h1>AURELUM GROUP</h1>
             </div>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
@@ -887,632 +1205,364 @@
                 <ul>
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li><a href="services.html">Services</li>
                     <li><a href="commit.html">Commitment</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="contact.html" class="nav-cta">Get Quote</a></li>
+                    <li><a href="contact.html" class="nav-cta">Partner With Us</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h2 style="font-size:larger;" >Aurelum Petroleum LTD</h2>
-            <p style="font-size: medium;">International trade and logistics of petroleum products, with <span class="hero-highlight">transparent, efficient, and sustainable</span> supply chains across Africa, Europe, and global markets.</p>
-            <a href="about.html" class="cta-button">Learn More</a>
+    <section class="hero modern" id="home" aria-label="Aurelum Group hero">
+        <style>
+            /* Scoped hero upgrades */
+            section.hero.modern { position: relative; overflow: hidden; padding-top: 80px; min-height: 90vh; display: flex; align-items: center; }
+            section.hero.modern .overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,51,102,0.35), rgba(0,0,0,0.55)); z-index: 0; }
+            section.hero.modern .hero-inner { position: relative; z-index: 1; width: 100%; max-width: 1200px; margin: 0 auto; padding: 3rem 1.25rem; display: flex; justify-content: center; }
+            /* Glass card */
+            .hero-card {
+                width: 100%;
+                max-width: 980px;
+                background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+                border: 1px solid rgba(255,255,255,0.06);
+                backdrop-filter: blur(8px) saturate(120%);
+                -webkit-backdrop-filter: blur(8px) saturate(120%);
+                border-radius: 14px;
+                padding: 32px;
+                box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+                display: grid;
+                grid-template-columns: 1fr 360px;
+                gap: 2rem;
+                align-items: center;
+                color: #fff;
+                animation: heroFadeUp 700ms ease-out both;
+            }
+            /* Responsive stack */
+            @media (max-width: 900px){
+                .hero-card { grid-template-columns: 1fr; text-align: center; padding: 28px; }
+                .hero-visual { order: -1; }
+            }
+
+            /* Mobile-first niceties */
+            @media (max-width: 600px) {
+                /* Increased mobile hero height */
+                section.hero.modern { padding-top: 70px; min-height: 110vh; } /* was 80vh -> increased to make hero longer on mobile */
+                section.hero.modern .overlay { background: linear-gradient(180deg, rgba(0,51,102,0.45), rgba(0,0,0,0.65)); }
+                .hero-card {
+                    padding: 20px;
+                    border-radius: 12px;
+                    gap: 14px;
+                }
+                .hero-copy h1 {
+                    font-size: 1.9rem;
+                    line-height: 1.05;
+                }
+                .hero-copy .lead {
+                    font-size: 0.98rem;
+                }
+                .hero-badges { justify-content:center; gap:8px; }
+                .hero-badge { padding:7px 10px; font-size:0.82rem; }
+                .hero-ctas { flex-direction: column; gap: 10px; align-items: stretch; margin-top:14px; }
+                .hero-ctas .cta-button { width:100%; padding: 12px 16px; font-size: 0.95rem; border-radius: 10px; box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
+                .hero-ctas .cta-secondary { border-width:2px; }
+                .hero-visual { padding:0; gap:10px; }
+                .visual-card { height: 260px; border-radius:10px; } /* increased visual card height on mobile */
+                .visual-card img { filter: saturate(1.05) contrast(0.95); }
+                .trust-row { gap:10px; flex-wrap:wrap; justify-content:center; }
+                .trust-item { font-size:0.86rem; padding:6px 10px; background: rgba(255,255,255,0.03); border-radius: 8px; }
+                .underline:after { height:3px; }
+            }
+
+            @media (max-width: 420px) {
+                /* Even taller for very small screens */
+                section.hero.modern { min-height: 120vh; } /* added to give extra vertical space on very small devices */
+                .hero-card { padding: 16px; gap: 12px; box-shadow: 0 12px 36px rgba(0,0,0,0.45); }
+                .hero-copy h1 { font-size: 1.6rem; }
+                .hero-copy .lead { font-size: 0.95rem; }
+                .visual-card { height: 220px; } /* slightly reduced from 260 to better fit narrow widths while retaining extra vertical space overall */
+                .hero-badge { font-size:0.8rem; padding:6px 8px; }
+                .trust-item i { font-size:1rem; }
+                .hero-ctas .cta-button { font-size:0.92rem; padding:11px; }
+            }
+
+            .hero-copy h1 {
+                font-size: clamp(2rem, 5vw, 3rem);
+                margin: 0 0 8px 0;
+                color: #fff;
+                letter-spacing: 1px;
+                line-height: 1.02;
+            }
+            .hero-copy .lead {
+                font-size: clamp(1rem, 1.8vw, 1.15rem);
+                color: rgba(255,255,255,0.9);
+                margin-bottom: 1.25rem;
+            }
+            .hero-badges { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom: 12px; }
+            .hero-badge {
+                display:inline-flex; align-items:center; gap:8px;
+                background: rgba(255,255,255,0.06); padding:8px 12px; border-radius: 999px;
+                font-weight:600; color: #dfefff; font-size:0.85rem; border: 1px solid rgba(255,255,255,0.05);
+            }
+            .hero-ctas { display:flex; gap:12px; margin-top: 10px; flex-wrap:wrap; }
+            .hero-ctas .cta-button { padding: 10px 20px; border-radius: 999px; font-weight:700; text-transform:uppercase; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; }
+            .hero-ctas .cta-secondary {
+                background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.18);
+            }
+            .hero-visual {
+                display:flex; flex-direction:column; align-items:center; gap:16px;
+                justify-content:center; padding: 8px;
+            }
+            .visual-card {
+                width: 100%;
+                height: 220px;
+                border-radius: 10px;
+                overflow: hidden;
+                background-image: linear-gradient(180deg, rgba(0,76,153,0.2), rgba(46,125,50,0.08));
+                display:flex; align-items:center; justify-content:center;
+                border: 1px solid rgba(255,255,255,0.05);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+            }
+            .visual-card img { width:100%; height:100%; object-fit:cover; display:block; filter: saturate(1.05) contrast(0.95); opacity:0.95; }
+            .trust-row { display:flex; gap:12px; width:100%; justify-content:center; }
+            .trust-item { display:flex; gap:8px; align-items:center; color:rgba(255,255,255,0.85); font-size:0.9rem; }
+            .trust-item i { color: #ffdd57; font-size:1.1rem; }
+            /* subtle animated underline */
+            .underline {
+                display:inline-block;
+                position:relative;
+                padding-bottom:6px;
+            }
+            .underline:after {
+                content:"";
+                position:absolute;
+                left:0;
+                bottom:0;
+                width:0%;
+                height:4px;
+                border-radius:3px;
+                background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
+                transition: width 450ms ease;
+                transform-origin:left center;
+            }
+            .hero-card:hover .underline:after { width:100%; }
+            @keyframes heroFadeUp {
+                from { opacity: 0; transform: translateY(12px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        </style>
+
+        <div class="overlay" aria-hidden="true"></div>
+
+        <div class="hero-inner container">
+            <div class="hero-card" role="region" aria-label="Aurelum introduction">
+                <div class="hero-copy">
+                    
+
+                    <h1><span class="underline">AURELUM GROUP</span></h1>
+
+                    <p class="lead">Aligning Africa's strategic resource potential with global energy and industrial demand through <strong style="color:var(--accent-green)">transparent, efficient, and sustainable</strong> supply chains.</p>
+
+                    <div class="hero-ctas">
+                        <a href="about.html" class="cta-button" role="button" aria-label="Explore Divisions">Explore More </a>
+                        <a href="contact.html" class="cta-button cta-secondary" role="button" aria-label="Partner With Us">Partner With Us</a>
+                    </div>
+
+                    <div class="trust-row" style="margin-top:16px;">
+                        <div class="trust-item"><i class="fas fa-star" aria-hidden="true"></i> Trusted Partners</div>
+                        <div class="trust-item"><i class="fas fa-check-circle" aria-hidden="true"></i> Verified Compliance</div>
+                        <div class="trust-item"><i class="fas fa-truck" aria-hidden="true"></i> Global Logistics</div>
+                    </div>
+                </div>
+
+                <div class="hero-visual" aria-hidden="false">
+                    <div class="visual-card" title="Aurelum operations">
+                        <img src="gtt (6).jpg" alt="Aurelum operations image" />
+                    </div>
+                    <div style="font-size:0.95rem; color:rgba(255,255,255,0.9); text-align:center; max-width:320px;">
+                        <strong>Energy • Resources • Sustainability</strong>
+                        <div style="margin-top:6px; color:rgba(255,255,255,0.75); font-size:0.88rem;">
+                            Headquartered in Accra • Hubs in Tema & Düsseldorf
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-<!-- About Us Section -->
-<section id="about" class="about-section">
-    <div class="about-container">
-        <h2 class="about-title">About Us</h2>
-        <p class="about-description">
-            At <strong>AURELUM P LTD</strong> with bases in Accra, Tema, and Düsseldorf, our company aligns African resource potential with global demand. We operate with strict adherence to 
-            compliance, transparency, and ESG-aligned principles. We specialize in the international trade and logistics of petroleum products, LPG, Naphtha, and precious minerals. Our mission is to bridge the energy and mining sectors through transparent, efficient, and sustainable supply chains across Africa, Europe, and global markets.
-        </p>
-        
-        <div class="benefits-showcase">
-            <div class="showcase-grid">
-                <div class="showcase-main hover-3d">
-                    <video autoplay loop muted playsinline class="showcase-video">
-                        <source src="https://cdn.pixabay.com/video/2019/05/01/23232-333604632_tiny.mp4" type="video/mp4">
-                    </video>
-                    <div class="video-overlay"></div>
-                    <div class="play-indicator">
-                        <div class="pulse-circle"></div>
-                        
+
+    <!-- Mission Section -->
+    <section class="mission" id="mission">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Mission</h2>
+            </div>
+            <div class="mission-content">
+                <div class="mission-text">
+                    <h3>Innovation in Energy, Integrity in Trade, Impact in Africa</h3>
+                    <p>At AURELUM GROUP, headquartered in Accra with operational hubs in Tema and Düsseldorf, we operate with strict compliance, full transparency, and ESG-aligned governance. Our diversified energy and commodities company specializes in bridging Africa's energy and resource sectors with international demand.</p>
+                    <p>We ensure responsible and traceable operations across all value chains, from petroleum products and precious minerals to renewable energy solutions and integrated supply chain management.</p>
+                    <a href="about.html" class="cta-button secondary">Learn About Our Purpose</a>
+                </div>
+                <div class="mission-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divisions Section -->
+    <section id="divisions" class="divisions-section">
+        <div class="divisions-container">
+            <h2 class="divisions-title">Our Divisions</h2>
+            <p class="divisions-description">
+                AURELUM GROUP operates through four specialized divisions, each delivering excellence in their respective sectors while maintaining our core values of integrity, sustainability, and partnership.
+            </p>
+            
+            <div class="benefits-showcase">
+                <div class="showcase-grid">
+                    <div class="showcase-main hover-3d">
+                        <video autoplay loop muted playsinline class="showcase-video">
+                            <source src="https://cdn.pixabay.com/video/2019/05/01/23232-333604632_tiny.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-overlay"></div>
+                        <div class="play-indicator">
+                            <div class="pulse-circle"></div>
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+
+                    <div class="showcase-item item-1 hover-3d">
+                        <div class="item-overlay"><span>Petroleum Excellence</span></div>
+                    </div>
+
+                    <div class="showcase-item item-2 hover-3d">
+                        <div class="item-overlay"><span>Solar Innovation</span></div>
+                    </div>
+
+                    <div class="showcase-item item-3 hover-3d">
+                        <div class="item-overlay"><span>Mineral Integrity</span></div>
+                    </div>
+
+                    <div class="showcase-item item-4 hover-3d">
+                        <div class="gradient-card">
+                            <i class="fas fa-handshake"></i>
+                            <span>Integrated Logistics</span>
+                        </div>
                     </div>
                 </div>
-
-                <div class="showcase-item item-1 hover-3d" style="background-image: url('./gtt (7).jpg')">
-                    <div class="item-overlay"><span>Secure Supply Chains</span></div>
-                </div>
-
-                <div class="showcase-item item-2 hover-3d" style="background-image: url('./gtt (9).jpg')">
-                    <div class="item-overlay"><span>Global Market Access</span></div>
-                </div>
-
-                <div class="showcase-item item-3 hover-3d" style="background-image: url('./gtt (5).jpg')">
-                    <div class="item-overlay"><span>Traceable Minerals</span></div>
-                </div>
-
-                <div class="showcase-item item-4 hover-3d">
-                    <div class="gradient-card">
-                        <i class="fas fa-handshake"></i>
-                        <span>Trusted Partnership</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="about-grid">
-            <!-- For Clients -->
-            <div class="about-card">
-                <h3 class="card-title">For Clients</h3>
-                <p class="card-text">
-                    Experience a <strong>commitment to reliability and compliance</strong> as we ensure that every transaction delivers value and strengthens industry connections. Partner with us for seamless access to energy resources that power growth.
-                </p>
             </div>
             
-            <!-- For Partners -->
-            <div class="about-card">
-                <h3 class="card-title">For Partners</h3>
-                <p class="card-text">
-                    By collaborating with AURELUM P LTD, your business gains access to a <strong>network of sustainable practices</strong> and long-term partnerships that foster mutual growth and success in the energy and minerals sectors.
-                </p>
-            </div>
-        </div>
-        
-        <div class="about-cta">
-            <p class="cta-tagline"><strong>Energy that powers growth. Resources that build tomorrow.</strong></p>
-            <div class="cta-buttons">
-                <a href="contact.html" class="cta-button">Become a Partner</a>
-                <a href="contact.html" class="cta-button secondary">Learn More</a>
-            </div>
-        </div>
-        
-        <!-- Key Features -->
-        <div class="features-section">
-            <h3 class="features-title">Key Features</h3>
-            <ul class="features-list">
-                <li><strong>Sustainable Practices:</strong> We prioritize eco-friendly methods in our operations.</li>
-                <li><strong>Global Reach:</strong> Our logistics network spans across Africa, Europe, and beyond.</li>
-                <li><strong>Long-Term Partnerships:</strong> We believe in building lasting relationships that drive success.</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<style>
-    /* About Us Section Styling */
-    .about-section {
-        padding: 5rem 2rem;
-        background-color: #000;
-        color: #fff;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .about-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .about-title {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        color: #f5f5f5;
-        position: relative;
-    }
-
-    .about-title::after {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100px;
-        height: 3px;
-        background-color: var(--accent-yellow);
-    }
-
-    .about-description {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        margin-bottom: 3rem;
-        color: #ccc;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* Benefits Showcase */
-    .benefits-showcase {
-        margin: 4rem 0;
-    }
-
-    .showcase-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 200px);
-        gap: 15px;
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-
-    .showcase-main {
-        grid-column: 1 / 3;
-        grid-row: 1 / 3;
-        position: relative;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        transition: all 0.5s ease;
-    }
-
-    .showcase-video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .video-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
-    }
-
-    .play-indicator {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-    }
-
-    .play-indicator i {
-        font-size: 2rem;
-        color: var(--accent-yellow);
-        position: relative;
-        z-index: 3;
-    }
-
-    .pulse-circle {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: rgba(255, 204, 0, 0.3);
-        animation: pulse 2s infinite;
-        z-index: 1;
-    }
-
-    @keyframes pulse {
-        0% {
-            transform: translate(-50%, -50%) scale(0.8);
-            opacity: 0.7;
-        }
-        50% {
-            transform: translate(-50%, -50%) scale(1.2);
-            opacity: 0.3;
-        }
-        100% {
-            transform: translate(-50%, -50%) scale(0.8);
-            opacity: 0.7;
-        }
-    }
-
-    .showcase-item {
-        position: relative;
-        border-radius: 8px;
-        overflow: hidden;
-        background-size: cover;
-        background-position: center;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        transition: all 0.5s ease;
-    }
-
-    .item-1 {
-        grid-column: 3 / 4;
-        grid-row: 1 / 2;
-    }
-
-    .item-2 {
-        grid-column: 4 / 5;
-        grid-row: 1 / 2;
-    }
-
-    .item-3 {
-        grid-column: 3 / 4;
-        grid-row: 2 / 3;
-    }
-
-    .item-4 {
-        grid-column: 4 / 5;
-        grid-row: 2 / 3;
-        background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .item-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 15px;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-        color: white;
-        font-weight: 600;
-        text-align: center;
-        transition: all 0.3s ease;
-    }
-
-    .gradient-card {
-        text-align: center;
-        color: white;
-    }
-
-    .gradient-card i {
-        font-size: 2rem;
-        margin-bottom: 10px;
-        display: block;
-    }
-
-    .gradient-card span {
-        font-weight: 600;
-    }
-
-    /* 3D Hover Effects */
-    .hover-3d {
-        transform-style: preserve-3d;
-        perspective: 1000px;
-    }
-
-    .hover-3d:hover {
-        transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-    }
-
-    /* Grid Layout for Cards */
-    .about-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin: 3rem 0;
-    }
-
-    .about-card {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 2rem;
-        border-radius: 10px;
-        text-align: left;
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .about-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(255, 215, 0, 0.1);
-    }
-
-    .card-title {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        color: var(--accent-yellow);
-    }
-
-    .card-text {
-        font-size: 1rem;
-        line-height: 1.6;
-        color: #ddd;
-    }
-
-    /* CTA Styling */
-    .about-cta {
-        margin: 3rem 0;
-    }
-
-    .cta-tagline {
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-        color: var(--accent-yellow);
-    }
-
-    .cta-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        flex-wrap: wrap;
-    }
-
-    .cta-button {
-        padding: 12px 30px;
-        background: var(--accent-yellow);
-        color: #000;
-        border: none;
-        border-radius: 50px;
-        font-weight: 600;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: all 0.3s;
-        text-decoration: none;
-        display: inline-block;
-    }
-
-    .cta-button.secondary {
-        background: transparent;
-        color: var(--accent-yellow);
-        border: 2px solid var(--accent-yellow);
-    }
-
-    .cta-button:hover {
-        background: #fff;
-        transform: scale(1.05);
-    }
-
-    /* Features Section */
-    .features-section {
-        margin-top: 4rem;
-        text-align: left;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .features-title {
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-        color: var(--accent-yellow);
-        text-align: center;
-    }
-
-    .features-list {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    .features-list li {
-        margin-bottom: 1rem;
-        padding-left: 1.5rem;
-        position: relative;
-        color: #ddd;
-        line-height: 1.6;
-    }
-
-    .features-list li:before {
-        content: "•";
-        color: var(--accent-yellow);
-        font-size: 1.5rem;
-        position: absolute;
-        left: 0;
-        top: -3px;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 992px) {
-        .showcase-grid {
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(3, 200px);
-        }
-        
-        .showcase-main {
-            grid-column: 1 / 3;
-            grid-row: 1 / 2;
-        }
-        
-        .item-1 {
-            grid-column: 1 / 2;
-            grid-row: 2 / 3;
-        }
-        
-        .item-2 {
-            grid-column: 2 / 3;
-            grid-row: 2 / 3;
-        }
-        
-        .item-3 {
-            grid-column: 1 / 2;
-            grid-row: 3 / 4;
-        }
-        
-        .item-4 {
-            grid-column: 2 / 3;
-            grid-row: 3 / 4;
-        }
-    }
-
-    @media (max-width: 576px) {
-        .showcase-grid {
-            grid-template-columns: 1fr;
-            grid-template-rows: repeat(5, 200px);
-        }
-        
-        .showcase-main {
-            grid-column: 1 / 2;
-            grid-row: 1 / 2;
-        }
-        
-        .item-1 {
-            grid-column: 1 / 2;
-            grid-row: 2 / 3;
-        }
-        
-        .item-2 {
-            grid-column: 1 / 2;
-            grid-row: 3 / 4;
-        }
-        
-        .item-3 {
-            grid-column: 1 / 2;
-            grid-row: 4 / 5;
-        }
-        
-        .item-4 {
-            grid-column: 1 / 2;
-            grid-row: 5 / 6;
-        }
-        
-        .about-title {
-            font-size: 2rem;
-        }
-        
-        .cta-buttons {
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .cta-button.secondary {
-            margin-left: 0;
-            margin-top: 10px;
-        }
-    }
-</style>
-    <!-- About Us Section -->
-    <section id="about" class="about-section">
-        <div class="about-container">
-           
-            
-            <div class="about-grid">
-                <!-- For Clients -->
-                <div class="about-card">
-                    <h3 class="card-title">For Clients</h3>
-                    <p class="card-text">
-                        Experience a <strong>commitment to reliability and compliance</strong> as we ensure that every transaction delivers value and strengthens industry connections. Partner with us for seamless access to energy resources that power growth.
+            <div class="divisions-grid">
+                <!-- Petroleum Division -->
+                <div class="division-card">
+                    <h3 class="division-title">Petroleum Products & Downstream Logistics</h3>
+                    <p class="division-text">
+                        Comprehensive supply of Diesel (EN590), Jet Fuel (A1), Gasoline, Fuel Oil, Naphtha, LPG, and Lubricants delivered through efficient CIF, FOB, and in-country logistics models.
                     </p>
+                    <ul class="division-features">
+                        <li>International quality certification</li>
+                        <li>Strategic storage partnerships</li>
+                        <li>Efficient supply chain optimization</li>
+                        <li>Compliance with global standards</li>
+                    </ul>
                 </div>
                 
-                <!-- For Partners -->
-                <div class="about-card">
-                    <h3 class="card-title">For Partners</h3>
-                    <p class="card-text">
-                        By collaborating with AURELUM P LTD, your business gains access to a <strong>network of sustainable practices</strong> and long-term partnerships that foster mutual growth and success in the energy and minerals sectors.
+                <!-- Solar Division -->
+                <div class="division-card solar">
+                    <h3 class="division-title solar">Solar Energy & Green Power Systems</h3>
+                    <p class="division-text">
+                        Accelerating Africa's transition toward renewable, stable, and affordable energy through innovative solar solutions and hybrid power systems.
                     </p>
+                    <ul class="division-features">
+                        <li>Solar farm development & management</li>
+                        <li>Commercial & industrial solar systems</li>
+                        <li>Second-life solar module solutions</li>
+                        <li>Off-grid and mini-grid electrification</li>
+                        <li>Hybrid power solutions for industry</li>
+                    </ul>
+                </div>
+                
+                <!-- Minerals Division -->
+                <div class="division-card minerals">
+                    <h3 class="division-title minerals">Gold & Precious Mineral Trading</h3>
+                    <p class="division-text">
+                        Secure, compliant sourcing from West Africa with full KYC, chain-of-custody transparency, and international refinery partnerships.
+                    </p>
+                    <ul class="division-features">
+                        <li>Vetted mining partnerships</li>
+                        <li>Full traceability & compliance</li>
+                        <li>International regulatory adherence</li>
+                        <li>Responsible sourcing practices</li>
+                    </ul>
+                </div>
+                
+                <!-- Logistics Division -->
+                <div class="division-card">
+                    <h3 class="division-title">Integrated Supply Chain Solutions</h3>
+                    <p class="division-text">
+                        End-to-end logistics support from sourcing to international transport, port operations, inspection, and secure delivery.
+                    </p>
+                    <ul class="division-features">
+                        <li>Comprehensive documentation management</li>
+                        <li>Customs clearance expertise</li>
+                        <li>Optimized shipping & routing</li>
+                        <li>Cost-efficient logistics solutions</li>
+                        <li>Real-time tracking & monitoring</li>
+                    </ul>
                 </div>
             </div>
             
             <div class="about-cta">
-                <p class="cta-tagline"><strong>Energy that powers growth. Resources that build tomorrow.</strong></p>
+                <p class="cta-tagline"><strong>Driving sustainable growth through diversified energy and resource solutions</strong></p>
                 <div class="cta-buttons">
                     <a href="contact.html" class="cta-button">Become a Partner</a>
-                    <a href="contact.html" class="cta-button secondary">Learn More</a>
+                    <a href="about.html" class="cta-button secondary">Learn More</a>
                 </div>
-            </div>
-            
-            <!-- Key Features -->
-            <div class="features-section">
-                <h3 class="features-title">Key Features</h3>
-                <ul class="features-list">
-                    <li><strong>Sustainable Practices:</strong> We prioritize eco-friendly methods in our operations.</li>
-                    <li><strong>Global Reach:</strong> Our logistics network spans across Africa, Europe, and beyond.</li>
-                    <li><strong>Long-Term Partnerships:</strong> We believe in building lasting relationships that drive success.</li>
-                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Services Intro Section -->
-    <section class="services-intro">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Core Expertise</h2>
-            </div>
-            <div class="services-intro-content">
-                <div class="services-intro-text">
-                    <h4>Integrated Solutions for Global Markets</h4>
-                    <p>AURELUM P LTD delivers specialized services across petroleum, LPG & naphtha, precious minerals trading, and end‑to‑end logistics — combining local resource access with international standards.</p>
-                    <p>Our integrated approach ensures seamless operations from sourcing to delivery, providing our clients with reliable, efficient, and compliant solutions tailored to their specific needs.</p>
-                    <p>With strategic bases in Ghana and Germany, we bridge African resource potential with global market demands, creating value across the entire supply chain.</p>
-                </div>
-                <div class="services-intro-image"></div>
+    <!-- Purpose Section -->
+    <section class="purpose-section">
+        <div class="container purpose-content">
+            <h3 class="purpose-title">Our Purpose</h3>
+            <p class="purpose-text">
+                To bridge Africa's energy and resource sectors with international demand through transparent, efficient, and sustainable supply chains.
+            </p>
+            <div class="purpose-highlight">
+                Innovation in Energy, Integrity in Trade, Impact in Africa
             </div>
         </div>
     </section>
 
-    <!-- Services Grid Section -->
-    <section class="services">
+    <!-- Commitment Section -->
+    <section class="commitment" id="commitment">
         <div class="container">
             <div class="section-title">
-                <h2>Our Services</h2>
+                <h2>Our Commitment</h2>
             </div>
-            <div class="services-container">
-                <!-- Petroleum Trading -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-oil-well"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Petroleum Trading</h3>
-                        <p>We supply premium-grade crude, refined products, diesel, gasoline and specialty petroleum materials to strategic markets across Africa, the Middle East and Europe.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Certified quality assurance</li>
-                            <li><i class="fas fa-check"></i> Competitive pricing models</li>
-                            <li><i class="fas fa-check"></i> Secure logistics and delivery</li>
-                            <li><i class="fas fa-check"></i> Global market access</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="commitment-content">
+                <p>AURELUM GROUP operates with unwavering commitment to ethical practices, environmental responsibility, and sustainable development across all our operations and partnerships.</p>
                 
-                <!-- LPG & Naphtha Supply -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-fire-flame-curved"></i>
+                <div class="commitment-list">
+                    <div class="commitment-item">
+                        <i class="fas fa-leaf"></i>
+                        <h4>ESG & Sustainability</h4>
+                        <p>Environmental, Social, and Governance principles integrated into all operations</p>
                     </div>
-                    <div class="service-content">
-                        <h3>LPG & Naphtha Supply</h3>
-                        <p>AURELUM facilitates sourcing and timely delivery of LPG and Naphtha for industrial, commercial and governmental clients through strong supplier relations and stable availability.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Reliable supply chains</li>
-                            <li><i class="fas fa-check"></i> Strategic supplier partnerships</li>
-                            <li><i class="fas fa-check"></i> Timely delivery assurance</li>
-                            <li><i class="fas fa-check"></i> Competitive market pricing</li>
-                        </ul>
+                    <div class="commitment-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Anti-Corruption / AML</h4>
+                        <p>Strict compliance with anti-money laundering and anti-corruption regulations</p>
                     </div>
-                </div>
-                
-                <!-- Precious Minerals Trading -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-gem"></i>
+                    <div class="commitment-item">
+                        <i class="fas fa-search"></i>
+                        <h4>Traceable Sourcing</h4>
+                        <p>Full transparency and traceability from source to market</p>
                     </div>
-                    <div class="service-content">
-                        <h3>Precious Minerals Trading</h3>
-                        <p>Through vetted partnerships we trade gold, manganese and high‑value minerals originating from West Africa. All exports adhere to due‑diligence, traceability and international regulatory standards.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Vetted mining partnerships</li>
-                            <li><i class="fas fa-check"></i> Full traceability and compliance</li>
-                            <li><i class="fas fa-check"></i> International regulatory adherence</li>
-                            <li><i class="fas fa-check"></i> Quality certification</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Logistics & Export Coordination -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-ship"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Logistics & Export Coordination</h3>
-                        <p>End‑to‑end logistics support including port operations, documentation, customs clearance, warehousing and secure shipment arrangements to optimize cost and shorten lead times.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Comprehensive documentation</li>
-                            <li><i class="fas fa-check"></i> Customs clearance expertise</li>
-                            <li><i class="fas fa-check"></i> Optimized shipping routes</li>
-                            <li><i class="fas fa-check"></i> Cost-efficient solutions</li>
-                        </ul>
+                    <div class="commitment-item">
+                        <i class="fas fa-hands-helping"></i>
+                        <h4>Long-Term Partnerships</h4>
+                        <p>Building lasting relationships that drive mutual success and growth</p>
                     </div>
                 </div>
             </div>
@@ -1527,15 +1577,15 @@
             </div>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    <p>We welcome partnership inquiries, supply requests, and business discussions.</p>
+                    <h3>Connect With AURELUM</h3>
+                    <p>We welcome partnership inquiries, supply requests, and discussions about sustainable energy and resource solutions.</p>
                     
                     <div class="contact-details">
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
-                                <h4>GHANA Office</h4>
-                                <p>Tema–Accra Energy Corridor</p>
+                                <h4>GHANA Headquarters</h4>
+                                <p>Accra with operational hub in Tema</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -1547,7 +1597,7 @@
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
-                                <h4>GERMANY Office</h4>
+                                <h4>EUROPE Hub</h4>
                                 <p>Düsseldorf, North Rhine–Westphalia</p>
                             </div>
                         </div>
@@ -1580,6 +1630,17 @@
                             <input type="text" id="subject" class="form-control" required>
                         </div>
                         <div class="form-group">
+                            <label for="division">Division of Interest</label>
+                            <select id="division" class="form-control" required>
+                                <option value="">Select a division</option>
+                                <option value="petroleum">Petroleum Products</option>
+                                <option value="solar">Solar Energy</option>
+                                <option value="minerals">Precious Minerals</option>
+                                <option value="logistics">Supply Chain Solutions</option>
+                                <option value="general">General Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="message">Your Message</label>
                             <textarea id="message" class="form-control" required></textarea>
                         </div>
@@ -1595,12 +1656,14 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>AURELUM P LTD</h3>
-                    <p>Energy & Minerals for a Connected Future</p>
+                    <h3>AURELUM GROUP</h3>
+                    <p>Energy • Resources • Sustainability</p>
+                    <p>Innovation in Energy, Integrity in Trade, Impact in Africa</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -1608,23 +1671,23 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
+                        <li><a href="divisions.html">Our Divisions</a></li>
                         <li><a href="commit.html">Our Commitment</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Our Services</h3>
+                    <h3>Our Divisions</h3>
                     <ul>
-                        <li><a href="services.html">Petroleum Trading</a></li>
-                        <li><a href="services.html">LPG & Naphtha Supply</a></li>
-                        <li><a href="services.html">Precious Minerals Trading</a></li>
-                        <li><a href="services.html">Logistics & Export Coordination</a></li>
+                        <li><a href="divisions.html">Petroleum Products</a></li>
+                        <li><a href="divisions.html">Solar Energy</a></li>
+                        <li><a href="divisions.html">Precious Minerals</a></li>
+                        <li><a href="divisions.html">Supply Chain Solutions</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2026 AURELUM P LTD. All Rights Reserved.</p>
+                <p>&copy; 2026 AURELUM GROUP. All Rights Reserved. | ESG-Compliant • Sustainable • Transparent</p>
             </div>
         </div>
     </footer>
@@ -1660,10 +1723,11 @@
                 bottom: 20px;
                 right: 20px;
                 z-index: 10000;
-                background: rgba(10, 20, 22, 0.9);
+                background: rgba(255, 255, 255, 0.9);
                 padding: 10px;
                 border-radius: 5px;
-                border: 1px solid var(--teal-primary);
+                border: 1px solid var(--primary-blue);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             `;
             
             document.body.appendChild(musicControls);
