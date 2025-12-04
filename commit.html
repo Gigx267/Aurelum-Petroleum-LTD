@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Commitment - AURELUM P LTD</title>
+    <title>Our Commitment - AURELUM GROUP | Energy • Resources • Sustainability</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-black: #000000;
-            --secondary-black: #1a1a1a;
+            --primary-white: #ffffff;
+            --secondary-white: #f5f5f5;
+            --light-text: #333333;
+            --dark-text: #000000;
             --primary-blue: #003366;
             --secondary-blue: #004c99;
-            --accent-yellow: #ffcc00;
-            --light-text: #f5f5f5;
-            --dark-text: #333333;
+            --accent-gold: #cc9900;
+            --accent-green: #2e7d32;
         }
         
         * {
@@ -24,7 +25,7 @@
         }
         
         body {
-            background-color: var(--primary-black);
+            background-color: var(--primary-white);
             color: var(--light-text);
             line-height: 1.6;
         }
@@ -38,18 +39,18 @@
         
         /* Enhanced Header & Navigation */
         header {
-            background-color: rgba(0, 0, 0, 0.95);
+            background-color: rgba(255, 255, 255, 0.95);
             position: fixed;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
         
         header.scrolled {
-            background-color: rgba(0, 0, 0, 0.98);
-            box-shadow: 0 5px 25px rgba(0, 51, 102, 0.3);
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 25px rgba(0, 51, 102, 0.1);
             padding: 5px 0;
         }
         
@@ -73,14 +74,14 @@
         
         .logo h1 {
             font-size: 1.8rem;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
             margin-left: 10px;
             font-weight: 700;
             letter-spacing: 0.5px;
         }
         
         .logo-icon {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
             font-size: 2rem;
         }
         
@@ -91,7 +92,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--accent-yellow), var(--primary-blue));
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
             transition: width 0.5s ease;
         }
         
@@ -127,12 +128,12 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--accent-yellow), var(--primary-blue));
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
             transition: width 0.3s ease;
         }
         
         nav ul li a:hover {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         nav ul li a:hover::before {
@@ -140,7 +141,7 @@
         }
         
         nav ul li a.active {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         nav ul li a.active::before {
@@ -148,18 +149,18 @@
         }
         
         .nav-cta {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
             color: white;
             padding: 10px 20px;
             border-radius: 5px;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.2);
         }
         
         .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 51, 102, 0.6);
+            box-shadow: 0 6px 20px rgba(0, 51, 102, 0.3);
             color: white;
         }
         
@@ -172,15 +173,15 @@
         }
         
         .mobile-menu:hover {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         /* Page Hero Section */
         .page-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./gtt\ \(6\).jpg');
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('./gtt (6).jpg');
             background-size: cover;
             background-position: center;
-            height: 60vh;
+            height: 50vh;
             display: flex;
             align-items: center;
             text-align: center;
@@ -194,8 +195,15 @@
         
         .page-hero h1 {
             font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--light-text);
+            margin-bottom: 15px;
+            color: var(--dark-text);
+        }
+        
+        .page-hero .tagline {
+            font-size: 1.4rem;
+            color: var(--accent-green);
+            font-weight: 600;
+            margin-bottom: 15px;
         }
         
         .page-hero p {
@@ -205,7 +213,7 @@
         }
         
         .hero-highlight {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
             font-weight: bold;
         }
         
@@ -222,7 +230,7 @@
         
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
             display: inline-block;
             padding-bottom: 10px;
         }
@@ -235,12 +243,12 @@
             transform: translateX(-50%);
             width: 100px;
             height: 3px;
-            background-color: var(--accent-yellow);
+            background-color: var(--accent-green);
         }
         
         /* Commitment Pillars Section */
         .commitment-pillars {
-            background-color: var(--secondary-black);
+            background-color: var(--secondary-white);
         }
         
         .pillars-grid {
@@ -250,7 +258,7 @@
         }
         
         .pillar-card {
-            background-color: var(--primary-black);
+            background-color: var(--primary-white);
             border-radius: 10px;
             padding: 40px 30px;
             text-align: center;
@@ -258,6 +266,7 @@
             border-top: 4px solid var(--primary-blue);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .pillar-card::before {
@@ -267,7 +276,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--accent-yellow));
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.5s ease;
@@ -279,33 +288,40 @@
         
         .pillar-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         .pillar-icon {
             font-size: 3rem;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
             margin-bottom: 25px;
         }
         
         .pillar-card h3 {
             font-size: 1.5rem;
             margin-bottom: 20px;
-            color: var(--light-text);
+            color: var(--dark-text);
         }
         
         .pillar-card p {
-            color: #cccccc;
+            color: #555555;
         }
         
         /* Commitment Approach Section */
         .commitment-approach {
-            background-color: var(--primary-black);
+            background-color: var(--primary-white);
         }
         
         .approach-content {
             max-width: 800px;
             margin: 0 auto;
+        }
+        
+        .approach-content > p {
+            color: #555555;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
         
         .approach-list {
@@ -317,11 +333,12 @@
             align-items: flex-start;
             margin-bottom: 30px;
             padding: 25px;
-            background-color: var(--secondary-black);
+            background-color: var(--secondary-white);
             border-radius: 8px;
             transition: transform 0.3s;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .approach-item::before {
@@ -331,7 +348,7 @@
             left: 0;
             width: 5px;
             height: 100%;
-            background: linear-gradient(to bottom, var(--primary-blue), var(--accent-yellow));
+            background: linear-gradient(to bottom, var(--primary-blue), var(--accent-green));
             transform: scaleY(0);
             transform-origin: top;
             transition: transform 0.5s ease;
@@ -343,10 +360,11 @@
         
         .approach-item:hover {
             transform: translateX(10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
         }
         
         .approach-icon {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
             font-size: 1.8rem;
             margin-right: 20px;
             flex-shrink: 0;
@@ -355,12 +373,16 @@
         .approach-text h4 {
             font-size: 1.3rem;
             margin-bottom: 10px;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
+        }
+        
+        .approach-text p {
+            color: #555555;
         }
         
         /* ESG Commitment Section */
         .esg-commitment {
-            background-color: var(--secondary-black);
+            background-color: var(--secondary-white);
         }
         
         .esg-grid {
@@ -370,13 +392,14 @@
         }
         
         .esg-card {
-            background-color: var(--primary-black);
+            background-color: var(--primary-white);
             border-radius: 10px;
             padding: 40px 30px;
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .esg-card::after {
@@ -389,6 +412,7 @@
             border-bottom: 30px solid var(--primary-blue);
             border-left: 30px solid transparent;
             transition: all 0.3s ease;
+            opacity: 0.2;
         }
         
         .esg-card:hover::after {
@@ -398,28 +422,28 @@
         
         .esg-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         .esg-icon {
             font-size: 3rem;
-            color: var(--accent-yellow);
+            color: var(--accent-green);
             margin-bottom: 25px;
         }
         
         .esg-card h3 {
             font-size: 1.5rem;
             margin-bottom: 20px;
-            color: var(--light-text);
+            color: var(--dark-text);
         }
         
         .esg-card p {
-            color: #cccccc;
+            color: #555555;
         }
         
         /* Our Promise Section */
         .our-promise {
-            background-color: var(--primary-black);
+            background-color: var(--primary-white);
         }
         
         .promise-content {
@@ -431,6 +455,7 @@
         .promise-content p {
             margin-bottom: 30px;
             font-size: 1.1rem;
+            color: #555555;
         }
         
         .promise-list {
@@ -441,22 +466,79 @@
         }
         
         .promise-item {
-            background-color: var(--secondary-black);
+            background-color: var(--secondary-white);
             padding: 25px 20px;
             border-radius: 5px;
             border-left: 4px solid var(--primary-blue);
             transition: transform 0.3s;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
         }
         
         .promise-item:hover {
             transform: translateY(-5px);
-            border-left: 4px solid var(--accent-yellow);
+            border-left: 4px solid var(--accent-green);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
         
         .promise-item i {
-            color: var(--accent-yellow);
+            color: var(--accent-green);
             font-size: 1.8rem;
             margin-bottom: 15px;
+        }
+        
+        .promise-item h4 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .promise-item p {
+            color: #666666;
+            font-size: 0.95rem;
+        }
+        
+        /* Sustainability Impact Section */
+        .sustainability-impact {
+            background-color: var(--secondary-white);
+        }
+        
+        .impact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+        
+        .impact-stat {
+            background-color: var(--primary-white);
+            padding: 25px 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .impact-stat:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 1.1rem;
         }
         
         /* CTA Section */
@@ -469,7 +551,7 @@
         .cta-section h2 {
             font-size: 2.2rem;
             margin-bottom: 20px;
-            color: var(--light-text);
+            color: white;
         }
         
         .cta-section p {
@@ -478,29 +560,30 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            color: rgba(255, 255, 255, 0.9);
         }
         
         .cta-button {
             display: inline-block;
-            background-color: var(--accent-yellow);
-            color: var(--primary-black);
+            background-color: white;
+            color: var(--primary-blue);
             padding: 12px 30px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s;
-            border: 2px solid var(--accent-yellow);
+            border: 2px solid white;
         }
         
         .cta-button:hover {
             background-color: transparent;
-            color: var(--light-text);
-            border: 2px solid var(--light-text);
+            color: white;
+            border: 2px solid white;
         }
         
         /* Footer */
         footer {
-            background-color: var(--secondary-black);
+            background-color: var(--secondary-white);
             padding: 50px 0 20px;
         }
         
@@ -520,7 +603,7 @@
         .footer-column h3 {
             font-size: 1.3rem;
             margin-bottom: 20px;
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         .footer-column ul {
@@ -532,13 +615,13 @@
         }
         
         .footer-column ul li a {
-            color: #cccccc;
+            color: #555555;
             text-decoration: none;
             transition: color 0.3s;
         }
         
         .footer-column ul li a:hover {
-            color: var(--accent-yellow);
+            color: var(--primary-blue);
         }
         
         .social-links {
@@ -552,23 +635,25 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background-color: var(--primary-black);
+            background-color: var(--primary-white);
             border-radius: 50%;
             margin-right: 10px;
-            color: var(--light-text);
+            color: var(--primary-blue);
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         
         .social-links a:hover {
             background-color: var(--primary-blue);
+            color: white;
         }
         
         .copyright {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid #444;
-            color: #cccccc;
+            border-top: 1px solid #ddd;
+            color: #666666;
             font-size: 0.9rem;
         }
         
@@ -584,9 +669,9 @@
                 top: 70px;
                 left: 0;
                 width: 100%;
-                background-color: rgba(26, 26, 26, 0.98);
+                background-color: rgba(255, 255, 255, 0.98);
                 padding: 20px;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
                 backdrop-filter: blur(10px);
             }
             
@@ -609,16 +694,53 @@
             .page-hero h1 {
                 font-size: 2.2rem;
             }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .pillar-card, .esg-card {
+                padding: 30px 20px;
+            }
+            
+            .approach-item {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .pillar-icon, .esg-icon {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Background Music Player -->
+    <audio id="bgMusic" loop>
+        <source src="mm.mp3" type="audio/mpeg">
+        <source src="mm.mp3" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+
     <!-- Enhanced Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
-                <i> <img style="height: 1.9cm; border-radius: 50%;" src="logo (8).jpeg" alt="AURELUM Logo"> </i>
-                <h1>AURELUM</h1>
+                <i><img style="height: 1.3cm; border-radius: 50%;" src="logo (1).jpeg" alt="AURELUM GROUP Logo"></i>
+                <h1>AURELUM GROUP</h1>
             </div>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
@@ -627,10 +749,10 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li><a href="services.html">Services </a></li>
                     <li><a href="commit.html" class="active">Commitment</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="contact.html" class="nav-cta">Get Quote</a></li>
+                    <li><a href="contact.html" class="nav-cta">Partner With Us</a></li>
                 </ul>
             </nav>
         </div>
@@ -640,157 +762,193 @@
     <section class="page-hero">
         <div class="container">
             <div class="page-hero-content">
-                <h1>Our <span class="hero-highlight">Commitment</span></h1>
-                <p>Dedicated to excellence, integrity, and sustainable value creation</p>
+                <h1> <BR><BR></h1>
+                <div class="tagline">Integrity • Sustainability • Impact</div>
+                <p>Driving responsible growth through unwavering commitment to ESG principles, ethical practices, and sustainable value creation across all our operations.</p>
             </div>
         </div>
     </section>
 
     <!-- Commitment Pillars Section -->
-    <section id="pillars" class="commitment-pillars" aria-labelledby="pillars-title">
+    <section id="pillars" class="commitment-pillars">
         <div class="container">
             <div class="section-title">
-                <h2 id="pillars-title">Our Commitment Pillars</h2>
+                <h2>Our Core Commitments</h2>
             </div>
-            <ul class="pillars-grid" role="list">
-                <li class="pillar-card" role="listitem">
-                    <div class="pillar-icon" aria-hidden="true">
-                        <i class="fas fa-handshake" aria-hidden="true"></i>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <i class="fas fa-leaf"></i>
                     </div>
-                    <h3>Strategic Partnerships</h3>
-                    <p>We build lasting relationships that drive mutual success and growth through transparent collaboration and shared objectives.</p>
-                </li>
-                <li class="pillar-card" role="listitem">
-                    <div class="pillar-icon" aria-hidden="true">
-                        <i class="fas fa-balance-scale" aria-hidden="true"></i>
+                    <h3>ESG & Sustainability</h3>
+                    <p>Environmental, Social, and Governance principles integrated into all operations, ensuring responsible practices and measurable impact across our value chains.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Ethical Sourcing</h3>
-                    <p>All our operations adhere to international standards and regulatory requirements, ensuring responsible and compliant practices.</p>
-                </li>
-                <li class="pillar-card" role="listitem">
-                    <div class="pillar-icon" aria-hidden="true">
-                        <i class="fas fa-shipping-fast" aria-hidden="true"></i>
+                    <h3>Anti-Corruption & Compliance</h3>
+                    <p>Strict adherence to anti-money laundering regulations, ethical sourcing, and zero-tolerance for corruption across all jurisdictions.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <i class="fas fa-search"></i>
                     </div>
-                    <h3>Operational Excellence</h3>
-                    <p>Our integrated supply chain optimizes cost efficiency and shortens lead times while maintaining the highest quality standards.</p>
-                </li>
-            </ul>
+                    <h3>Traceable Sourcing</h3>
+                    <p>Full transparency and chain-of-custody documentation from source to market, ensuring responsible and verifiable supply chains.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Commitment Approach Section -->
-    <section id="approach" class="commitment-approach" aria-labelledby="approach-title">
+    <section id="approach" class="commitment-approach">
         <div class="container">
             <div class="section-title">
-                <h2 id="approach-title">Our Approach to Commitment</h2>
+                <h2>Our Commitment Approach</h2>
             </div>
             <div class="approach-content">
-                <p>At AURELUM P LTD, our commitment extends beyond transactions to building sustainable relationships and creating lasting value for all stakeholders. We approach every engagement with integrity, transparency, and a focus on long-term success.</p>
-                <ul class="approach-list" role="list">
-                    <li class="approach-item" role="listitem">
-                        <div class="approach-icon" aria-hidden="true">
-                            <i class="fas fa-users" aria-hidden="true"></i>
+                <p>At AURELUM GROUP, our commitment extends beyond transactions to building sustainable relationships and creating lasting value for all stakeholders. We approach every engagement with integrity, transparency, and a focus on long-term success.</p>
+                <div class="approach-list">
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <i class="fas fa-handshake"></i>
                         </div>
                         <div class="approach-text">
-                            <h4>Client-Centric Solutions</h4>
-                            <p>We tailor our services to meet the unique needs of each client, ensuring optimal outcomes and maximum value creation.</p>
+                            <h4>Long-Term Strategic Partnerships</h4>
+                            <p>Building lasting relationships that drive mutual success and growth through transparent collaboration and shared objectives.</p>
                         </div>
-                    </li>
-                    <li class="approach-item" role="listitem">
-                        <div class="approach-icon" aria-hidden="true">
-                            <i class="fas fa-chart-line" aria-hidden="true"></i>
+                    </div>
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <i class="fas fa-bolt"></i>
                         </div>
                         <div class="approach-text">
-                            <h4>Continuous Improvement</h4>
-                            <p>We constantly evaluate and enhance our processes to deliver superior efficiency, quality, and value in all our operations.</p>
+                            <h4>Energy Transition Leadership</h4>
+                            <p>Accelerating Africa's shift to renewable energy through innovative solar solutions and sustainable power systems.</p>
                         </div>
-                    </li>
-                    <li class="approach-item" role="listitem">
-                        <div class="approach-icon" aria-hidden="true">
-                            <i class="fas fa-globe-africa" aria-hidden="true"></i>
+                    </div>
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <i class="fas fa-globe-africa"></i>
                         </div>
                         <div class="approach-text">
                             <h4>Local & Global Impact</h4>
-                            <p>We balance international market demands with local development needs, creating shared value across communities and markets.</p>
+                            <p>Balancing international market demands with local development needs, creating shared value across communities and markets.</p>
                         </div>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ESG Commitment Section -->
-    <section id="esg" class="esg-commitment" aria-labelledby="esg-title">
+    <section id="esg" class="esg-commitment">
         <div class="container">
             <div class="section-title">
-                <h2 id="esg-title">ESG Commitment</h2>
+                <h2>ESG Commitment Framework</h2>
             </div>
-            <ul class="esg-grid" role="list">
-                <li class="esg-card" role="listitem">
-                    <div class="esg-icon" aria-hidden="true">
-                        <i class="fas fa-leaf" aria-hidden="true"></i>
+            <div class="esg-grid">
+                <div class="esg-card">
+                    <div class="esg-icon">
+                        <i class="fas fa-leaf"></i>
                     </div>
                     <h3>Environmental Responsibility</h3>
-                    <p>We implement sustainable practices that minimize environmental impact and promote resource conservation throughout our operations.</p>
-                </li>
-                <li class="esg-card" role="listitem">
-                    <div class="esg-icon" aria-hidden="true">
-                        <i class="fas fa-user-shield" aria-hidden="true"></i>
+                    <p>Implementing sustainable practices that minimize environmental impact and promote resource conservation throughout our operations, with a focus on renewable energy and carbon footprint reduction.</p>
+                </div>
+                <div class="esg-card">
+                    <div class="esg-icon">
+                        <i class="fas fa-users"></i>
                     </div>
                     <h3>Social Responsibility</h3>
-                    <p>We prioritize the well-being of communities, employees, and stakeholders, fostering inclusive growth and ethical business practices.</p>
-                </li>
-                <li class="esg-card" role="listitem">
-                    <div class="esg-icon" aria-hidden="true">
-                        <i class="fas fa-chess-queen" aria-hidden="true"></i>
+                    <p>Prioritizing the well-being of communities, employees, and stakeholders, fostering inclusive growth, fair labor practices, and ethical business conduct across all operational regions.</p>
+                </div>
+                <div class="esg-card">
+                    <div class="esg-icon">
+                        <i class="fas fa-chess-queen"></i>
                     </div>
                     <h3>Governance Excellence</h3>
-                    <p>We maintain the highest standards of corporate governance, transparency, and accountability in all our business dealings.</p>
-                </li>
-            </ul>
+                    <p>Maintaining the highest standards of corporate governance, transparency, and accountability in all business dealings, with strict anti-corruption and compliance frameworks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Impact Section -->
+    <section class="sustainability-impact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Sustainability Impact</h2>
+            </div>
+            <div class="impact-content">
+                <p>Through our commitment to sustainable practices and ESG principles, we're driving measurable impact across Africa and global markets.</p>
+                
+                <div class="impact-stats">
+                    <div class="impact-stat">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Specialized Divisions</div>
+                        <p>Integrated approach across energy, minerals, solar, and logistics</p>
+                    </div>
+                    <div class="impact-stat">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Continental Hubs</div>
+                        <p>Strategic operations in Africa and Europe for global impact</p>
+                    </div>
+                    <div class="impact-stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">ESG-Compliant</div>
+                        <p>All operations aligned with environmental and social standards</p>
+                    </div>
+                    <div class="impact-stat">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Corruption Tolerance</div>
+                        <p>Zero-tolerance policy for unethical practices</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Our Promise Section -->
-    <section id="promise" class="our-promise" aria-labelledby="promise-title">
+    <section id="promise" class="our-promise">
         <div class="container">
             <div class="section-title">
-                <h2 id="promise-title">Our Promise</h2>
+                <h2>Our Unwavering Promise</h2>
             </div>
             <div class="promise-content">
-                <p>We pledge to uphold these core commitments in every aspect of our business, ensuring that we deliver on our promises and exceed expectations.</p>
-                <ul class="promise-list" role="list">
-                    <li class="promise-item" role="listitem">
-                        <i class="fas fa-award" aria-hidden="true"></i>
-                        <h4>Quality Assurance</h4>
-                        <p>Consistently delivering products and services that meet the highest international standards.</p>
-                    </li>
-                    <li class="promise-item" role="listitem">
-                        <i class="fas fa-clock" aria-hidden="true"></i>
-                        <h4>Timely Delivery</h4>
-                        <p>Meeting deadlines and commitments with precision and reliability.</p>
-                    </li>
-                    <li class="promise-item" role="listitem">
-                        <i class="fas fa-comments" aria-hidden="true"></i>
+                <p>We pledge to uphold these core commitments in every aspect of our business, ensuring that we deliver on our promises and exceed expectations across all divisions and operations.</p>
+                <div class="promise-list">
+                    <div class="promise-item">
+                        <i class="fas fa-award"></i>
+                        <h4>Quality & Excellence</h4>
+                        <p>Consistently delivering products and services that meet the highest international standards and ESG requirements.</p>
+                    </div>
+                    <div class="promise-item">
+                        <i class="fas fa-clock"></i>
+                        <h4>Reliable Delivery</h4>
+                        <p>Meeting deadlines and commitments with precision, efficiency, and environmental consciousness.</p>
+                    </div>
+                    <div class="promise-item">
+                        <i class="fas fa-comments"></i>
                         <h4>Transparent Communication</h4>
-                        <p>Maintaining open and honest dialogue with all stakeholders.</p>
-                    </li>
-                    <li class="promise-item" role="listitem">
-                        <i class="fas fa-hand-holding-usd" aria-hidden="true"></i>
-                        <h4>Value Creation</h4>
-                        <p>Ensuring our partnerships generate sustainable value for all parties.</p>
-                    </li>
-                </ul>
+                        <p>Maintaining open, honest dialogue and full disclosure with all stakeholders and regulatory bodies.</p>
+                    </div>
+                    <div class="promise-item">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <h4>Sustainable Value Creation</h4>
+                        <p>Ensuring our partnerships generate lasting, responsible value for all parties and communities.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section id="cta" class="cta-section" aria-labelledby="cta-title">
+    <section id="cta" class="cta-section">
         <div class="container">
-            <h2 id="cta-title">Experience Our Commitment Firsthand</h2>
-            <p>Partner with AURELUM P LTD for reliable, efficient, and sustainable energy and mineral solutions.</p>
-            <a href="contact.html" class="cta-button" role="button" aria-label="Contact AURELUM P LTD">Contact Us Today</a>
+            <h2>Experience Our Commitment Firsthand</h2>
+            <p>Partner with AURELUM GROUP for reliable, efficient, and sustainable energy, resource, and logistics solutions built on integrity and impact.</p>
+            <a href="contact.html" class="cta-button">Contact Us Today</a>
         </div>
     </section>
 
@@ -799,12 +957,14 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>AURELUM P LTD</h3>
-                    <p>Energy & Minerals for a Connected Future</p>
+                    <h3>AURELUM GROUP</h3>
+                    <p>Energy • Resources • Sustainability</p>
+                    <p>Innovation in Energy, Integrity in Trade, Impact in Africa</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -812,28 +972,77 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
+                        <li><a href="divisions.html">Our Divisions</a></li>
                         <li><a href="commit.html">Our Commitment</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Our Services</h3>
+                    <h3>Our Divisions</h3>
                     <ul>
-                        <li><a href="services.html">Petroleum Trading</a></li>
-                        <li><a href="services.html">LPG & Naphtha Supply</a></li>
-                        <li><a href="services.html">Precious Minerals Trading</a></li>
-                        <li><a href="services.html">Logistics & Export Coordination</a></li>
+                        <li><a href="divisions.html">Petroleum Products</a></li>
+                        <li><a href="divisions.html">Solar Energy</a></li>
+                        <li><a href="divisions.html">Precious Minerals</a></li>
+                        <li><a href="divisions.html">Supply Chain Solutions</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2026 AURELUM P LTD. All Rights Reserved.</p>
+                <p>&copy; 2026 AURELUM GROUP. All Rights Reserved. | ESG-Compliant • Sustainable • Transparent</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Wait for the page to fully load
+        window.addEventListener('load', function() {
+            const bgMusic = document.getElementById('bgMusic');
+            
+            // Try to play the music automatically
+            const playPromise = bgMusic.play();
+            
+            // Handle autoplay restrictions
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log("Autoplay prevented:", error);
+                    // Create a fallback play button
+                    createMusicControls();
+                });
+            }
+        });
+        
+        // Create visible controls if autoplay is blocked
+        function createMusicControls() {
+            const musicControls = document.createElement('div');
+            musicControls.id = 'music-controls';
+            musicControls.innerHTML = `
+                <button id="playMusicBtn">▶ Play Background Music</button>
+                <button id="muteMusicBtn">🔇 Mute</button>
+            `;
+            musicControls.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 10000;
+                background: rgba(255, 255, 255, 0.95);
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid var(--primary-blue);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            `;
+            
+            document.body.appendChild(musicControls);
+            
+            document.getElementById('playMusicBtn').addEventListener('click', function() {
+                document.getElementById('bgMusic').play();
+                musicControls.style.display = 'none';
+            });
+            
+            document.getElementById('muteMusicBtn').addEventListener('click', function() {
+                musicControls.style.display = 'none';
+            });
+        }
+
         // Mobile Menu Toggle
         document.querySelector('.mobile-menu').addEventListener('click', function() {
             document.querySelector('nav').classList.toggle('active');
